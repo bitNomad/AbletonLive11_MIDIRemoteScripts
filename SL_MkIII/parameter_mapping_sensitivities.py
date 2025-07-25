@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/SL_MkIII/parameter_mapping_sensitivities.py
-# Compiled at: 2021-06-29 09:33:48
-# Size of source mod 2**32: 8844 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\SL_MkIII\parameter_mapping_sensitivities.py
+# Compiled at: 2023-04-03 14:43:04
+# Size of source mod 2**32: 9632 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v2.base import liveobj_valid
 from ableton.v2.control_surface import is_parameter_quantized
@@ -52,9 +51,6 @@ PARAMETER_SENSITIVITIES = {'UltraAnalog':{'OSC1 Octave':{DEFAULT_SENSITIVITY_KEY
   'L R < Key':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
   'Vol < LFO':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
   'Pan < Rnd':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
-  'LR < Key':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
-  'Vol < LFO':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
-  'Pan < RND':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
   'Pan < LFO':{DEFAULT_SENSITIVITY_KEY: 0.5}, 
   'L Sync Rate':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Warp Mode':{DEFAULT_SENSITIVITY_KEY: 0.2}, 
@@ -79,6 +75,11 @@ PARAMETER_SENSITIVITIES = {'UltraAnalog':{'OSC1 Octave':{DEFAULT_SENSITIVITY_KEY
   'Octave':{DEFAULT_SENSITIVITY_KEY: 0.2}, 
   'Semitone':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Fine Tune':{DEFAULT_SENSITIVITY_KEY: 0.5}}, 
+ 'Drift':{'Osc 1 Wave':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
+  'Osc 2 Wave':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
+  'LFO Wave':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
+  'LFO Time Mode':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
+  'Cyc Env Time Mode':{DEFAULT_SENSITIVITY_KEY: 0.1}}, 
  'MidiArpeggiator':{'Style':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Synced Rate':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Offset':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
@@ -116,7 +117,6 @@ PARAMETER_SENSITIVITIES = {'UltraAnalog':{'OSC1 Octave':{DEFAULT_SENSITIVITY_KEY
   'Pitch':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Variation':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Mix Type':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
-  'Grid':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'Variation Type':{DEFAULT_SENSITIVITY_KEY: 0.25}}, 
  'Corpus':{'LFO Sync Rate':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
   'Transpose':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
@@ -140,7 +140,6 @@ PARAMETER_SENSITIVITIES = {'UltraAnalog':{'OSC1 Octave':{DEFAULT_SENSITIVITY_KEY
  'Phaser':{'LFO Sync Rate': {DEFAULT_SENSITIVITY_KEY: 0.1}}, 
  'PhaserNew':{'Mode':{DEFAULT_SENSITIVITY_KEY: 0.1}, 
   'Mod Wave':{DEFAULT_SENSITIVITY_KEY: 0.1}}, 
- 'Phaser':{'LFO Sync Rate': {DEFAULT_SENSITIVITY_KEY: 0.1}}, 
  'Resonator':{'II Pitch':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'III Pitch':{DEFAULT_SENSITIVITY_KEY: 0.25}, 
   'IV Pitch':{DEFAULT_SENSITIVITY_KEY: 0.25}, 

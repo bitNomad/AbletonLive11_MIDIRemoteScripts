@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/device_navigation.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 26025 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\device_navigation.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 26784 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter
 from contextlib import contextmanager
@@ -13,7 +12,6 @@ import Live
 from ableton.v2.base import PY3, EventObject, find_if, first, listenable_property, listens, listens_group, liveobj_changed, liveobj_valid, task
 from ableton.v2.control_surface import DecoratorFactory, device_to_appoint
 from ableton.v2.control_surface.components import DeviceNavigationComponent as DeviceNavigationComponentBase
-import ableton.v2.control_surface.components as DeviceNavigationComponentBase
 from ableton.v2.control_surface.components import FlattenedDeviceChain, ItemSlot, is_empty_rack, nested_device_parent
 from ableton.v2.control_surface.control import StepEncoderControl, control_list
 from ableton.v2.control_surface.mode import Component, ModesComponent, NullModes
@@ -195,14 +193,12 @@ class DeviceChainStateWatcher(EventObject):
     def _devices(self):
         device_items = filter(lambda i: not is_drum_pad(i.item)
 , self._navigation_items())
-        device_items = filter(lambda i: not is_drum_pad(i.item), self._navigation_items())
         return [i.item for i in device_items]
 
     def _update_listeners_and_notify(self):
         items = list(self._navigation_items())
         chains = set(filter(liveobj_valid, map(lambda i: find_chain_or_track(i.item)
 , items)))
-        chains = set(filter(liveobj_valid, map(lambda i: find_chain_or_track(i.item), items)))
         self._DeviceChainStateWatcher__on_is_active_changed.replace_subjects(self._devices())
         self._DeviceChainStateWatcher__on_mute_changed.subject = find_drum_pad(items)
         self._DeviceChainStateWatcher__on_chain_color_index_changed.replace_subjects(chains)
@@ -232,7 +228,7 @@ class MoveDeviceComponent(Component):
     @contextmanager
     def _disabled_encoders(self):
         self._disable_all_encoders()
-        (yield)
+        yield
         self._tasks.add(task.sequence(task.wait(self.MOVE_DELAY), task.run(self._enable_all_encoders)))
 
     def _disable_all_encoders(self):
@@ -255,18 +251,12 @@ class MoveDeviceComponent(Component):
                     self._move_in(right_device)
                 else:
                     self.song.move_device(self._device, parent, device_index + 2)
-        elif device_index < len(parent.devices) - 1:
-            right_device = parent.devices[(device_index + 1)]
-            if right_device.can_have_chains and right_device.view.is_showing_chain_devices and right_device.view.selected_chain:
-                self._move_in(right_device)
-            else:
-                self.song.move_device(self._device, parent, device_index + 2)
 
     def _move_left(self):
         parent = self._device.canonical_parent
         device_index = list(parent.devices).index(self._device)
         if device_index > 0:
-            left_device = parent.devices[(device_index - 1)]
+            left_device = parent.devices[device_index - 1]
             if left_device.can_have_chains and left_device.view.is_showing_chain_devices and left_device.view.selected_chain:
                 self._move_in(left_device, move_to_end=True)
             else:
@@ -350,9 +340,6 @@ class DeviceNavigationComponent(DeviceNavigationComponentBase):
                 if self.selected_object == device_or_pad:
                     if device_or_pad != self._selected_on_previous_press:
                         self._on_reselecting_object(device_or_pad)
-            elif self.selected_object == device_or_pad:
-                if device_or_pad != self._selected_on_previous_press:
-                    self._on_reselecting_object(device_or_pad)
             self._selected_on_previous_press = None
 
     def _on_select_button_pressed_delayed(self, button):
@@ -395,8 +382,6 @@ class DeviceNavigationComponent(DeviceNavigationComponentBase):
 
         lost_selection_on_empty_pad = new_items and is_drum_pad(new_items[-1]) and lost_selection
         if self._should_select_drum_pad() or lost_selection_on_empty_pad:
-        lost_selection_on_empty_pad = new_items and is_drum_pad(new_items[(-1)]) and lost_selection
-        if self._should_select_drum_pad() or (lost_selection_on_empty_pad):
             self._select_item(self._current_drum_pad())
         if self.moving:
             self._show_selected_item()
@@ -408,9 +393,6 @@ class DeviceNavigationComponent(DeviceNavigationComponentBase):
         slot = None
         if index == 0 and self.can_scroll_left():
             slot = IconItemSlot(icon='page_left.svg')
-            slot.is_scrolling_indicator = True
-        elif index == num_slots - 1 and self.can_scroll_right():
-            slot = IconItemSlot(icon='page_right.svg')
             slot.is_scrolling_indicator = True
         else:
             if index == num_slots - 1 and self.can_scroll_right():

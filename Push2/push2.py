@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/push2.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 67438 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\push2.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 69192 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import object, range
 import json, logging, weakref
@@ -228,14 +227,6 @@ class Push2(IdentifiableControlSurface, PushBase):
                  StateEnum.defunct_process_terminated,
                  StateEnum.defunct_process_killed):
                     self._tasks.add(task.sequence(task.wait(self.DEFUNCT_EXTERNAL_PROCESS_RELAUNCH_TIMEOUT), task.run(self._c_instance.launch_external_process)))
-        elif state == StateEnum.connected:
-            with self.component_guard():
-                self._try_initialize()
-            self._model.commit_changes(send_all=True)
-        elif state in (
-         StateEnum.defunct_process_terminated,
-         StateEnum.defunct_process_killed):
-            self._tasks.add(task.sequence(task.wait(self.DEFUNCT_EXTERNAL_PROCESS_RELAUNCH_TIMEOUT), task.run(self._c_instance.launch_external_process)))
 
     def on_user_data_arrived(self, message):
         if self._initialized:
@@ -286,9 +277,6 @@ class Push2(IdentifiableControlSurface, PushBase):
 ),
           external_focusable_object_descriptions=(lambda: self._clip_control.midi_clip_controller.external_focusable_object_descriptions
 ))
-          navigation_component=(self._device_navigation))),
-          external_regions_of_interest_creator=(lambda: self._clip_control.midi_clip_controller.external_regions_of_interest_creator),
-          external_focusable_object_descriptions=(lambda: self._clip_control.midi_clip_controller.external_focusable_object_descriptions))
 
     def _create_components(self):
         self._init_dialog_modes()
@@ -307,7 +295,6 @@ class Push2(IdentifiableControlSurface, PushBase):
         with super(Push2, self)._component_guard():
             with inject(real_time_mapper=(const(self._c_instance.real_time_mapper))).everywhere():
                 yield
-                (yield)
                 self._commit_real_time_data_changes()
                 self._model.commit_changes()
 
@@ -576,10 +563,6 @@ class Push2(IdentifiableControlSurface, PushBase):
           frozen_mode_extras=[
          lambda: setattr(self._device_navigation.modes, 'selected_mode', 'default')
 ,
-         create_layer_setter('scroll_right_layer', Layer(button=(self.elements.track_state_buttons_raw[(-1)]))),
-         create_layer_setter('scroll_left_layer', Layer(button=(self.elements.track_state_buttons_raw[0])))],
-          frozen_mode_extras=[
-         lambda: setattr(self._device_navigation.modes, 'selected_mode', 'default'),
          create_layer_setter('scroll_right_layer', Layer()),
          create_layer_setter('scroll_left_layer', Layer())])
 
@@ -672,7 +655,6 @@ class Push2(IdentifiableControlSurface, PushBase):
                 self._main_modes.selected_mode = 'device'
             drum_rack = find_instrument_meeting_requirement(lambda i: i.can_have_drum_pads
 , self.song.view.selected_track)
-            drum_rack = find_instrument_meeting_requirement(lambda i: i.can_have_drum_pads, self.song.view.selected_track)
             if drum_rack:
                 if is_empty_rack(drum_rack):
                     self._device_navigation.request_drum_pad_selection()
@@ -691,10 +673,6 @@ class Push2(IdentifiableControlSurface, PushBase):
                 self._main_modes.selected_mode = self._main_modes.active_modes[0]
             else:
                 self._main_modes.selected_mode = 'device'
-        elif self._main_modes.selected_mode == 'add_track':
-            self._main_modes.selected_mode = self._main_modes.active_modes[0]
-        else:
-            self._main_modes.selected_mode = 'device'
 
     def _is_on_master(self):
         return self.song.view.selected_track == self.song.master_track
@@ -710,9 +688,6 @@ class Push2(IdentifiableControlSurface, PushBase):
                 if mix_mode == 'track':
                     if 'global' in self._mix_modes.active_modes:
                         self._mix_modes.pop_mode('track')
-            elif mix_mode == 'track':
-                if 'global' in self._mix_modes.active_modes:
-                    self._mix_modes.pop_mode('track')
 
     def _on_selected_track_changed(self):
         if self._initialized:

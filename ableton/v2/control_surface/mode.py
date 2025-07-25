@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/mode.py
-# Compiled at: 2022-01-28 05:06:24
-# Size of source mod 2**32: 21350 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\ableton\v2\control_surface\mode.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 22077 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from future.utils import iteritems
 from ..base import NamedTuple, depends, infinite_context_manager, is_contextmanager, is_iterable, lazy_attribute, listenable_property, listens, old_hasattr, task
@@ -45,7 +44,6 @@ def tomode(thing):
 def to_camel_case_name(mode_name, separator=''):
     return separator.join(map(lambda s: s.capitalize()
 , mode_name.split('_')))
-    return separator.join(map(lambda s: s.capitalize(), mode_name.split('_')))
 
 
 def pop_last_mode(component, mode):
@@ -437,10 +435,6 @@ class ModesComponent(Component):
             colors = {'mode_selected_color':mode_color_basename + '.On', 
              'mode_unselected_color':mode_color_basename + '.Off', 
              'mode_group_active_color':mode_color_basename + '.On'}
-            mode_color_basebame = 'Mode.' + to_camel_case_name(mode_name)
-            colors = {'mode_selected_color':mode_color_basebame + '.On', 
-             'mode_unselected_color':mode_color_basebame + '.Off', 
-             'mode_group_active_color':mode_color_basebame + '.On'}
         button_control = make_mode_button_control(self, mode_name, behaviour, **colors)
         self.add_control('%s_button' % mode_name, button_control)
         self._update_mode_buttons(self.selected_mode)

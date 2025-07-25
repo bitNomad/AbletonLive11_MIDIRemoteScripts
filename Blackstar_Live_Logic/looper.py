@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Blackstar_Live_Logic/looper.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 13498 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Blackstar_Live_Logic\looper.py
+# Compiled at: 2022-11-29 09:57:02
+# Size of source mod 2**32: 13907 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from functools import partial
 from itertools import chain, islice, repeat
@@ -98,7 +97,6 @@ class LooperComponent(Component):
             self._is_clip_recording_slots[self._tracks.index(track)].subject = playing_or_recording_clip(track)
         self._update_longest_playing_clip(first_record=(not any(map(playing_or_recording_clip_slot, filter(lambda t: t != track
 , self._tracks)))))
-        self._update_longest_playing_clip(first_record=(not any(map(playing_or_recording_clip_slot, filter(lambda t: t != track, self._tracks)))))
 
     @listens_group('input_routing_type')
     def __on_input_routing_type_changed(self, track):
@@ -131,7 +129,6 @@ class LooperComponent(Component):
             if self.song.exclusive_arm:
                 any(map(recording_clip_slot, filter(lambda t: t != track
 , self._tracks))) or self._exclusive_arm(track)
-                any(map(recording_clip_slot, filter(lambda t: t != track, self._tracks))) or self._exclusive_arm(track)
         else:
             fire(self._get_controlled_clip_slot(track))
 
@@ -171,7 +168,6 @@ class LooperComponent(Component):
     def _update_tracks(self):
         self._tracks = list(islice(chain(filter(lambda t: can_be_armed(t) or is_group_track(t)
 , visible_tracks(self.song)), repeat(None)), NUM_LOOPER_SWITCHES))
-        self._tracks = list(islice(chain(filter(lambda t: can_be_armed(t) or is_group_track(t), visible_tracks(self.song)), repeat(None)), NUM_LOOPER_SWITCHES))
         self._LooperComponent__on_fired_slot_index_changed.replace_subjects(self._tracks)
         self._LooperComponent__on_playing_slot_index_changed.replace_subjects(flatten_tracks(self._tracks))
         self._LooperComponent__on_input_routing_type_changed.replace_subjects(self._tracks)
@@ -206,7 +202,6 @@ class LooperComponent(Component):
             color = 'Beat_Pulse'
         else:
             if playing_clip_slot(track) or any(map(playing_clip_slot, grouped_tracks(track))):
-            if playing_clip_slot(track) or (any(map(playing_clip_slot, grouped_tracks(track)))):
                 color = 'DefaultButton.On'
         self.foot_switches[index].color = color
 
@@ -223,7 +218,6 @@ class LooperComponent(Component):
         self._tasks.add(task.run(lambda: arm(track) and unarm_tracks(filter(lambda t: t != track
 , self.song.tracks))
 ))
-        self._tasks.add(task.run(lambda: arm(track) and unarm_tracks(filter(lambda t: t != track, self.song.tracks))))
 
     def _update_last_stopped_slot_for_track(self, track):
         if not is_playing(track):
@@ -231,7 +225,6 @@ class LooperComponent(Component):
                 last_playing_index = self._last_playing_slot_index_for_track[track]
                 slots = clip_slots(track)
                 if 0<= last_playing_index < len(slots):
-                if 0 <= last_playing_index < len(slots):
                     self._last_stopped_slot_for_track[track] = slots[last_playing_index]
         self._last_playing_slot_index_for_track[track] = playing_slot_index(track)
 

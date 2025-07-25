@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_25_49_61/ConfigurableButtonElement.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 3538 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Axiom_AIR_25_49_61\ConfigurableButtonElement.py
+# Compiled at: 2022-11-29 09:57:02
+# Size of source mod 2**32: 3635 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 import _Framework.ButtonElement as ButtonElement
 from _Framework.InputControlElement import MIDI_CC_STATUS, MIDI_CC_TYPE, MIDI_NOTE_TYPE
@@ -61,7 +60,6 @@ class ConfigurableButtonElement(ButtonElement):
 
     def send_value(self, value, force=False):
         if force or self._force_next_value or value != self._last_sent_value:
-        if force or (self._force_next_value or value != self._last_sent_value):
             data_byte1 = self._original_identifier + self._identifier_send_offset
             data_byte2 = value
             status_byte = self._send_channel if self._send_channel else self._original_channel
@@ -77,12 +75,6 @@ class ConfigurableButtonElement(ButtonElement):
                 else:
                     if self._msg_type == MIDI_CC_TYPE:
                         status_byte += MIDI_CC_STATUS
-                elif self._send_msg_type == MIDI_CC_TYPE:
-                    status_byte += MIDI_CC_STATUS
-            elif self._msg_type == MIDI_NOTE_TYPE:
-                status_byte += MIDI_NOTE_ON_STATUS
-            elif self._msg_type == MIDI_CC_TYPE:
-                status_byte += MIDI_CC_STATUS
             if self.send_midi((status_byte, data_byte1, data_byte2)):
                 self._last_sent_message = (
                  value, None)

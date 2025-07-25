@@ -1,13 +1,10 @@
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\SL_MkIII\device_navigation.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 5316 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/SL_MkIII/device_navigation.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 5303 bytes
-from __future__ import absolute_import, division, print_function, unicode_literals
-from builtins import range
 from past.utils import old_div
 from itertools import zip_longest
 from ableton.v2.base import listens, listens_group
@@ -29,7 +26,6 @@ class DisplayingDeviceNavigationComponent(DeviceNavigationComponent):
 
     def __init__(self, banking_info=None, device_bank_registry=None, *a, **k):
         (super().__init__)(*a, **k)
-        (super(DisplayingDeviceNavigationComponent, self).__init__)(*a, **k)
         self.select_buttons.control_count = NUM_VISIBLE_ITEMS
         self._banking_info = banking_info
         self._device_bank_registry = device_bank_registry
@@ -66,11 +62,6 @@ class DisplayingDeviceNavigationComponent(DeviceNavigationComponent):
 
     @listens('device_bank')
     def __on_device_bank_changed(self, *_):
-    def __on_item_names_changed(self, something):
-        self._update_device_names()
-
-    @listens('device_bank')
-    def __on_device_bank_changed(self, *a):
         self._update_device_bank_names()
         self._update_selected_device_bank_name_display()
 

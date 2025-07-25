@@ -1,3 +1,9 @@
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\ableton\v3\control_surface\elements\sysex.py
+# Compiled at: 2023-06-08 07:52:37
+# Size of source mod 2**32: 6579 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from contextlib import contextmanager
 from inspect import signature
@@ -8,7 +14,7 @@ from ..midi import is_valid_sysex
 class SysexElement(InputControlElement):
 
     def __init__(self, send_message_generator=None, enquire_message=None, default_value=None, optimized=False, use_first_byte_as_value=False, *a, **k):
-        (super().__init__)(a, msg_type=MIDI_SYSEX_TYPE, **k)
+        (super().__init__)(a, msg_type=MIDI_SYSEX_TYPE, send_should_depend_on_forwarding=False, **k)
         self._send_message_generator = send_message_generator
         self._enquire_message = enquire_message
         self._default_value = default_value
@@ -19,21 +25,6 @@ class SysexElement(InputControlElement):
 
     def message_map_mode(self):
         raise AssertionError("SysexElement doesn't support mapping.")
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v3/control_surface/elements/sysex.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 1071 bytes
-from __future__ import absolute_import, print_function, unicode_literals
-import ableton.v2.control_surface.elements as SysexElementBase
-
-class SysexElement(SysexElementBase):
-
-    def __init__(self, use_first_byte_as_value=False, *a, **k):
-        (super().__init__)(*a, **k)
-        self._use_first_byte_as_value = use_first_byte_as_value
 
     def receive_value(self, value):
         if self._use_first_byte_as_value:
@@ -108,5 +99,3 @@ class CachingSendMessageGenerator:
             kwarg_index = index_if(lambda param_name, kwarg_name=key: param_name == kwarg_name
 , self._generator_params)
             self._cached_argument_values[kwarg_index] = value
-    def message_map_mode(self):
-        raise AssertionError("SysexElement doesn't support mapping.")

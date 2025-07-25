@@ -1,44 +1,15 @@
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\FANTOM\session.py
+# Compiled at: 2023-04-03 14:43:04
+# Size of source mod 2**32: 2911 bytes
 from __future__ import absolute_import, print_function, unicode_literals
-from ableton.v3.base import listens_group, liveobj_valid
+from ableton.v3.base import listens_group
 from ableton.v3.control_surface.components import SessionComponent as SessionComponentBase
 from ableton.v3.control_surface.controls import ButtonControl, InputControl
+from ableton.v3.live import liveobj_valid
 from .control import DisplayControl
-
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/FANTOM/session.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 4076 bytes
-from __future__ import absolute_import, print_function, unicode_literals
-from ableton.v3.base import listens_group, liveobj_valid
-import ableton.v3.control_surface.components as ClipSlotComponentBase
-import ableton.v3.control_surface.components as SessionComponentBase
-from ableton.v3.control_surface.controls import ButtonControl, InputControl
-from .control import DisplayControl
-
-class ClipSlotComponent(ClipSlotComponentBase):
-
-    def _feedback_value(self, track, slot_or_clip):
-        is_clip = slot_or_clip is not self._clip_slot
-        if slot_or_clip.is_triggered:
-            if slot_or_clip.will_record_on_start:
-                return 'Session.{}TriggeredRecord'.format('Clip' if is_clip else 'Slot')
-            return 'Session.{}TriggeredPlay'.format('Clip' if is_clip else 'Slot')
-        if slot_or_clip.is_playing:
-            if slot_or_clip.is_recording:
-                return 'Session.ClipRecording'
-            return 'Session.ClipStarted'
-        if is_clip:
-            return 'Session.ClipStopped'
-        if not self._clip_slot.has_stop_button:
-            return 'Session.SlotLacksStop'
-        if self._track_is_armed(track):
-            if self._clip_slot.has_stop_button:
-                return 'Session.ClipRecordButton'
-        return 'Session.ClipEmpty'
-
 
 class SessionComponent(SessionComponentBase):
     track_select_control = InputControl()
@@ -48,7 +19,6 @@ class SessionComponent(SessionComponentBase):
 
     def __init__(self, *a, **k):
         (super().__init__)(*a, **k)
-        (super().__init__)(a, clip_slot_component_type=ClipSlotComponent, **k)
 
     def set_stop_all_clips_button(self, button):
         self.stop_all_clips_button.set_control_element(button)
@@ -58,7 +28,6 @@ class SessionComponent(SessionComponentBase):
         if value and value <= self.stop_track_clip_buttons.control_count:
             index = value - 1
             button = self.stop_track_clip_buttons[index].control_element
-            button = self.stop_track_clip_buttons[index]._control_element
             if button:
                 button.clear_send_cache()
                 self._update_stop_clips_led(index)

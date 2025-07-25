@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Novation_Impulse/Novation_Impulse.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 18735 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Novation_Impulse\Novation_Impulse.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 19222 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import chr, range, str
 from future.utils import string_types
@@ -79,8 +78,6 @@ class Novation_Impulse(ControlSurface):
         if midi_bytes[0:-2] == SYSEX_START + (7, ):
             if midi_bytes[-2] != 0:
                 self._has_sliders = midi_bytes[-2] != 25
-            if midi_bytes[(-2)] != 0:
-                self._has_sliders = midi_bytes[(-2)] != 25
                 self.schedule_message(1, self._show_startup_message)
                 for control in self.controls:
                     if isinstance(control, InputControlElement):
@@ -174,13 +171,6 @@ class Novation_Impulse(ControlSurface):
             self._strip_buttons.append(ButtonElement(IS_MOMENTARY, MIDI_CC_TYPE, 0, 9 + index))
             self._strip_buttons[-1].name = str(index) + '_Mute_Button'
             self._strip_buttons[-1].add_value_listener((self._mixer_button_value),
-            self._sliders[(-1)].name = str(index) + '_Volume_Control'
-            self._sliders[(-1)].set_feedback_delay(-1)
-            self._sliders[(-1)].add_value_listener((self._slider_value), identify_sender=True)
-            strip.set_volume_control(self._sliders[(-1)])
-            self._strip_buttons.append(ButtonElement(IS_MOMENTARY, MIDI_CC_TYPE, 0, 9 + index))
-            self._strip_buttons[(-1)].name = str(index) + '_Mute_Button'
-            self._strip_buttons[(-1)].add_value_listener((self._mixer_button_value),
               identify_sender=True)
 
         self._mixer.master_strip().set_mute_button(ButtonElement(IS_MOMENTARY, MIDI_CC_TYPE, 1, 17))
@@ -200,7 +190,6 @@ class Novation_Impulse(ControlSurface):
         for index in range(num_pads):
             pads.append(ButtonElement(IS_MOMENTARY, MIDI_CC_TYPE, 0, 60 + index))
             pads[-1].name = 'Pad_' + str(index)
-            pads[(-1)].name = 'Pad_' + str(index)
             clip_slot = self._session.selected_scene().clip_slot(index)
             clip_slot.set_triggered_to_play_value(GREEN_BLINK)
             clip_slot.set_triggered_to_record_value(RED_BLINK)
@@ -208,7 +197,6 @@ class Novation_Impulse(ControlSurface):
             clip_slot.set_started_value(GREEN_FULL)
             clip_slot.set_recording_value(RED_FULL)
             clip_slot.set_launch_button(pads[-1])
-            clip_slot.set_launch_button(pads[(-1)])
             clip_slot.name = str(index) + '_Selected_Clip_Slot'
 
     def _setup_transport(self):
@@ -240,9 +228,6 @@ class Novation_Impulse(ControlSurface):
             encoders[-1].set_feedback_delay(-1)
             encoders[-1].add_value_listener((self._encoder_value), identify_sender=True)
             encoders[-1].name = 'Device_Control_' + str(index)
-            encoders[(-1)].set_feedback_delay(-1)
-            encoders[(-1)].add_value_listener((self._encoder_value), identify_sender=True)
-            encoders[(-1)].name = 'Device_Control_' + str(index)
 
         self._encoders = tuple(encoders)
         self._prev_bank_button = ButtonElement(IS_MOMENTARY, MIDI_CC_TYPE, 1, 12)
@@ -295,14 +280,6 @@ class Novation_Impulse(ControlSurface):
                         display_string = str(chr(ord('A') + list(returns).index(track)))
                     else:
                         pass
-                else:
-                    pass
-                if track in tracks:
-                    display_string = str(list(tracks).index(track) + 1)
-                elif track in returns:
-                    display_string = str(chr(ord('A') + list(returns).index(track)))
-                else:
-                    pass
                 display_string += ' Volume'
             self._set_string_to_display(display_string)
 

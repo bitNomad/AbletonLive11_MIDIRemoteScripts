@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/Task.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 12201 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\_Framework\Task.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 12686 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import map, next, object, str
 from past.utils import old_div
@@ -241,13 +240,6 @@ class TaskGroup(Task):
             if self.loop:
                 if all_killed:
                     self.restart()
-            self._tasks = remove_if(lambda t: t.is_killed, self._tasks)
-        all_killed = len([t for t in self._tasks if t.is_killed]) == self.count
-        if self.auto_kill and all_killed:
-            self.kill()
-        elif self.loop:
-            if all_killed:
-                self.restart()
 
     def add(self, task):
         task = totask(task)
@@ -335,7 +327,6 @@ class FadeTask(Task):
 
     def __init__(self, func=lambda x: x
 , duration=1.0, loop=False, init=False, *a, **k):
-    def __init__(self, func=lambda x: x, duration=1.0, loop=False, init=False, *a, **k):
         (super(FadeTask, self).__init__)(*a, **k)
         self.func = func
         self.curr = 0.0
@@ -455,11 +446,6 @@ def invfade(f, *a, **k):
 def linear(f, min, max, *a, **k):
     return fade(lambda x: f(linear_fn(min, max, x))
 , *a, **k)
-    return fade(lambda x: f(1.0 - x), *a, **k)
-
-
-def linear(f, min, max, *a, **k):
-    return fade(lambda x: f(linear_fn(min, max, x)), *a, **k)
 
 
 try:
@@ -469,7 +455,6 @@ try:
         return fade(
  lambda x: f(min + (max - min) * math.sin(x * old_div(math.pi, 2.0)))
 , *a, **k)
- lambda x: f(min + (max - min) * math.sin(x * old_div(math.pi, 2.0))), *a, **k)
 
 
 except ImportError as err:
@@ -482,7 +467,6 @@ except ImportError as err:
 def run(func, *a, **k):
     return FuncTask(lambda t: None if func(*a, **k) else None
 )
-    return FuncTask(lambda t: None if func(*a, **k) else None)
 
 
 def repeat(task):

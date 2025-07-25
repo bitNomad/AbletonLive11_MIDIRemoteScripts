@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/simpler_decoration.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 13491 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\ableton\v2\control_surface\simpler_decoration.py
+# Compiled at: 2023-10-06 16:19:02
+# Size of source mod 2**32: 13881 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import round
 from past.utils import old_div
@@ -24,11 +23,6 @@ BoolWrappingParameter = partial(WrappingParameter,
  'Off', 'On'],
   display_value_conversion=(lambda val: 'On' if val else 'Off'
 ))
-  to_property_value=(lambda integer, _simpler: bool(integer)),
-  from_property_value=(lambda boolean, _simpler: int(boolean)),
-  value_items=[
- 'Off', 'On'],
-  display_value_conversion=(lambda val: 'On' if val else 'Off'))
 
 def from_user_range(minv, maxv):
     return lambda v, s: old_div(v - minv, float(maxv - minv))
@@ -86,7 +80,6 @@ class SimplerDeviceDecorator(EventObject, LiveObjectDecorator):
           from_property_value=from_sample_count,
           to_property_value=(partial(to_sample_count, lambda: self.start.linear_value
 )))
-          to_property_value=(partial(to_sample_count, lambda: self.start.linear_value)))
         self.end = WrappingParameter(name='End',
           parent=self,
           property_host=(self._live_object.sample),
@@ -94,7 +87,6 @@ class SimplerDeviceDecorator(EventObject, LiveObjectDecorator):
           from_property_value=from_sample_count,
           to_property_value=(partial(to_sample_count, lambda: self.end.linear_value
 )))
-          to_property_value=(partial(to_sample_count, lambda: self.end.linear_value)))
         self.sensitivity = WrappingParameter(name='Sensitivity',
           parent=self,
           property_host=(self._live_object.sample),
@@ -135,8 +127,6 @@ class SimplerDeviceDecorator(EventObject, LiveObjectDecorator):
 ),
           from_index_conversion=(lambda i: SimplerWarpModes.index_by_key(i)
 ))
-          to_index_conversion=(lambda i: Live.Clip.WarpMode(SimplerWarpModes.key_by_index(i))),
-          from_index_conversion=(lambda i: SimplerWarpModes.index_by_key(i)))
         self.voices_param = EnumWrappingParameter(name='Voices',
           parent=self,
           values_host=self,
@@ -147,8 +137,6 @@ class SimplerDeviceDecorator(EventObject, LiveObjectDecorator):
 ),
           from_index_conversion=(lambda i: self.available_voice_numbers.index(i)
 ))
-          to_index_conversion=(lambda i: self.available_voice_numbers[i]),
-          from_index_conversion=(lambda i: self.available_voice_numbers.index(i)))
         self.granulation_resolution = EnumWrappingParameter(name='Preserve',
           parent=self,
           values_host=self,
@@ -203,7 +191,6 @@ class SimplerDeviceDecorator(EventObject, LiveObjectDecorator):
           source_property='gain',
           display_value_conversion=(lambda _: self._live_object.sample.gain_display_string() if liveobj_valid(self._live_object) and liveobj_valid(self._live_object.sample) else ''
 ))
-          display_value_conversion=(lambda _: self._live_object.sample.gain_display_string() if liveobj_valid(self._live_object) and liveobj_valid(self._live_object.sample) else ''))
         self.slicing_style_param = EnumWrappingParameter(name='Slice by',
           parent=self,
           values_host=self,

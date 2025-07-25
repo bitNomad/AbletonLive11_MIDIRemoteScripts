@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/loop_selector_component.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 21055 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\pushbase\loop_selector_component.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 21654 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import map, range
 from past.utils import old_div
@@ -204,7 +203,7 @@ class LoopSelectorComponent(Component, Messenger):
         @contextmanager
         def save_page_color(page_colors, page):
             old_page_value = page_colors[page]
-            (yield)
+            yield
             page_colors[page] = old_page_value
 
         @contextmanager
@@ -213,7 +212,6 @@ class LoopSelectorComponent(Component, Messenger):
                 old_tail_values = page_colors[page + 1:]
                 page_colors[page + 1:] = ['LoopSelector.OutsideLoop'] * len(old_tail_values)
             yield
-            (yield)
             if clip_is_new_recording(self._sequencer_clip):
                 page_colors[page + 1:] = old_tail_values
 
@@ -405,8 +403,6 @@ class LoopSelectorComponent(Component, Messenger):
             else:
                 if not (buttons_pressed > 1 or page_in_loop):
                     self._try_set_loop()
-            elif not (buttons_pressed > 1 or page_in_loop):
-                self._try_set_loop()
             if self._step_duplicator.is_duplicating:
                 self._add_page_to_duplicator(page)
             if self.delete_button.is_pressed:

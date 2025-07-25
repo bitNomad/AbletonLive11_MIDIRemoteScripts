@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/SL_MkIII/sl_mkiii.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 28773 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\SL_MkIII\sl_mkiii.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 29765 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from contextlib import contextmanager
 from functools import partial
@@ -12,7 +11,6 @@ import Live
 from ableton.v2.base import const, inject, listens
 from ableton.v2.control_surface import MIDI_CC_TYPE, BankingInfo, DeviceBankRegistry, DeviceDecoratorFactory, IdentifiableControlSurface, Layer, PercussionInstrumentFinder
 from ableton.v2.control_surface.components import AutoArmComponent, BackgroundComponent, ClipActionsComponent, RightAlignTracksTrackAssigner, SessionRecordingComponent, SessionRingComponent
-from ableton.v2.control_surface.components import AutoArmComponent, BackgroundComponent, ClipActionsComponent, DrumGroupComponent, RightAlignTracksTrackAssigner, SessionRecordingComponent, SessionRingComponent
 from ableton.v2.control_surface.default_bank_definitions import BANK_DEFINITIONS
 from ableton.v2.control_surface.mode import AddLayerMode, LayerMode, ModesComponent, NullModes, ReenterBehaviour, SetAttributeMode
 from novation.colors import CLIP_COLOR_TABLE, RGB_COLOR_TABLE, Rgb
@@ -42,7 +40,6 @@ class SLMkIII(IdentifiableControlSurface):
 
     def __init__(self, *a, **k):
         (super().__init__)(a, product_id_bytes=sysex.NOVATION_MANUFACTURER_ID + sysex.DEVICE_FAMILY_CODE + sysex.DEVICE_FAMILY_MEMBER_CODE, **k)
-        (super(SLMkIII, self).__init__)(a, product_id_bytes=sysex.NOVATION_MANUFACTURER_ID + sysex.DEVICE_FAMILY_CODE + sysex.DEVICE_FAMILY_MEMBER_CODE, **k)
         self._main_modes = NullModes()
         self._element_injector = inject(element_container=(const(None))).everywhere()
         self._message_injector = inject(message=(const(None))).everywhere()
@@ -81,7 +78,6 @@ class SLMkIII(IdentifiableControlSurface):
         self._set_feedback_velocity()
 
     def on_identified(self, response_bytes):
-    def on_identified(self, midi_bytes):
         self._switch_display_layout((sysex.KNOB_SCREEN_LAYOUT_BYTE), force=True)
         self._main_modes.selected_mode = 'device_control'
         self._auto_arm.set_enabled(True)
@@ -149,7 +145,6 @@ class SLMkIII(IdentifiableControlSurface):
           num_scenes=SESSION_HEIGHT,
           tracks_to_use=(lambda: tuple(self.song.visible_tracks) + tuple(self.song.return_tracks) + (self.song.master_track,)
 ),
-          tracks_to_use=(lambda: tuple(self.song.visible_tracks) + tuple(self.song.return_tracks) + (self.song.master_track,)),
           name='Session_Ring')
         self._session = SessionComponent(is_enabled=False,
           session_ring=(self._session_ring),

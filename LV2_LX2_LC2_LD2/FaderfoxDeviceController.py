@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/LV2_LX2_LC2_LD2/FaderfoxDeviceController.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 16519 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\LV2_LX2_LC2_LD2\FaderfoxDeviceController.py
+# Compiled at: 2022-11-29 09:57:02
+# Size of source mod 2**32: 16936 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import range, round, str
 from past.utils import old_div
@@ -105,7 +104,7 @@ class FaderfoxDeviceController(FaderfoxComponent):
                 channel = CHANNEL_SETUP2
             for encoder in range(8):
                 if len(device.parameters) >= encoder + 1:
-                    ParamMap.map_with_feedback(midi_map_handle, channel, ccs[encoder], device.parameters[(encoder + 1)], mode)
+                    ParamMap.map_with_feedback(midi_map_handle, channel, ccs[encoder], device.parameters[encoder + 1], mode)
 
         def map_params_by_name(device, param_bank):
             ccs = []
@@ -189,13 +188,6 @@ class FaderfoxDeviceController(FaderfoxComponent):
                     self.log('Could not find %s in %s' % (
                      device_name, list(DEVICE_BOB_DICT.keys())))
                     return
-            elif self.helper.device_is_plugin(self.device):
-                self.show_bank_select('First eight parameters')
-                map_params_by_number(self.device)
-            else:
-                self.log('Could not find %s in %s' % (
-                 device_name, list(DEVICE_BOB_DICT.keys())))
-                return
 
     def show_bank_select(self, bank_name):
         if self.show_bank:
@@ -229,11 +221,6 @@ class FaderfoxDeviceController(FaderfoxComponent):
                             parameter = self.device.parameters[idx + 1]
                     else:
                         return
-                elif self.helper.device_is_plugin(self.device):
-                    if len(self.device.parameters) >= idx + 1:
-                        parameter = self.device.parameters[(idx + 1)]
-                else:
-                    return
                 if parameter:
                     if parameter.is_quantized:
                         if parameter.value + 1 > parameter.max:
@@ -276,22 +263,6 @@ class FaderfoxDeviceController(FaderfoxComponent):
                             if new_end <= 0.0 or new_end <= self.selected_clip.loop_start:
                                 new_end = self.selected_clip.loop_end
                             self.selected_clip.loop_end = new_end
-                elif cc_no == CLIP_LOOP_START_CC:
-                    new_start = self.selected_clip.loop_start + rel_to_offs(cc_value) * self.helper.current_q_step()
-                    new_start = round_to(new_start, self.helper.current_q_step())
-                    if new_start >= self.selected_clip.length or (new_start >= self.selected_clip.loop_end):
-                        new_start = self.selected_clip.loop_start
-                    if new_start < 0.0:
-                        new_start = 0.0
-                    self.selected_clip.loop_start = new_start
-                elif cc_no == CLIP_LOOP_END_CC:
-                    new_end = self.selected_clip.loop_end + rel_to_offs(cc_value) * self.helper.current_q_step()
-                    new_end = round_to(new_end, self.helper.current_q_step())
-                    if new_end >= self.selected_clip.length:
-                        new_end = self.selected_clip.length
-                    if new_end <= 0.0 or (new_end <= self.selected_clip.loop_start):
-                        new_end = self.selected_clip.loop_end
-                    self.selected_clip.loop_end = new_end
 
     def lock_to_device(self, device):
         if device:

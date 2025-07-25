@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/convert.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 19790 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\convert.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 20378 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import map, object, str
 from functools import partial
@@ -54,30 +53,6 @@ def possible_conversions(track, decorator_factory=None):
                         actions = [CreateTrackWithSimpler(),
                          CreateTrackWithClipInDrumRackPad()]
                         if Live.Conversions.is_convertible_to_midi(song, detail_clip):
-        elif is_audio_track(track):
-            detail_clip = track.canonical_parent.view.detail_clip
-            song = track.canonical_parent
-            if liveobj_valid(detail_clip) and detail_clip.is_arrangement_clip:
-                if not detail_clip.is_recording:
-                    actions = [CreateTrackWithSimpler(),
-                     CreateTrackWithClipInDrumRackPad()]
-                    if Live.Conversions.is_convertible_to_midi(song, detail_clip):
-                        actions.extend([
-                         ConvertAudioClipToHarmonyMidi(),
-                         ConvertAudioClipToMelodyMidi(),
-                         ConvertAudioClipToDrumsMidi()])
-                    category = AudioTrackWithArrangementClip(actions=actions,
-                      song_view=(track.canonical_parent.view),
-                      track=track)
-            else:
-                highlighted_clip_slot = track.canonical_parent.view.highlighted_clip_slot
-                clip_slot = find_if(lambda slot: slot.has_clip and highlighted_clip_slot == slot, track.clip_slots)
-                if liveobj_valid(clip_slot):
-                    if not clip_slot.is_recording:
-                        actions = [
-                         CreateTrackWithSimpler(),
-                         CreateTrackWithClipInDrumRackPad()]
-                        if Live.Conversions.is_convertible_to_midi(song, clip_slot.clip):
                             actions.extend([
                              ConvertAudioClipToHarmonyMidi(),
                              ConvertAudioClipToMelodyMidi(),
@@ -102,9 +77,6 @@ def possible_conversions(track, decorator_factory=None):
                             category = AudioTrackWithSessionClip(actions=actions,
                               clip_slot=highlighted_clip_slot,
                               track=track)
-                        category = AudioTrackWithSessionClip(actions=actions,
-                          clip_slot=highlighted_clip_slot,
-                          track=track)
     return category
 
 
@@ -382,7 +354,6 @@ class ConvertComponent(Component):
             if action.needs_deferred_invocation:
                 self._tasks.add(task.sequence(task.delay(1), task.run(lambda: self._do_conversion_deferred(action)
 )))
-                self._tasks.add(task.sequence(task.delay(1), task.run(lambda: self._do_conversion_deferred(action))))
                 return False
             self._invoke_conversion(action)
         return True

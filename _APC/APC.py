@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_APC/APC.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 8008 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\_APC\APC.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 8257 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range, str
 import Live
@@ -61,10 +60,6 @@ class APC(ControlSurface):
                 self._on_dongle_response(midi_bytes)
             else:
                 pass
-        elif midi_bytes[4] == 81:
-            self._on_dongle_response(midi_bytes)
-        else:
-            pass
 
     def _on_identity_response(self, midi_bytes):
         if midi_bytes[5] == MANUFACTURER_ID:
@@ -88,8 +83,6 @@ class APC(ControlSurface):
                             for index in range(8):
                                 response[0] += int(midi_bytes[7 + index] & 15) << 4 * (7 - index)
                                 response[1] += int(midi_bytes[15 + index] & 15) << 4 * (7 - index)
-                                response[0] += int(midi_bytes[(7 + index)] & 15) << 4 * (7 - index)
-                                response[1] += int(midi_bytes[(15 + index)] & 15) << 4 * (7 - index)
 
                             expected_response = Live.Application.encrypt_challenge(self._dongle_challenge[0], self._dongle_challenge[1])
                             if [
@@ -151,8 +144,6 @@ class APC(ControlSurface):
         challenge1 = [
          0,0,0,0,0,0,0,0]
         challenge2 = [0,0,0,0,0,0,0,0]
-         0, 0, 0, 0, 0, 0, 0, 0]
-        challenge2 = [0, 0, 0, 0, 0, 0, 0, 0]
         for index in range(8):
             challenge1[index] = self._dongle_challenge[0] >> 4 * (7 - index) & 15
             challenge2[index] = self._dongle_challenge[1] >> 4 * (7 - index) & 15
@@ -177,7 +168,6 @@ class APC(ControlSurface):
                 APC._active_instances = sorted((APC._active_instances + [self]),
                   key=(lambda x: x.instance_identifier()
 ))
-                  key=(lambda x: x.instance_identifier()))
                 APC._combine_active_instances()
 
     def _do_uncombine(self):

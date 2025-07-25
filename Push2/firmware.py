@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/firmware.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 7368 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\firmware.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 7614 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, object
 import fnmatch, logging, os, re
@@ -82,7 +81,6 @@ class FirmwareCollector(object):
         if self.stable_firmwares:
             return max((self.stable_firmwares), key=(lambda f: f.version
 ))
-            return max((self.stable_firmwares), key=(lambda f: f.version))
 
     @property
     def latest_dev_firmware(self):
@@ -96,19 +94,12 @@ class FirmwareCollector(object):
             return 'stable'
         if version in map(lambda f: f.version
 , self.dev_firmwares):
-            return max((self.dev_firmwares), key=(lambda f: f.version))
-
-    def get_release_type(self, version):
-        if version in map(lambda f: f.version, self.stable_firmwares):
-            return 'stable'
-        if version in map(lambda f: f.version, self.dev_firmwares):
             return 'dev'
         return 'unknown'
 
     def _collect_firmware_files(self, prefix, release_type):
         return list(filter(lambda x: x.version is not None
 , [FirmwareInfo(extract_firmware_version(f, prefix, release_type), f) for f in os.listdir(FIRMWARE_PATH) if fnmatch.fnmatch(f, '*.upgrade')]))
-        return list(filter(lambda x: x.version is not None, [FirmwareInfo(extract_firmware_version(f, prefix, release_type), f) for f in os.listdir(FIRMWARE_PATH) if fnmatch.fnmatch(f, '*.upgrade')]))
 
 
 class FirmwareUpdateComponent(Component):
@@ -132,7 +123,6 @@ class FirmwareUpdateComponent(Component):
     def process_firmware_response(self, data):
         entry = find_if(lambda entry: entry['type'] == 'firmware'
 , data)
-        entry = find_if(lambda entry: entry['type'] == 'firmware', data)
         if entry:
             self.state = 'success' if entry['success'] else 'failure'
 

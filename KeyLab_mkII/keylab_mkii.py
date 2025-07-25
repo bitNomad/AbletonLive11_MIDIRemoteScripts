@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/KeyLab_mkII/keylab_mkii.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 8529 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\KeyLab_mkII\keylab_mkii.py
+# Compiled at: 2022-11-29 09:57:02
+# Size of source mod 2**32: 8921 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from functools import partial
@@ -29,10 +28,6 @@ ENCODER_MODE_TO_COLOR = {
   'sends_a_mode': (0, 127, 0),
   'sends_b_mode': (0, 100, 0),
   'device_mode': (0, 0, 100)}
-ENCODER_MODE_TO_COLOR = {'pan_mode':(127, 127, 127), 
- 'sends_a_mode':(0, 127, 0), 
- 'sends_b_mode':(0, 100, 0), 
- 'device_mode':(0, 0, 100)}
 DISPLAY_LINE_WIDTH = 16
 
 class InputOnlyButton(ButtonElement):
@@ -88,7 +83,6 @@ class KeyLabMkII(KeyLabEssential):
         self._vegas_mode_switch = SysexElement(send_message_generator=(lambda b: sysex.VEGAS_MODE_MESSAGE_HEADER + (
          b, sysex.END_BYTE)
 ),
-         b, sysex.END_BYTE)),
           name='Vegas_Mode_Switch')
         self._encoder_mode_led = create_pad_led(42, name='Encoder_Mode_Led')
 

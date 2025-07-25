@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/chorus2.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 4180 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\chorus2.py
+# Compiled at: 2022-12-08 12:23:09
+# Size of source mod 2**32: 4303 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v2.base import EventObject
 from ableton.v2.control_surface import LiveObjectDecorator, get_parameter_by_name
@@ -49,7 +48,6 @@ class Chorus2DeviceComponent(DeviceComponentWithTrackColorViewData):
             if parameter.name == 'Offset':
                 adjusting_lfo_phase = True
             if parameter.name in ('Rate', 'Amount', 'Shape'):
-            if parameter.name in ('Rate', 'Amount', 'Shaping'):
                 adjusting_lfo = True
 
         return {'AdjustingLfo':adjusting_lfo,  'AdjustingLfoPhase':adjusting_lfo_phase}
