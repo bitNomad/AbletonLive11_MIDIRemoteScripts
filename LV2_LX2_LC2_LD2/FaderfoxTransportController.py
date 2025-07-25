@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/LV2_LX2_LC2_LD2/FaderfoxTransportController.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 6803 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 import Live
@@ -48,7 +45,6 @@ class FaderfoxTransportController(FaderfoxComponent):
             if channel == CHANNEL_SETUP2:
                 if note_no == SCENE_LAUNCH_NOTE:
                     self.parent.song().view.selected_scene.fire_as_selected()
-<<<<<<< HEAD
                 else:
                     if note_no == SCENE_STOP_NOTE:
                         self.parent.song().stop_all_clips()
@@ -130,7 +126,6 @@ class FaderfoxTransportController(FaderfoxComponent):
                                 self.trigger_track_clip(track_idx, index_of(notes, note_no) + 6)
                             else:
                                 track_idx += 1
-=======
                 elif note_no == SCENE_STOP_NOTE:
                     self.parent.song().stop_all_clips()
                 elif note_no == SCENE_UP_NOTE:
@@ -201,7 +196,6 @@ class FaderfoxTransportController(FaderfoxComponent):
                         self.trigger_track_clip(track_idx, index_of(notes, note_no) + 6)
                     else:
                         track_idx += 1
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def trigger_track_clip(self, track_idx, clip_idx):
         self.helper.trigger_track_clip(track_idx, clip_idx)

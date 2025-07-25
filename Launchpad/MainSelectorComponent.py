@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchpad/MainSelectorComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 12070 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range, str
 from _Framework.SessionZoomingComponent import DeprecatedSessionZoomingComponent
@@ -81,11 +78,8 @@ class MainSelectorComponent(ModeSelectorComponent):
         self.update()
 
     def set_mode(self, mode):
-<<<<<<< HEAD
         if self._mode_index != mode or mode == MIXER_MODE:
-=======
         if self._mode_index != mode or (mode == MIXER_MODE):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._mode_index = mode
             self.update()
 
@@ -123,7 +117,6 @@ class MainSelectorComponent(ModeSelectorComponent):
             if self._mode_index == SESSION_MODE:
                 self._setup_mixer(not as_active)
                 self._setup_session(as_active, as_enabled)
-<<<<<<< HEAD
             else:
                 pass
             if self._mode_index == USER_1_MODE:
@@ -141,7 +134,6 @@ class MainSelectorComponent(ModeSelectorComponent):
                         self._setup_mixer(as_active)
                     else:
                         pass
-=======
             else:
                 pass
             if self._mode_index == USER_1_MODE:
@@ -157,7 +149,6 @@ class MainSelectorComponent(ModeSelectorComponent):
                 self._setup_mixer(as_active)
             else:
                 pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._session.set_allow_update(True)
             self._zooming.set_allow_update(True)
             self._update_control_channels()

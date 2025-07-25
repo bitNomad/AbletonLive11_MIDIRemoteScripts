@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchpad_Pro/Colors.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 5508 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import object
 from _Framework.ButtonElement import Color
@@ -67,7 +64,6 @@ class Rgb(object):
     DARK_ORANGE = Color(84)
 
 
-<<<<<<< HEAD
 LIVE_COLORS_TO_MIDI_VALUES = {
   10927616: 74,
   16149507: 84,
@@ -139,7 +135,6 @@ LIVE_COLORS_TO_MIDI_VALUES = {
   13496824: 114,
   9611263: 92,
   9160191: 36}
-=======
 LIVE_COLORS_TO_MIDI_VALUES = {10927616:74, 
  16149507:84, 
  4047616:76, 
@@ -210,7 +205,6 @@ LIVE_COLORS_TO_MIDI_VALUES = {10927616:74,
  13496824:114, 
  9611263:92, 
  9160191:36}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 RGB_COLOR_TABLE = ((0, 0), (1, 1973790), (2, 8355711), (3, 16777215), (4, 16731212),
                    (5, 16711680), (6, 5832704), (7, 1638400), (8, 16760172), (9, 16733184),
                    (10, 5840128), (11, 2562816), (12, 16777036), (13, 16776960),

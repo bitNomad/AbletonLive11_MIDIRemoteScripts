@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Blackstar_Live_Logic/time_display.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3007 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from past.utils import old_div
 import math
@@ -77,16 +74,13 @@ class TimeDisplayControl(Control):
                     num_digits = num_beat_digits
                 if not display_bars:
                     dots = (0, )
-<<<<<<< HEAD
                 else:
                     if num_beat_digits >= 2:
                         dots = (1, )
                     else:
                         dots = (2, )
-=======
                 elif num_beat_digits >= 2:
                     dots = (1, )
                 else:
                     dots = (2, )
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 self._control_element.display_time(digits, NUM_DIGITS_TO_BYTE[num_digits], dots)

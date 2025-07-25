@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_25_49_61/MainModeSelector.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3124 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import _Framework.ModeSelectorComponent as ModeSelectorComponent
 from .consts import *
@@ -58,7 +55,6 @@ class MainModeSelector(ModeSelectorComponent):
                 self._session.set_page_right_button(self._right_button)
                 self._session.set_track_select_buttons(self._down_button, self._up_button)
                 self._mixer.selected_strip().set_arm_button(self._select_button)
-<<<<<<< HEAD
             else:
                 if self._mode_index == 1:
                     self._modes_buttons[0].send_value(LED_OFF, True)
@@ -71,7 +67,6 @@ class MainModeSelector(ModeSelectorComponent):
                     self._device_0.set_bank_nav_buttons(self._left_button, self._right_button)
                     self._device_1.set_bank_nav_buttons(self._left_button, self._right_button)
                     self._device_nav.set_device_nav_buttons(self._up_button, self._down_button)
-=======
             elif self._mode_index == 1:
                 self._modes_buttons[0].send_value(LED_OFF, True)
                 self._modes_buttons[1].send_value(GRN_FULL, True)
@@ -83,4 +78,3 @@ class MainModeSelector(ModeSelectorComponent):
                 self._device_0.set_bank_nav_buttons(self._left_button, self._right_button)
                 self._device_1.set_bank_nav_buttons(self._left_button, self._right_button)
                 self._device_nav.set_device_nav_buttons(self._up_button, self._down_button)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

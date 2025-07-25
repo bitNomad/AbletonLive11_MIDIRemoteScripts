@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/ControlSurface.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 32416 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, map, range, str
 from future.utils import string_types
@@ -291,14 +288,11 @@ class ControlSurface(Subject, SlotManager):
         recipient = self.get_recipient_for_nonsysex_midi_message(midi_bytes)
         if recipient is not None:
             recipient.receive_value(value)
-<<<<<<< HEAD
         else:
             if self.received_midi_listener_count() == 0:
                 self.log_message('Got unknown message: ' + str(midi_bytes))
-=======
         elif self.received_midi_listener_count() == 0:
             self.log_message('Got unknown message: ' + str(midi_bytes))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def handle_sysex(self, midi_bytes):
         result = find_if(lambda id__: midi_bytes[:len(id__[0])] == id__[0]
@@ -306,14 +300,11 @@ class ControlSurface(Subject, SlotManager):
         if result != None:
             id, control = result
             control.receive_value(midi_bytes[len(id):-1])
-<<<<<<< HEAD
         else:
             if self.received_midi_listener_count() == 0:
                 self.log_message('Got unknown sysex message: ' + str(midi_bytes))
-=======
         elif self.received_midi_listener_count() == 0:
             self.log_message('Got unknown sysex message: ' + str(midi_bytes))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def set_device_component(self, device_component):
         if self._device_component is not None:
@@ -491,7 +482,6 @@ class ControlSurface(Subject, SlotManager):
             feedback_rule = Live.MidiMap.NoteFeedbackRule()
             feedback_rule.note_no = control.message_identifier()
             feedback_rule.vel_map = feedback_map
-<<<<<<< HEAD
         else:
             if control.message_type() is MIDI_CC_TYPE:
                 feedback_rule = Live.MidiMap.CCFeedbackRule()
@@ -501,7 +491,6 @@ class ControlSurface(Subject, SlotManager):
                 if control.message_type() is MIDI_PB_TYPE:
                     feedback_rule = Live.MidiMap.PitchBendFeedbackRule()
                     feedback_rule.value_pair_map = feedback_map
-=======
         elif control.message_type() is MIDI_CC_TYPE:
             feedback_rule = Live.MidiMap.CCFeedbackRule()
             feedback_rule.cc_no = control.message_identifier()
@@ -509,7 +498,6 @@ class ControlSurface(Subject, SlotManager):
         elif control.message_type() is MIDI_PB_TYPE:
             feedback_rule = Live.MidiMap.PitchBendFeedbackRule()
             feedback_rule.value_pair_map = feedback_map
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         feedback_rule.channel = control.message_channel()
         feedback_rule.delay_in_ms = feedback_delay
         if control.message_type() is MIDI_NOTE_TYPE:
@@ -529,7 +517,6 @@ class ControlSurface(Subject, SlotManager):
         if control.message_type() is MIDI_NOTE_TYPE:
             success = Live.MidiMap.forward_midi_note(self._c_instance.handle(), midi_map_handle, control.message_channel(), control.message_identifier())
         else:
-<<<<<<< HEAD
             if control.message_type() is MIDI_CC_TYPE:
                 success = Live.MidiMap.forward_midi_cc(self._c_instance.handle(), midi_map_handle, control.message_channel(), control.message_identifier())
             else:
@@ -537,9 +524,7 @@ class ControlSurface(Subject, SlotManager):
                     success = Live.MidiMap.forward_midi_pitchbend(self._c_instance.handle(), midi_map_handle, control.message_channel())
                 else:
                     success = True
-=======
             success = True
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         if success:
             forwarding_keys = control.identifier_bytes()
             for key in forwarding_keys:
@@ -552,14 +537,11 @@ class ControlSurface(Subject, SlotManager):
         if type == MIDI_CC_TYPE:
             self._c_instance.set_cc_translation(from_identifier, from_channel, to_identifier, to_channel)
         else:
-<<<<<<< HEAD
             if type == MIDI_NOTE_TYPE:
                 self._c_instance.set_note_translation(from_identifier, from_channel, to_identifier, to_channel)
             else:
                 pass
-=======
             pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _set_session_highlight(self, track_offset, scene_offset, width, height, include_return_tracks):
         if list((track_offset, scene_offset, width, height)).count(-1) != 4:

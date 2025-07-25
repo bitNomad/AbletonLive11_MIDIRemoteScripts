@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/model/generation.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 19859 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from future.utils import iteritems
 from collections import namedtuple
@@ -290,11 +287,8 @@ def make_bound_child_wrapper(name=None, wrapper=None):
     return partial(apply_wrapper, name=name, wrapper=wrapper)
 
 
-<<<<<<< HEAD
 ClassInfo = namedtuple('ClassInfo', ['class_','d','default_data','wrappers','children'])
-=======
 ClassInfo = namedtuple('ClassInfo', ['class_', 'd', 'default_data', 'wrappers', 'children'])
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 @contextmanager
 def pushpop(collection, item):
@@ -484,12 +478,9 @@ class ModelFingerprintVisitor(ModelVisitor):
     def fingerprint(self):
         if self._fingerprint is None:
             self._fingerprint = ';'.join(('%s(%s)' % (classname, ','.join(property_prints)) for classname, property_prints in sorted((iteritems(self._class2proplist)),
-<<<<<<< HEAD
               key=(lambda item: item[0]
 ))))
-=======
               key=(lambda item: item[0]))))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         return self._fingerprint
 
     def visit_class(self, class_):

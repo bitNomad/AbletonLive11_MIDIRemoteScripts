@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/browser_component.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 42821 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from past.utils import old_div
@@ -302,20 +299,17 @@ class BrowserComponent(Component, Messenger):
         if self.expanded and first_visible_list_focused:
             self.expanded = False
             self._unexpand_with_scroll_encoder = True
-<<<<<<< HEAD
         else:
             if not first_visible_list_focused:
                 if not self.expanded:
                     if self._can_auto_expand():
                         self._update_auto_expand()
                         self._unexpand_with_scroll_encoder = True
-=======
         elif not first_visible_list_focused:
             if not self.expanded:
                 if self._can_auto_expand():
                     self._update_auto_expand()
                     self._unexpand_with_scroll_encoder = True
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._update_scrolling()
         self._update_horizontal_navigation()
 
@@ -325,12 +319,9 @@ class BrowserComponent(Component, Messenger):
         self._update_horizontal_navigation()
 
     def _on_encoder_released(self):
-<<<<<<< HEAD
         any_encoder_touched = any(map(lambda e: e.is_touched
 , self.scroll_encoders)) or self.scroll_focused_encoder.is_touched
-=======
         any_encoder_touched = any(map(lambda e: e.is_touched, self.scroll_encoders)) or self.scroll_focused_encoder.is_touched
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         if not any_encoder_touched:
             if self._unexpand_with_scroll_encoder:
                 self._unexpand_task.restart()
@@ -345,11 +336,8 @@ class BrowserComponent(Component, Messenger):
         if self.focused_list_index + 1 == index:
             if self.should_widen_focused_item:
                 index = self.focused_list_index
-<<<<<<< HEAD
         if 0<= index < len(self._lists):
-=======
         if 0 <= index < len(self._lists):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             return index
         return
 
@@ -621,12 +609,9 @@ class BrowserComponent(Component, Messenger):
         self.can_exit = can_exit
 
     def _update_scrolling(self):
-<<<<<<< HEAD
         self.scrolling = self.up_button.is_pressed or self.down_button.is_pressed or self.scroll_focused_encoder.is_touched or any(map(lambda e: e.is_touched
 , self.scroll_encoders)) or (self.right_button.is_pressed) and (self._expanded) or (self.left_button.is_pressed and self._expanded)
-=======
         self.scrolling = self.up_button.is_pressed or self.down_button.is_pressed or self.scroll_focused_encoder.is_touched or any(map(lambda e: e.is_touched, self.scroll_encoders)) or (self.right_button.is_pressed) and (self._expanded) or (self.left_button.is_pressed and self._expanded)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _update_horizontal_navigation(self):
         self.horizontal_navigation = self.right_button.is_pressed or self.left_button.is_pressed
@@ -1013,7 +998,6 @@ def make_root_browser_items(browser, filter_type):
         if filter_type == Live.Browser.FilterType.audio_effect_hotswap:
             categories = [
              audio_effects] + common_items
-<<<<<<< HEAD
         else:
             if filter_type == Live.Browser.FilterType.midi_effect_hotswap:
                 categories = [
@@ -1029,7 +1013,6 @@ def make_root_browser_items(browser, filter_type):
                      instruments,
                      audio_effects,
                      midi_effects] + common_items
-=======
         elif filter_type == Live.Browser.FilterType.midi_effect_hotswap:
             categories = [
              midi_effects] + common_items
@@ -1043,7 +1026,6 @@ def make_root_browser_items(browser, filter_type):
              instruments,
              audio_effects,
              midi_effects] + common_items
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     user_files = UserFilesBrowserItem(browser,
       name='User Files', icon='browser_userfiles.svg')
     return [

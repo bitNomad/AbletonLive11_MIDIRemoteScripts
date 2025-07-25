@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v3.base import listens_group, liveobj_valid
 from ableton.v3.control_surface.components import SessionComponent as SessionComponentBase
 from ableton.v3.control_surface.controls import ButtonControl, InputControl
 from .control import DisplayControl
 
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -42,7 +40,6 @@ class ClipSlotComponent(ClipSlotComponentBase):
         return 'Session.ClipEmpty'
 
 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 class SessionComponent(SessionComponentBase):
     track_select_control = InputControl()
     scene_name_display = DisplayControl()
@@ -50,11 +47,8 @@ class SessionComponent(SessionComponentBase):
       pressed_color='DefaultButton.On')
 
     def __init__(self, *a, **k):
-<<<<<<< HEAD
         (super().__init__)(*a, **k)
-=======
         (super().__init__)(a, clip_slot_component_type=ClipSlotComponent, **k)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def set_stop_all_clips_button(self, button):
         self.stop_all_clips_button.set_control_element(button)
@@ -63,11 +57,8 @@ class SessionComponent(SessionComponentBase):
     def track_select_control(self, value, _):
         if value and value <= self.stop_track_clip_buttons.control_count:
             index = value - 1
-<<<<<<< HEAD
             button = self.stop_track_clip_buttons[index].control_element
-=======
             button = self.stop_track_clip_buttons[index]._control_element
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             if button:
                 button.clear_send_cache()
                 self._update_stop_clips_led(index)

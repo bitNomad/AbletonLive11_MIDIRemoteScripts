@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/Control.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 34364 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import object, range
 from future.moves.itertools import zip_longest
@@ -279,14 +276,11 @@ class ButtonControl(Control):
                     self._press_button()
                     self._release_button()
                 else:
-<<<<<<< HEAD
                     if value:
                         self._press_button()
                     else:
                         self._release_button()
-=======
                     self._release_button()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 (super(ButtonControl.State, self)._on_value)(value, *a, **k)
             self._send_current_color()
 
@@ -501,11 +495,8 @@ class EncoderControl(Control):
             self._released_listener = control._event_listeners.get('released', None)
             self._touch_value_slot = None
             self._timer_based = False
-<<<<<<< HEAD
             if self._touched_listener or self._released_listener:
-=======
             if self._touched_listener or (self._released_listener):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 self._touch_value_slot = self.register_slot(None, self._on_touch_value, 'touch_value')
 
         @lazy_attribute
@@ -550,14 +541,11 @@ class EncoderControl(Control):
                     self._timer_based = True
                     self._touch_encoder()
                     self._release_task.restart()
-<<<<<<< HEAD
                 else:
                     if self._timer_based:
                         self._release_task.restart()
-=======
                 elif self._timer_based:
                     self._release_task.restart()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 if self._value_listener:
                     if self._control_element:
                         normalized_value = self._control_element.normalize_value(value)
@@ -783,7 +771,6 @@ class MatrixControl(ControlList):
                 dimensions = (control_elements.height(), control_elements.width())
                 if not self._dynamic_create:
                     control_elements = [control_elements.get_button(col, row) for row, col in product(range(self.height), range(self.width))]
-<<<<<<< HEAD
             else:
                 if is_matrix(control_elements):
                     dimensions = (
@@ -794,7 +781,6 @@ class MatrixControl(ControlList):
                 else:
                     if control_elements is not None:
                         raise RuntimeError('Control Elements must be a matrix')
-=======
             elif is_matrix(control_elements):
                 dimensions = (
                  len(control_elements), len(first(control_elements)))
@@ -803,7 +789,6 @@ class MatrixControl(ControlList):
                 control_elements = [_ for _ in flatten(control_elements)]
             elif control_elements is not None:
                 raise RuntimeError('Control Elements must be a matrix')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             if self._dynamic_create:
                 if None not in dimensions:
                     self._dimensions = dimensions

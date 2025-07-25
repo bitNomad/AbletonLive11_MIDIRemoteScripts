@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push/navigation_node.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 21480 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, map, range, zip
 from functools import partial
@@ -23,7 +20,6 @@ def make_navigation_node(model_object, is_entering=True, session_ring=None, devi
     node = None
     if model_object == None:
         node = None
-<<<<<<< HEAD
     else:
         if isinstance(model_object, Live.Song.Song):
             node = SongNode(object=model_object, session_ring=session_ring)
@@ -56,7 +52,6 @@ def make_navigation_node(model_object, is_entering=True, session_ring=None, devi
                                     node = RackNode(model_object)
                             else:
                                 node = SimpleDeviceNode(device_bank_registry, banking_info, model_object)
-=======
     elif isinstance(model_object, Live.Song.Song):
         node = SongNode(object=model_object, session_ring=session_ring)
     elif isinstance(model_object, Live.Track.Track):
@@ -84,7 +79,6 @@ def make_navigation_node(model_object, is_entering=True, session_ring=None, devi
                 node = RackNode(model_object)
         else:
             node = SimpleDeviceNode(device_bank_registry, banking_info, model_object)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     if node:
         if node.parent:
             if not node.children:
@@ -286,12 +280,9 @@ class ChainNode(ModelNode):
         self._device_provider = device_provider
         self._on_devices_changed_in_live.subject = self._object
         self._on_selected_device_changed_in_live.subject = self._get_track().view
-<<<<<<< HEAD
         macro_devices = filter(lambda device: hasattr(device, 'macros_mapped')
 , self._object.devices)
-=======
         macro_devices = filter(lambda device: hasattr(device, 'macros_mapped'), self._object.devices)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._on_macros_mapped_changed.replace_subjects(macro_devices)
         self._child_name_slots = self.register_disconnectable(EventObject())
         self._child_state_slots = self.register_disconnectable(EventObject())
@@ -326,12 +317,9 @@ class ChainNode(ModelNode):
         if index is not None:
             if not index >= 0 or index < len(self._children):
                 if not isinstance(self._children[index][1], Live.DrumPad.DrumPad):
-<<<<<<< HEAD
                     drumpads_before = len(list(filter(lambda _ChainNode__x: isinstance(_ChainNode__x[1], Live.DrumPad.DrumPad)
 , self._children[:index])))
-=======
                     drumpads_before = len(list(filter(lambda _ChainNode__x: isinstance(_ChainNode__x[1], Live.DrumPad.DrumPad), self._children[:index])))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                     delete_index = index - drumpads_before
                     if len(self.object.devices) > delete_index:
                         self.object.delete_device(delete_index)
@@ -421,12 +409,9 @@ class ChainNode(ModelNode):
 
     @listens('devices')
     def _on_devices_changed_in_live(self):
-<<<<<<< HEAD
         macro_devices = filter(lambda device: hasattr(device, 'macros_mapped')
 , self._object.devices)
-=======
         macro_devices = filter(lambda device: hasattr(device, 'macros_mapped'), self._object.devices)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._on_macros_mapped_changed.replace_subjects(macro_devices)
         self._update_children()
         self._update_selected_child()

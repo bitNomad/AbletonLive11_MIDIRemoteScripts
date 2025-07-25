@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from .consts import *
 TRANSPORT_CONTROLS = {
@@ -9,7 +8,6 @@ TRANSPORT_CONTROLS = {
   'RWD': GENERIC_RWD,
   'FFWD': GENERIC_FFWD,
   'NORELEASE': 0}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -26,7 +24,6 @@ TRANSPORT_CONTROLS = {'STOP':GENERIC_STOP,
  'RWD':GENERIC_RWD, 
  'FFWD':GENERIC_FFWD, 
  'NORELEASE':0}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 DEVICE_CONTROLS = (
  (
   GENERIC_ENC1, 0),
@@ -70,7 +67,6 @@ TRACKARM_CONTROLS = (
  GENERIC_BUT6,
  GENERIC_BUT7,
  GENERIC_BUT8)
-<<<<<<< HEAD
 BANK_CONTROLS = {
   'TOGGLELOCK': -1,
   'BANKDIAL': -1,
@@ -98,7 +94,6 @@ MIXER_OPTIONS = {
   'SEND2': (-1, -1, -1, -1, -1, -1, -1, -1),
   'MASTERVOLUME': -1,
   'NOTOGGLE': 0}
-=======
 BANK_CONTROLS = {'TOGGLELOCK':-1, 
  'BANKDIAL':-1, 
  'NEXTBANK':-1, 
@@ -123,4 +118,3 @@ MIXER_OPTIONS = {'NUMSENDS':2,
  'SEND2':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'MASTERVOLUME':-1, 
  'NOTOGGLE':0}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/SessionComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 26320 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from itertools import count
@@ -530,7 +527,6 @@ class SessionComponent(CompoundComponent):
                                 track = tracks_to_use[track_index]
                                 if track.fired_slot_index == -2:
                                     value_to_send = self._stop_clip_triggered_value
-<<<<<<< HEAD
                                 else:
                                     if track.playing_slot_index >= 0:
                                         value_to_send = self._stop_clip_value
@@ -541,7 +537,6 @@ class SessionComponent(CompoundComponent):
                                 button.send_value(value_to_send)
                             else:
                                 button.set_light(value_to_send)
-=======
                                 elif track.playing_slot_index >= 0:
                                     value_to_send = self._stop_clip_value
                         if value_to_send == None:
@@ -550,7 +545,6 @@ class SessionComponent(CompoundComponent):
                             button.send_value(value_to_send)
                         else:
                             button.set_light(value_to_send)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _is_linked(self):
         return self in SessionComponent._linked_session_instances

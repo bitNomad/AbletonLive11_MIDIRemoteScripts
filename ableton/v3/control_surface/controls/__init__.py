@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v2.control_surface.control import ButtonControlBase, Connectable, Control, ControlManager, EncoderControl, InputControl, MappedControl, PlayableControl, RadioButtonGroup, SendValueControl, SendValueMixin, control_color, control_event, control_matrix, is_internal_parameter
 from .button import ButtonControl
@@ -12,7 +11,6 @@ __all__ = ('ButtonControl', 'ButtonControlBase', 'Connectable', 'Control', 'Cont
            'PlayableControl', 'RadioButtonGroup', 'SendValueControl', 'SendValueInputControl',
            'SendValueMixin', 'ToggleButtonControl', 'control_color', 'control_event',
            'control_list', 'control_matrix', 'is_internal_parameter')
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -31,4 +29,3 @@ __all__ = ('ButtonControl', 'Connectable', 'Control', 'ControlManager', 'Encoder
            'FixedRadioButtonGroup', 'InputControl', 'MappableButton', 'MappedButtonControl',
            'MappedControl', 'RadioButtonGroup', 'SendValueInputControl', 'SendValueMixin',
            'ToggleButtonControl', 'control_list', 'control_matrix')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, division, print_function, unicode_literals
 import logging, os
 from ast import parse
@@ -8,7 +7,6 @@ from _Generic.GenericScript import TRANSPORT_BUTTON_SPECIFICATIONS, GenericScrip
 from ableton.v3.control_surface import MapMode
 from .DeviceComponent import DeviceComponent
 map_modes = {k: v for k, v in vars(MapMode).items() if k[:1] != '_' if not callable(v)}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -32,12 +30,10 @@ import Live
 from _Generic.GenericScript import TRANSPORT_BUTTON_SPECIFICATIONS, GenericScript
 from .DeviceComponent import DeviceComponent
 standard_library.install_aliases()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 logger = logging.getLogger(__name__)
 HIDE_SCRIPT = True
 
 def get_name_for_script(script_path):
-<<<<<<< HEAD
     folder_name = str(script_path.split(os.path.sep)[-2].replace(' ', '_'))
     try:
         parse('{}= None'.format(folder_name))
@@ -54,7 +50,6 @@ def parse_map_mode(config_parser, section_name, option_name):
     return map_modes['Absolute']
 
 
-=======
     folder_name = str(script_path.split(os.path.sep)[(-2)].replace(' ', '_'))
     try:
         parse('{}= None'.format(folder_name))
@@ -90,7 +85,6 @@ def parse_map_mode(config_parser, section_name, option_name):
     return result
 
 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 def parse_int(config_parser, integer_range, section_name, option_name):
     integer = -1
     if config_parser.has_option(section_name, option_name):
@@ -111,7 +105,6 @@ def parse_int(config_parser, integer_range, section_name, option_name):
 open_file = open
 
 def create_instance(c_instance, user_path=''):
-<<<<<<< HEAD
     device_map_mode = map_modes['Absolute']
     volume_map_mode = map_modes['Absolute']
     if user_path != '':
@@ -119,7 +112,6 @@ def create_instance(c_instance, user_path=''):
         if file_object:
             config_parser = ConfigParser()
             config_parser.read_file(file_object)
-=======
     device_map_mode = Live.MidiMap.MapMode.absolute
     volume_map_mode = Live.MidiMap.MapMode.absolute
     if not user_path == '':
@@ -130,21 +122,16 @@ def create_instance(c_instance, user_path=''):
                 config_parser.read_file(file_object)
             else:
                 config_parser.readfp(file_object)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             parse_identifier = partial(parse_int, config_parser, 128)
             parse_channel = partial(parse_int, config_parser, 16)
             device_controls = [
              (-1, -1)] * 16
-<<<<<<< HEAD
             transport_controls = {key.upper(): -1 for key in TRANSPORT_BUTTON_SPECIFICATIONS}
-=======
             transport_controls = {key.upper():-1 for key in TRANSPORT_BUTTON_SPECIFICATIONS}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             volume_controls = [
              (-1, -1)] * 8
             trackarm_controls = [
              -1] * 8
-<<<<<<< HEAD
             bank_controls = {
               'ONOFF': -1,
               'TOGGLELOCK': -1,
@@ -158,7 +145,6 @@ def create_instance(c_instance, user_path=''):
               'BANK6': -1,
               'BANK7': -1,
               'BANK8': -1}
-=======
             bank_controls = {'ONOFF':-1, 
              'TOGGLELOCK':-1, 
              'NEXTBANK':-1, 
@@ -171,7 +157,6 @@ def create_instance(c_instance, user_path=''):
              'BANK6':-1, 
              'BANK7':-1, 
              'BANK8':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             controller_descriptions = {'CHANNEL': -1}
             mixer_options = {'NUMSENDS':2, 
              'INVERTMUTELEDS':True, 
@@ -185,18 +170,14 @@ def create_instance(c_instance, user_path=''):
               -1] * 8, 
              'SELECT':[
               -1] * 8, 
-<<<<<<< HEAD
              'SENDMAPMODE':map_modes['Absolute'], 
-=======
              'SENDMAPMODE':Live.MidiMap.MapMode.absolute, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
              'MASTERVOLUME':-1, 
              'MASTERVOLUMECHANNEL':-1, 
              'CUEVOLUME':-1, 
              'CUEVOLUMECHANNEL':-1, 
              'CROSSFADER':-1, 
              'CROSSFADERCHANNEL':-1, 
-<<<<<<< HEAD
              'CROSSFADERMAPMODE':map_modes['Absolute']}
             if config_parser.has_section('DeviceControls'):
                 device_controls = [(parse_identifier('DeviceControls', 'Encoder{}'.format(index + 1)), parse_channel('DeviceControls', 'EncoderChannel{}'.format(index + 1))) for index in range(16)]
@@ -252,11 +233,9 @@ def create_instance(c_instance, user_path=''):
                         mixer_options['INVERTMUTELEDS'] = config_parser.getboolean('MixerControls', 'InvertMuteButtonFeedback')
                 mixer_options['NEXTBANK'] = parse_identifier('MixerControls', 'NextBankButton')
                 mixer_options['PREVBANK'] = parse_identifier('MixerControls', 'PrevBankButton')
-=======
              'CROSSFADERMAPMODE':Live.MidiMap.MapMode.absolute}
             if config_parser.has_section('DeviceControls'):
                 device_controls = [(parse_identifier('DeviceControls', 'Encoder{}'.format(index + 1)), parse_channel('DeviceControls', 'EncoderChannel{}'.format(index + 1))) for index in range(16)]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             for index in range(8):
                 friendly_index = index + 1
                 if config_parser.has_section('DeviceControls'):
@@ -271,9 +250,7 @@ def create_instance(c_instance, user_path=''):
                     mixer_options['SELECT'][index] = parse_identifier('MixerControls', 'TrackSelectButton{}'.format(friendly_index))
                     mixer_options['SEND1'][index] = parse_identifier('MixerControls', 'Send1Knob{}'.format(friendly_index))
                     mixer_options['SEND2'][index] = parse_identifier('MixerControls', 'Send2Knob{}'.format(friendly_index))
-<<<<<<< HEAD
 
-=======
                 if config_parser.has_section('Globals'):
                     controller_descriptions['CHANNEL'] = parse_channel('Globals', 'GlobalChannel')
                     pad_translation = []
@@ -327,7 +304,6 @@ def create_instance(c_instance, user_path=''):
                     for key in TRANSPORT_BUTTON_SPECIFICATIONS:
                         transport_controls[key.upper()] = parse_identifier('TransportControls', '{}Button'.format(key))
 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         else:
             pass
     else:

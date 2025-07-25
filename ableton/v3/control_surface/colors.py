@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v3/control_surface/colors.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 4425 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from .elements import SimpleColor
 
@@ -16,7 +13,6 @@ class BasicColors:
     ON = SimpleColor(127)
 
 
-<<<<<<< HEAD
 STANDARD_COLOR_PALETTE = {
   10927616: 74,
   16149507: 84,
@@ -88,7 +84,6 @@ STANDARD_COLOR_PALETTE = {
   13496824: 114,
   9611263: 92,
   9160191: 36}
-=======
 STANDARD_COLOR_PALETTE = {10927616:74, 
  16149507:84, 
  4047616:76, 
@@ -159,7 +154,6 @@ STANDARD_COLOR_PALETTE = {10927616:74,
  13496824:114, 
  9611263:92, 
  9160191:36}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 STANDARD_FALLBACK_COLOR_TABLE = ((0, 0), (1, 1973790), (2, 8355711), (3, 16777215),
                                  (4, 16731212), (5, 16711680), (6, 5832704), (7, 1638400),
                                  (8, 16760172), (9, 16733184), (10, 5840128), (11, 2562816),

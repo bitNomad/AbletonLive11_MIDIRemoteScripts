@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 AUTO_FILTER_PARAMS = {'LFO Sync Rate': 'LFO Synced Rate'}
 AUTO_PAN_PARAMS = {'Sync Rate': 'Synced Rate'}
@@ -28,7 +27,6 @@ EQ_FOUR_PARAMS = {
   '4 Gain A': '4 Gain',
   '4 Filter Type A': '4 Filter Type',
   '4 Resonance A': '4 Resonance'}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -63,7 +61,6 @@ EQ_FOUR_PARAMS = {'1 Filter On A':'1 Filter On',
  '4 Gain A':'4 Gain', 
  '4 Filter Type A':'4 Filter Type', 
  '4 Resonance A':'4 Resonance'}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 FLANGER_PARAMS = {'Frequency':'LFO Frequency', 
  'Sync':'LFO Sync', 
  'Sync Rate':'LFO Synced Rate'}
@@ -71,7 +68,6 @@ PHASER_PARAMS = {'Sync':'LFO Sync',
  'Sync Rate':'LFO Synced Rate'}
 SATURATOR_PARAMS = {'Base':'BaseDrive', 
  'Drive':'PreDrive'}
-<<<<<<< HEAD
 FIVETOSIX_PARAMS_DICT = {
   'AutoFilter': AUTO_FILTER_PARAMS,
   'AutoPan': AUTO_PAN_PARAMS,
@@ -80,7 +76,6 @@ FIVETOSIX_PARAMS_DICT = {
   'Flanger': FLANGER_PARAMS,
   'Phaser': PHASER_PARAMS,
   'Saturator': SATURATOR_PARAMS}
-=======
 FIVETOSIX_PARAMS_DICT = {'AutoFilter':AUTO_FILTER_PARAMS, 
  'AutoPan':AUTO_PAN_PARAMS, 
  'BeatRepeat':BEAT_REPEAT_PARAMS, 
@@ -88,4 +83,3 @@ FIVETOSIX_PARAMS_DICT = {'AutoFilter':AUTO_FILTER_PARAMS,
  'Flanger':FLANGER_PARAMS, 
  'Phaser':PHASER_PARAMS, 
  'Saturator':SATURATOR_PARAMS}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

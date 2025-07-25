@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/LV2_LX2_LC2_LD2/Devices.py
 # Compiled at: 2022-01-28 05:06:23
 # Size of source mod 2**32: 22531 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import Live
 RCK_BANK1 = ('Macro 1', 'Macro 2', 'Macro 3', 'Macro 4', 'Macro 5', 'Macro 6', 'Macro 7',
@@ -74,11 +71,8 @@ OPR_BANKS = (
 OPR_BOBS = OPR_BOB
 OPR_BNK_NAMES = ('Oscillator A', 'Oscillator B', 'Oscillator C', 'Oscillator D', 'LFO',
                  'Filter', 'Pitch Modulation', 'Routing')
-<<<<<<< HEAD
 TEN_BOB = ('Exciter Type', 'Exc ForceMassProt', 'String Decay', 'Str Damping', 'Vib Amount',
-=======
 TEN_BOB = ('Excitator Type', 'Exc ForceMassProt', 'String Decay', 'Str Damping', 'Vib Amount',
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
            'Filter Freq', 'Filter Reso', 'Volume')
 TEN_BOBS = TEN_BOB
 ANA_BOB = ('F1 Freq', 'F1 Resonance', 'OSC1 Octave', 'Vib On/Off', 'AEG1 Attack', 'AEG1 Rel',
@@ -298,7 +292,6 @@ UTL_BANK2 = ('Bass Mono', 'Bass Freq', 'DC Filter', '', '', '', '', '')
 UTL_BANKS = (UTL_BANK1, UTL_BANK2)
 UTL_BOBS = (UTL_BANK1,)
 UTL_BANK_NAMES = ('General Controls', 'Low Frequency')
-<<<<<<< HEAD
 RVB_BANK1 = ('In Filter Freq', 'In Filter Width', 'Predelay', 'ER Spin On', 'ER Spin Rate',
              'ER Spin Amount', 'ER Shape', 'Decay Time')
 RVB_BANK2 = ('HiFilter Freq', 'LowShelf Freq', 'Chorus Rate', 'Diffusion', 'HiShelf Gain',
@@ -306,7 +299,6 @@ RVB_BANK2 = ('HiFilter Freq', 'LowShelf Freq', 'Chorus Rate', 'Diffusion', 'HiSh
 RVB_BANK3 = ('Decay Time', 'Freeze On', 'Room Size', 'Stereo Image', 'Reflect Level',
              'Diffuse Level', 'Dry/Wet', 'Density')
 RVB_BOB = ('Decay Time', 'Room Size', 'Chorus Amount', 'In Filter Freq', 'HiFilter Freq',
-=======
 RVB_BANK1 = ('In Filter Freq', 'In Filter Width', 'PreDelay', 'ER Spin On', 'ER Spin Rate',
              'ER Spin Amount', 'ER Shape', 'DecayTime')
 RVB_BANK2 = ('HiShelf Freq', 'LowShelf Freq', 'Chorus Rate', 'Density', 'HiShelf Gain',
@@ -314,7 +306,6 @@ RVB_BANK2 = ('HiShelf Freq', 'LowShelf Freq', 'Chorus Rate', 'Density', 'HiShelf
 RVB_BANK3 = ('DecayTime', 'Freeze On', 'Room Size', 'Stereo Image', 'ER Level', 'Diffuse Level',
              'Dry/Wet', 'Quality')
 RVB_BOB = ('DecayTime', 'Room Size', 'Chorus Amount', 'In Filter Freq', 'HiShelf Freq',
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
            'HiShelf Gain', 'Stereo Image', 'Dry/Wet')
 RVB_BANKS = (
  RVB_BANK1, RVB_BANK2, RVB_BANK3)
@@ -331,7 +322,6 @@ PPG_BANK1 = ('Filter Freq', 'Filter Width', 'Time Delay', 'Beat Delay', 'Beat Sw
              'Delay Mode', 'Feedback', 'Dry/Wet')
 PPG_BANKS = PPG_BANK1
 PPG_BOBS = PPG_BANK1
-<<<<<<< HEAD
 DEVICE_DICT = {
   'AudioEffectGroupDevice': RCK_BANKS,
   'MidiEffectGroupDevice': RCK_BANKS,
@@ -497,7 +487,6 @@ FIVETOSIX_DICT = {
   'Simpler': 'OriginalSimpler',
   'Impulse': 'InstrumentImpulse',
   'Operator': 'Operator'}
-=======
 DEVICE_DICT = {'AudioEffectGroupDevice':RCK_BANKS, 
  'MidiEffectGroupDevice':RCK_BANKS, 
  'DrumGroupDevice':RCK_BANKS, 
@@ -658,7 +647,6 @@ FIVETOSIX_DICT = {'Auto Filter':'AutoFilter',
  'Simpler':'OriginalSimpler', 
  'Impulse':'InstrumentImpulse', 
  'Operator':'Operator'}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 INVERT_QUANT_PARAM = {'FilterDelay.1 Beat Delay':1, 
  'FilterDelay.2 Beat Delay':1, 
  'FilterDelay.3 Beat Delay':1}

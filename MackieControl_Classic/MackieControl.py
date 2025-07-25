@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/MackieControl_Classic/MackieControl.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 13640 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import object, range
 import Live, MidiRemoteScript
@@ -151,7 +148,6 @@ class MackieControl(object):
                     self._MackieControl__transport.handle_marker_switch_ids(note, value)
                 if note in jog_wheel_switch_ids:
                     self._MackieControl__transport.handle_jog_wheel_switch_ids(note, value)
-<<<<<<< HEAD
         else:
             if midi_bytes[0] & 240 == CC_STATUS:
                 cc_no = midi_bytes[1]
@@ -171,7 +167,6 @@ class MackieControl(object):
                             major_version = version_bytes[1]
                             self.is_pro_version = major_version > 50
                             self._received_firmware_version = True
-=======
         elif midi_bytes[0] & 240 == CC_STATUS:
             cc_no = midi_bytes[1]
             cc_value = midi_bytes[2]
@@ -188,7 +183,6 @@ class MackieControl(object):
                     major_version = version_bytes[1]
                     self.is_pro_version = major_version > 50
                     self._received_firmware_version = True
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def can_lock_to_devices(self):
         return False
@@ -233,13 +227,10 @@ class MackieControl(object):
         if switch_id == SID_DISPLAY_NAME_VALUE:
             if value == BUTTON_PRESSED:
                 self._MackieControl__channel_strip_controller.toggle_meter_mode()
-<<<<<<< HEAD
         else:
             if switch_id == SID_DISPLAY_SMPTE_BEATS:
                 if value == BUTTON_PRESSED:
                     self._MackieControl__time_display.toggle_mode()
-=======
         elif switch_id == SID_DISPLAY_SMPTE_BEATS:
             if value == BUTTON_PRESSED:
                 self._MackieControl__time_display.toggle_mode()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

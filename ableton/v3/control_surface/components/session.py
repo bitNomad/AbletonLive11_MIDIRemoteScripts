@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from itertools import count, zip_longest
 from ...base import clip_slot_display_name, const, depends, inject, listens, listens_group, liveobj_valid
@@ -62,7 +61,6 @@ class SessionComponent(Component):
         num_scenes = self._session_ring.num_scenes
         for scene, button in zip_longest(self._scenes, buttons or []):
             scene.set_launch_button(button)
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -133,13 +131,11 @@ class SessionComponent(SessionComponentBase):
 
     def set_stop_all_clips_button(self, button):
         self.stop_all_clips_button.set_control_element(button)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def set_stop_track_clip_buttons(self, buttons):
         self.stop_track_clip_buttons.set_control_element(buttons)
         self._update_stop_track_clip_buttons()
 
-<<<<<<< HEAD
     def set_clip_slot_select_button(self, button):
         self.set_modifier_button(button, 'select_button', clip_slots_only=True)
 
@@ -177,15 +173,12 @@ class SessionComponent(SessionComponentBase):
     def copy_button(self, _):
         self._clip_slot_copy_handler.stop_copying()
 
-=======
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     @stop_all_clips_button.pressed
     def stop_all_clips_button(self, _):
         self.song.stop_all_clips()
 
     @stop_track_clip_buttons.pressed
     def stop_track_clip_buttons(self, button):
-<<<<<<< HEAD
         self._session_ring.tracks[button.index].stop_all_clips()
 
     def _end_initialisation(self):
@@ -321,7 +314,6 @@ class ClipSlotCopyHandler:
     def _reset_copying_state(self):
         self._source_clip_slot = None
         self._is_copying = False
-=======
         tracks_to_use = self._session_ring.tracks_to_use()
         track_index = self._session_ring.track_offset + button.index
         if track_index < len(tracks_to_use):
@@ -343,4 +335,3 @@ class ClipSlotCopyHandler:
                     button.color = 'Session.StopClipDisabled'
             else:
                 button.enabled = False
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

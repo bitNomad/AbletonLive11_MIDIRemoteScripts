@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -33,4 +31,3 @@ __all__ = ('Bindable', 'BooleanContext', 'CompoundDisconnectable', 'DependencyEr
            'negate', 'next', 'nop', 'overlaymap', 'old_round', 'old_hasattr', 'print_message',
            'product', 'recursive_map', 'refget', 'remove_if', 'second', 'sign', 'slice_size',
            'slicer', 'third', 'to_slice', 'trace_value', 'union')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

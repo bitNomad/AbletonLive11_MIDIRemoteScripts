@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/note_editor_component.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 35084 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import filter, map, object, range
 from past.utils import old_div
@@ -41,12 +38,9 @@ def color_for_note(note, velocity_range_thresholds=None):
 
 
 def most_significant_note(notes):
-<<<<<<< HEAD
     return max(notes, key=(lambda n: n.velocity
 ))
-=======
     return max(notes, key=(lambda n: n.velocity))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 def is_triplet_quantization(triplet_factor):
@@ -350,7 +344,6 @@ class NoteEditorComponent(Component):
                 last_editing_notes = []
                 if index in selected_indices:
                     color = self._skin_base_key + '.StepSelected'
-<<<<<<< HEAD
                 else:
                     if index in editing_indices:
                         note_color = self._determine_color(notes)
@@ -359,7 +352,6 @@ class NoteEditorComponent(Component):
                     else:
                         note_color = self._determine_color(notes)
                         color = self._skin_base_key + '.Step.' + note_color
-=======
                 elif index in editing_indices:
                     note_color = self._determine_color(notes)
                     color = self._skin_base_key + '.StepEditing.' + note_color
@@ -372,7 +364,6 @@ class NoteEditorComponent(Component):
             elif index in editing_indices or index in selected_indices:
                 color = self._skin_base_key + '.StepSelected'
                 last_editing_notes = []
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             else:
                 if any(map(time_step.overlaps_note, last_editing_notes)):
                     color = self._skin_base_key + '.StepEditing.' + note_color
@@ -731,7 +722,6 @@ class NoteEditorComponent(Component):
         if self._modify_all_notes_enabled:
             self._modify_all_notes()
             self._replace_notes()
-<<<<<<< HEAD
         else:
             if self._modified_steps:
                 notes_added = list(map(lambda step_and_pitch: (self._add_or_modify_note_in_step)(*step_and_pitch, **{'modify_existing': False})
@@ -741,7 +731,6 @@ class NoteEditorComponent(Component):
                 else:
                     self._modify_step_notes(self._modified_steps)
                     self._replace_notes()
-=======
         elif self._modified_steps:
             notes_added = list(map(lambda step_and_pitch: (self._add_or_modify_note_in_step)(*step_and_pitch, **{'modify_existing': False}), product(self._modified_steps, self._pitches)))
             if any(notes_added):
@@ -749,7 +738,6 @@ class NoteEditorComponent(Component):
             else:
                 self._modify_step_notes(self._modified_steps)
                 self._replace_notes()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._reset_modifications()
 
     def _replace_notes(self):

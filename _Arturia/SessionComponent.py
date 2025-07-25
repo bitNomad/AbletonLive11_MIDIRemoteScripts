@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from _Framework.Control import EncoderControl
 from _Framework.SessionComponent import SessionComponent as SessionComponentBase
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -13,7 +11,6 @@ from _Framework.SessionComponent import SessionComponent as SessionComponentBase
 from __future__ import absolute_import, print_function, unicode_literals
 from _Framework.Control import EncoderControl
 import _Framework.SessionComponent as SessionComponentBase
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 class SessionComponent(SessionComponentBase):
     scene_select_encoder = EncoderControl()
@@ -33,20 +30,17 @@ class SessionComponent(SessionComponentBase):
         selected_scene = self.song().view.selected_scene
         all_scenes = self.song().scenes
         current_index = list(all_scenes).index(selected_scene)
-<<<<<<< HEAD
         if value > 0 and selected_scene != all_scenes[-1]:
             self.song().view.selected_scene = all_scenes[current_index + 1]
         else:
             if value < 0:
                 if selected_scene != all_scenes[0]:
                     self.song().view.selected_scene = all_scenes[current_index - 1]
-=======
         if value > 0 and selected_scene != all_scenes[(-1)]:
             self.song().view.selected_scene = all_scenes[(current_index + 1)]
         elif value < 0:
             if selected_scene != all_scenes[0]:
                 self.song().view.selected_scene = all_scenes[(current_index - 1)]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def on_selected_scene_changed(self):
         super(SessionComponent, self).on_selected_scene_changed()

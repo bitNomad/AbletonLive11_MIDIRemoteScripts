@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/elements/physical_display.py
 # Compiled at: 2022-01-28 05:06:24
 # Size of source mod 2**32: 13823 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, map, range, zip
 from past.builtins import unicode
@@ -125,7 +122,6 @@ class DisplayElement(ControlElement):
 
 
 class PhysicalDisplayElement(DisplayElement, NotifyingControlElement):
-<<<<<<< HEAD
     ascii_translations = {
       '0': 48,
       '1': 49,
@@ -219,7 +215,6 @@ class PhysicalDisplayElement(DisplayElement, NotifyingControlElement):
       '\\': 92,
       '*': 42,
       '+': 43}
-=======
     ascii_translations = {'0':48, 
      '1':49, 
      '2':50, 
@@ -310,7 +305,6 @@ class PhysicalDisplayElement(DisplayElement, NotifyingControlElement):
      '\\':92, 
      '*':42, 
      '+':43}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def __init__(self, *a, **k):
         self._central_resource = _DisplayCentralResource(root_display=self,
@@ -329,12 +323,9 @@ class PhysicalDisplayElement(DisplayElement, NotifyingControlElement):
 
     def nested_display_resource_factory(self, display):
         wrapper = ClientWrapper(wrap=(lambda c: (
-<<<<<<< HEAD
          display, c)
 ),
-=======
          display, c)),
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
           unwrap=(partial(maybe(second))))
         return const(ProxyResource(proxied_resource=(self._central_resource), client_wrapper=wrapper))
 

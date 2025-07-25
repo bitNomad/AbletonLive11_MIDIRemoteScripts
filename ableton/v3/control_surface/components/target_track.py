@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from ...base import MultiSlot, depends, listenable_property, listens, listens_group, liveobj_changed, liveobj_valid, scene_index
 from .. import Component
@@ -24,7 +23,6 @@ class TargetTrackComponent(Component, Renderable):
         self.register_slot(self.application.view, self._update_target_clip, 'focused_document_view')
         self.register_slot(self.song.view, self._update_target_clip, 'detail_clip')
         self.register_slot(self.song.view, self._update_target_clip, 'selected_scene')
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -49,12 +47,10 @@ class TargetTrackComponent(Component):
         self._target_track = None
         self._locked_to_track = False
         self.register_slot(self.song.view, self._selected_track_changed, 'selected_track')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._selected_track_changed()
 
     def disconnect(self):
         self._target_track = None
-<<<<<<< HEAD
         self._target_clip = None
         super().disconnect()
 
@@ -67,7 +63,6 @@ class TargetTrackComponent(Component):
         return self._target_clip
 
     @listenable_property
-=======
         super().disconnect()
 
     @property
@@ -75,13 +70,11 @@ class TargetTrackComponent(Component):
         return self._target_track
 
     @property
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     def is_locked_to_track(self):
         return self._locked_to_track
 
     @is_locked_to_track.setter
     def is_locked_to_track(self, is_locked):
-<<<<<<< HEAD
         if is_locked != self._locked_to_track:
             self._locked_to_track = is_locked
             current_track = self._target_track
@@ -91,7 +84,6 @@ class TargetTrackComponent(Component):
                 self._show_message('Locked to {}'.format(self._target_track.name))
             else:
                 self._show_message('Unlocked from {}'.format(current_track.name))
-=======
         self._locked_to_track = is_locked
         current_track = self._target_track
         self._set_target_track()
@@ -104,7 +96,6 @@ class TargetTrackComponent(Component):
     @lock_button.toggled
     def lock_button(self, is_toggled, _):
         self.is_locked_to_track = is_toggled
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _selected_track_changed(self):
         self._set_target_track()
@@ -114,22 +105,18 @@ class TargetTrackComponent(Component):
             new_target = self._get_new_target_track()
             if liveobj_changed(self._target_track, new_target):
                 self._target_track = new_target
-<<<<<<< HEAD
                 self._update_target_clip()
                 self.notify_target_track()
             self.is_locked_to_track = False
-=======
                 self.notify_target_track()
             if self._locked_to_track:
                 self._locked_to_track = False
                 self.lock_button.is_toggled = False
                 self.notify_is_locked_to_track()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _get_new_target_track(self):
         return self.song.view.selected_track
 
-<<<<<<< HEAD
     def _update_target_clip(self):
         self._TargetTrackComponent__on_target_clip_slot_has_clip_changed.subject = None
         clip = None
@@ -158,8 +145,6 @@ class TargetTrackComponent(Component):
     def __on_target_clip_slot_has_clip_changed(self):
         self._update_target_clip()
 
-=======
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 class ArmedTargetTrackComponent(TargetTrackComponent):
 
@@ -173,33 +158,24 @@ class ArmedTargetTrackComponent(TargetTrackComponent):
         self._armed_track_list = None
         super().disconnect()
 
-<<<<<<< HEAD
-=======
     @property
     def tracks(self):
         return [t for t in self.song.tracks if liveobj_valid(t) if t.can_be_armed]
 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     def _selected_track_changed(self):
         if not self._armed_track_list:
             self._set_target_track()
 
     def _get_new_target_track(self):
         if self._armed_track_list:
-<<<<<<< HEAD
             return self._armed_track_list[-1]
-=======
             return self._armed_track_list[(-1)]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         return super()._get_new_target_track()
 
     @listens('visible_tracks')
     def __on_tracks_changed(self):
-<<<<<<< HEAD
         tracks = self._tracks()
-=======
         tracks = self.tracks
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._ArmedTargetTrackComponent__on_arm_changed.replace_subjects(tracks)
         self._ArmedTargetTrackComponent__on_frozen_state_changed.replace_subjects(tracks)
         self._refresh_armed_track_list()
@@ -213,11 +189,8 @@ class ArmedTargetTrackComponent(TargetTrackComponent):
         self._refresh_armed_track_list()
 
     def _refresh_armed_track_list(self):
-<<<<<<< HEAD
         tracks = self._tracks()
-=======
         tracks = self.tracks
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         for track in self._armed_track_list:
             if liveobj_valid(track):
                 if track.arm:
@@ -232,11 +205,8 @@ class ArmedTargetTrackComponent(TargetTrackComponent):
                     if track not in self._armed_track_list:
                         self._armed_track_list.append(track)
 
-<<<<<<< HEAD
         self._set_target_track()
 
     def _tracks(self):
         return [t for t in self.song.tracks if liveobj_valid(t) if t.can_be_armed]
-=======
         self._set_target_track()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

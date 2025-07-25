@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 IMAGE_ID_TO_FILENAME = {
   'amp_bass': ('amp_bass.svg', ''),
@@ -253,7 +252,6 @@ IMAGE_ID_TO_FILENAME = {
   'hybrid_reverb_routing_parallel_eq_pre_algo': ('hybrid_route_parallel_eqon_paon.svg', ''),
   'hybrid_reverb_routing_convo_eq_pre_algo': ('hybrid_route_convo_eqon.svg', ''),
   'hybrid_reverb_routing_algo_eq_pre_algo': ('hybrid_route_algo_eqon_paon.svg', '')}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -514,7 +512,6 @@ IMAGE_ID_TO_FILENAME = {'amp_bass':('amp_bass.svg', ''),
  'hybrid_reverb_routing_parallel_eq_pre_algo':('hybrid_route_parallel_eqon_paon.svg', ''), 
  'hybrid_reverb_routing_convo_eq_pre_algo':('hybrid_route_convo_eqon.svg', ''), 
  'hybrid_reverb_routing_algo_eq_pre_algo':('hybrid_route_algo_eqon_paon.svg', '')}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 OPERATOR_OSCILLATORS = ('wave_sine', 'wave_sine_4bit', 'wave_sine_8bit', 'wave_saw_3',
                         'wave_saw_4', 'wave_saw_6', 'wave_saw_8', 'wave_saw_16',
                         'wave_saw_32', 'wave_saw_64', 'wave_saw_down', 'wave_square_3',
@@ -558,7 +555,6 @@ WAVETABLE_LFO_TYPES = ('lfo_sine_small', 'lfo_triangle_small', 'lfo_saw_down_sma
                        'lfo_square_small', 'lfo_random_small')
 WAVETABLE_VOICES = ('voices_2', 'voices_3', 'voices_4', 'voices_5', 'voices_6', 'voices_7',
                     'voices_8')
-<<<<<<< HEAD
 GENERIC_PARAMETER_IMAGES = {
   'LFO Waveform': LFO_WAVEFORMS,
   'Waveform': ('wave_sine', 'wave_triangle', 'wave_saw_down', 'wave_sh_stereo'),
@@ -730,7 +726,6 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{
    'Filter Type': CYTOMIC_FILTER_TYPES,
    'Filter Circuit - LP/HP': FILTER_CIRCUIT_TYPES,
    'Filter Circuit - BP/NO/Morph': FILTER_CIRCUIT_TYPES}, 
-=======
 GENERIC_PARAMETER_IMAGES = {'LFO Waveform':LFO_WAVEFORMS, 
  'Waveform':('wave_sine', 'wave_triangle', 'wave_saw_down', 'wave_sh_stereo'), 
  'Filter Type':('filter_low_48', 'filter_high_48', 'filter_band_24', 'filter_notch_24'), 
@@ -897,31 +892,26 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
   'Filter Type':CYTOMIC_FILTER_TYPES, 
   'Filter Circuit - LP/HP':FILTER_CIRCUIT_TYPES, 
   'Filter Circuit - BP/NO/Morph':FILTER_CIRCUIT_TYPES}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'AutoPan':{'Invert':('phase_normal', 'phase_inverted'), 
   'LFO Type':SYNC, 
   'Stereo Mode':STEREO_MODE}, 
  'BeatRepeat':{'Filter On':ACTIVATE, 
   'Repeat':ACTIVATE,  'Block Triplets':ACTIVATE}, 
-<<<<<<< HEAD
  'Cabinet':{
    'Dual Mono': ACTIVATE,
    'Cabinet Type': ('cabinet_1x12', 'cabinet_2x12', 'cabinet_4x12', 'cabinet_4x10', 'cabinet_4x10bass'),
    'Microphone Type': ('mic_condenser', 'mic_dynamic'),
    'Microphone Position': ('mic_nearon', 'mic_nearoff', 'mic_far')}, 
-=======
  'Cabinet':{'Dual Mono':ACTIVATE, 
   'Cabinet Type':('cabinet_1x12', 'cabinet_2x12', 'cabinet_4x12', 'cabinet_4x10', 'cabinet_4x10bass'), 
   'Microphone Type':('mic_condenser', 'mic_dynamic'), 
   'Microphone Position':('mic_nearon', 'mic_nearoff', 'mic_far')}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'Chorus':{'LFO Extend On':ACTIVATE, 
   'Link On':ACTIVATE}, 
  'Chorus2':{'Mode': ('chorus_ensemble_classic', 'chorus_ensemble_ensemble', 'chorus_ensemble_vibrato')}, 
  'Compressor2':{'Auto Release On/Off':ACTIVATE, 
   'Makeup':ACTIVATE, 
   'Model':COMPRESSOR_MODES}, 
-<<<<<<< HEAD
  'Corpus':{
    'Resonance Type': RESONANCE_TYPES,
    'LFO On/Off': ACTIVATE,
@@ -976,7 +966,6 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
    '1 Delay Mode': ACTIVATE,
    '2 Delay Mode': ACTIVATE,
    '3 Delay Mode': ACTIVATE}, 
-=======
  'Corpus':{'Resonance Type':RESONANCE_TYPES, 
   'LFO On/Off':ACTIVATE, 
   'LFO Shape':('wave_sine', 'wave_square', 'wave_triangle', 'wave_saw_up', 'wave_saw_down', 'wave_sh_mono',
@@ -1031,12 +1020,10 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
   '1 Delay Mode':ACTIVATE, 
   '2 Delay Mode':ACTIVATE, 
   '3 Delay Mode':ACTIVATE}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'FrequencyShifter':{'Wide':ACTIVATE, 
   'Drive On/Off':ACTIVATE}, 
  'GlueCompressor':{'Peak Clip In': ACTIVATE}, 
  'GrainDelay':{'Delay Mode': ACTIVATE}, 
-<<<<<<< HEAD
  'Hybrid':{
    'Section': ('hybrid_reverb_section_convolution', 'hybrid_reverb_section_algo', 'hybrid_reverb_section_mix', 'hybrid_reverb_section_eq'),
    'Algo Type': ('hybrid_reverb_type_darkhall', 'hybrid_reverb_type_quartz', 'hybrid_reverb_type_shimmer', 'hybrid_reverb_type_tides', 'hybrid_reverb_type_prism'),
@@ -1080,7 +1067,6 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
    'Band Activator (Mid)': ACTIVATE,
    'Band Activator (High)': ACTIVATE,
    'Soft Knee On/Off': ACTIVATE}, 
-=======
  'Hybrid':{'Section':('hybrid_reverb_section_convolution', 'hybrid_reverb_section_algo', 'hybrid_reverb_section_mix',
  'hybrid_reverb_section_eq'), 
   'Algo Type':('hybrid_reverb_type_darkhall', 'hybrid_reverb_type_quartz', 'hybrid_reverb_type_shimmer',
@@ -1128,13 +1114,11 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
   'Band Activator (Mid)':ACTIVATE, 
   'Band Activator (High)':ACTIVATE, 
   'Soft Knee On/Off':ACTIVATE}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'Pedal':{'Type':('pedal_overdrive', 'pedal_distortion', 'pedal_fuzz'), 
   'Sub':ACTIVATE}, 
  'Redux':{'Bit On': ACTIVATE}, 
  'Redux2':{'DC Shift':ACTIVATE, 
   'Pre-Filter On':ACTIVATE}, 
-<<<<<<< HEAD
  'Resonator':{
    'Const': ACTIVATE,
    'Filter On': ACTIVATE,
@@ -1161,7 +1145,6 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
    'Channel Mode': ('utility_left', 'utility_stereo', 'utility_right', 'utility_swap'),
    'Left Inv': ACTIVATE,
    'Right Inv': ACTIVATE}, 
-=======
  'Resonator':{'Const':ACTIVATE, 
   'Filter On':ACTIVATE, 
   'I On':ACTIVATE, 
@@ -1185,7 +1168,6 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
   'Channel Mode':('utility_left', 'utility_stereo', 'utility_right', 'utility_swap'), 
   'Left Inv':ACTIVATE, 
   'Right Inv':ACTIVATE}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'Transmute':{'Mod Mode': ('transmute_mod_mode_none', 'transmute_mod_mode_chorus', 'transmute_mod_mode_wander',
  'transmute_mod_mode_granular')}, 
  'Spectral':{'Mode':('spectraltime_manual', 'spectraltime_retrigger'), 
@@ -1195,18 +1177,15 @@ DEVICE_PARAMETER_IMAGES = {'UltraAnalog':{'OSC1 On/Off':ACTIVATE,
   'Pinch On':ACTIVATE}, 
  'Vocoder':{'Precise/Retro':ACTIVATE, 
   'Enhance':ACTIVATE}, 
-<<<<<<< HEAD
  'MidiArpeggiator':{
    'Hold On': ACTIVATE,
    'Sync On': ACTIVATE,
    'Velocity On': ACTIVATE,
    'Vel. Retrigger': ACTIVATE}, 
-=======
  'MidiArpeggiator':{'Hold On':ACTIVATE, 
   'Sync On':ACTIVATE, 
   'Velocity On':ACTIVATE, 
   'Vel. Retrigger':ACTIVATE}, 
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
  'MidiNoteLength':{'Trigger Mode':ACTIVATE, 
   'Sync On':ACTIVATE}, 
  'MidiRandom':{'Mode': ACTIVATE}, 
@@ -1221,13 +1200,10 @@ def get_image_filenames(parameter_name, device_type, small_images=False, device_
     image_ids = []
     if device_type in device_parameter_images and parameter_name in device_parameter_images[device_type]:
         image_ids = device_parameter_images[device_type][parameter_name]
-<<<<<<< HEAD
     else:
         if parameter_name in generic_parameter_images:
             image_ids = generic_parameter_images[parameter_name]
-=======
     elif parameter_name in generic_parameter_images:
         image_ids = generic_parameter_images[parameter_name]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     return get_image_filenames_from_ids(image_ids,
       small_images=small_images, image_id_to_filename=image_id_to_filename)

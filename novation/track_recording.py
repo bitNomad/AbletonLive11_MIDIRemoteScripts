@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/novation/track_recording.py
 # Compiled at: 2021-06-29 09:33:48
 # Size of source mod 2**32: 3217 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import Live
 from ableton.v2.base import const, depends, listens
@@ -33,20 +30,17 @@ class TrackRecordingComponent(SessionRecordingComponentBase):
         if not track_is_recording(track) or playing_slot is not None:
             self.song.overdub = not self.song.overdub
             self.song.is_playing = self.song.is_playing or True
-<<<<<<< HEAD
         else:
             if not self._stop_recording():
                 self._prepare_new_slot(track)
                 self._start_recording()
             else:
                 self._TrackRecordingComponent__on_fired_slot_index_changed.subject = track
-=======
         elif not self._stop_recording():
             self._prepare_new_slot(track)
             self._start_recording()
         else:
             self._TrackRecordingComponent__on_fired_slot_index_changed.subject = track
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _prepare_new_slot(self, track):
         try:

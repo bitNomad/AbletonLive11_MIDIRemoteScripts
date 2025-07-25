@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchpad_Pro/DrumGroupFinderComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3300 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from itertools import chain
 import Live
@@ -66,12 +63,9 @@ class DrumGroupFinderComponent(ControlSurfaceComponent, Subject):
 
 
 def find_instrument_devices(track_or_chain):
-<<<<<<< HEAD
     instrument = find_if(lambda d: d.type == Live.Device.DeviceType.instrument
 , track_or_chain.devices)
-=======
     instrument = find_if(lambda d: d.type == Live.Device.DeviceType.instrument, track_or_chain.devices)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     if instrument:
         if not instrument.can_have_drum_pads:
             if instrument.can_have_chains:
@@ -80,12 +74,9 @@ def find_instrument_devices(track_or_chain):
 
 
 def find_drum_group_device(track_or_chain):
-<<<<<<< HEAD
     instrument = find_if(lambda d: d.type == Live.Device.DeviceType.instrument
 , track_or_chain.devices)
-=======
     instrument = find_if(lambda d: d.type == Live.Device.DeviceType.instrument, track_or_chain.devices)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     if instrument:
         if instrument.can_have_drum_pads:
             return instrument

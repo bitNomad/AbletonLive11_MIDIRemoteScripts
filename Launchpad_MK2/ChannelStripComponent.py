@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from itertools import chain
 from _Framework.ChannelStripComponent import ChannelStripComponent as ChannelstripComponentBase
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -13,7 +11,6 @@ from _Framework.ChannelStripComponent import ChannelStripComponent as Channelstr
 from __future__ import absolute_import, print_function, unicode_literals
 from itertools import chain
 import _Framework.ChannelStripComponent as ChannelstripComponentBase
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from _Framework.Control import ButtonControl
 from _Framework.SubjectSlot import subject_slot
 PAN_VALUE_DEVIATION_TOLERANCE = 0.01563

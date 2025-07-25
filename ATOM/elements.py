@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v3.control_surface import MIDI_NOTE_TYPE, ElementsBase, MapMode, create_matrix_identifiers
 SESSION_WIDTH = 4
@@ -45,7 +44,6 @@ class Elements(ElementsBase):
         self.add_submatrix((self.pads), 'Pads_Row_3', rows=(3, 4))
         self.add_submatrix((self.pads_with_shift),
           'Pads_Column_3_With_Shift', columns=(3, 4))
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -121,4 +119,3 @@ class Elements(object):
           name='Encoders')
         self.native_mode_reply_element = InputControlElement(MIDI_CC_TYPE,
           15, 127, name='Native_Mode_Reply_Element')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

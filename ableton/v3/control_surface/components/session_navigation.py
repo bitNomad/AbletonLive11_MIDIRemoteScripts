@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from functools import partial
 from ...base import clamp, depends, listens
@@ -117,7 +116,6 @@ class SessionNavigationComponent(Component):
     def __on_offset_changed(self, *_):
         self._update_vertical()
         self._update_horizontal()
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -148,4 +146,3 @@ class SessionNavigationComponent(SessionNavigationComponentBase):
 
     def set_vertical_encoder(self, control):
         self._vertical_banking.scroll_encoder.set_control_element(control)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

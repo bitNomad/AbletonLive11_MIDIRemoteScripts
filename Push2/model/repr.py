@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/model/repr.py
 # Compiled at: 2022-01-28 05:06:23
 # Size of source mod 2**32: 27101 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from future.builtins import map, round
 from past.builtins import unicode
@@ -156,12 +153,9 @@ class DeviceParameterAdapter(ModelAdapter):
         (super(DeviceParameterAdapter, self).__init__)(*a, **k)
         self._alias_observable_property('automation_state',
           'hasAutomation',
-<<<<<<< HEAD
           getter=(lambda self_: self_._has_automation()
 ))
-=======
           getter=(lambda self_: self_._has_automation()))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self.register_slot(self._adaptee, self.notify_displayValue, 'value')
         self.register_slot(self._adaptee, self.notify_unit, 'value')
         self.register_slot(self._adaptee, self.notify_automationActive, 'automation_state')
@@ -232,17 +226,14 @@ class EditModeOptionAdapter(ModelAdapter):
         if old_hasattr(self._adaptee, 'active_index'):
             self._alias_observable_property('active_index',
               'activeIndex',
-<<<<<<< HEAD
               getter=(lambda self_: getattr(self_._adaptee, 'active_index', 0)
 ))
         self._alias_observable_property('default_label',
           'choices', getter=(lambda self_: self_._choices
 ))
-=======
               getter=(lambda self_: getattr(self_._adaptee, 'active_index', 0)))
         self._alias_observable_property('default_label',
           'choices', getter=(lambda self_: self_._choices))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     @property
     def activeIndex(self):
@@ -415,16 +406,13 @@ class DeviceAdapter(ModelAdapter):
                 self._DeviceAdapter__on_is_active_changed.subject = item.rack_device
             else:
                 self._DeviceAdapter__on_is_active_changed.subject = item
-<<<<<<< HEAD
         else:
             if is_drum_pad(item):
                 self._DeviceAdapter__on_is_active_changed.subject = item.canonical_parent
                 self._DeviceAdapter__on_mute_changed.subject = item
-=======
         elif is_drum_pad(item):
             self._DeviceAdapter__on_is_active_changed.subject = item.canonical_parent
             self._DeviceAdapter__on_mute_changed.subject = item
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         if old_hasattr(item, 'name'):
             self._DeviceAdapter__on_name_changed.subject = item
         self._chain = find_chain_or_track(item)
@@ -445,14 +433,11 @@ class DeviceAdapter(ModelAdapter):
             name = getattr(item, 'class_display_name', name)
         if is_bank_rack_2(item):
             name = '••' + name
-<<<<<<< HEAD
         else:
             if is_rack_with_bank_2(item):
                 name = '•' + name
-=======
         elif is_rack_with_bank_2(item):
             name = '•' + name
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         return name
 
     @property
@@ -766,7 +751,6 @@ class RoutingAdapter(VisibleAdapter):
     def __init__(self, *a, **k):
         (super(RoutingAdapter, self).__init__)(*a, **k)
         self._alias_observable_property('routing_type_list', 'routingTypeList', lambda self_: [
-<<<<<<< HEAD
          self_._adaptee.routing_type_list]
 )
         self._alias_observable_property('routing_channel_list', 'routingChannelList', lambda self_: [
@@ -775,10 +759,8 @@ class RoutingAdapter(VisibleAdapter):
         self._alias_observable_property('routing_channel_position_list', 'routingChannelPositionList', lambda self_: [
          self_._adaptee.routing_channel_position_list]
 )
-=======
          self_._adaptee.routing_type_list])
         self._alias_observable_property('routing_channel_list', 'routingChannelList', lambda self_: [
          self_._adaptee.routing_channel_list])
         self._alias_observable_property('routing_channel_position_list', 'routingChannelPositionList', lambda self_: [
          self_._adaptee.routing_channel_position_list])
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

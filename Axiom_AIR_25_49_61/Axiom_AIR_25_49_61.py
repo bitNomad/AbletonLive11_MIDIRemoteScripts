@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_25_49_61/Axiom_AIR_25_49_61.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 35215 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import range, str
 from past.utils import old_div
@@ -172,7 +169,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                 self.schedule_message(13, self._name_display.display_message, 'Update')
                 self.schedule_message(23, self._name_display.display_message, 'Required')
                 self.schedule_message(33, self._send_midi, SYSEX_START + DISABLE_HYPERCONTROL)
-<<<<<<< HEAD
             else:
                 if midi_bytes[12:15] >= AXIOM_REV4_RESPONSE:
                     if self._waiting_for_first_response == True:
@@ -186,7 +182,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
         else:
             if midi_bytes[0:8] == REQUEST_HYPERCONTROL:
                 self.schedule_message(5, self._send_midi, IDENTITY_REQUEST)
-=======
             elif midi_bytes[12:15] >= AXIOM_REV4_RESPONSE:
                 if self._waiting_for_first_response == True:
                     self._waiting_for_first_response = False
@@ -198,7 +193,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                     self._display_reset_delay = 0
         elif midi_bytes[0:8] == REQUEST_HYPERCONTROL:
             self.schedule_message(5, self._send_midi, IDENTITY_REQUEST)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def update_display(self):
         ControlSurface.update_display(self)
@@ -259,21 +253,15 @@ class Axiom_AIR_25_49_61(ControlSurface):
         self._fader_buttons = []
         for index in range(8):
             self._fader_buttons.append(create_configurable_button(49 + index, 'Fader_Button_%d' % index))
-<<<<<<< HEAD
             self._fader_buttons[-1].add_value_listener((self._fader_button_value),
-=======
             self._fader_buttons[(-1)].add_value_listener((self._fader_button_value),
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
               identify_sender=True)
 
         self._faders = []
         for index in range(8):
             self._faders.append(create_slider(33 + index, 'Fader_%d' % index))
-<<<<<<< HEAD
             self._faders[-1].add_value_listener((self._fader_value), identify_sender=True)
-=======
             self._faders[(-1)].add_value_listener((self._fader_value), identify_sender=True)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
         self._master_fader_button = create_configurable_button(57, 'Master_Fader_Button')
         self._master_fader_button.add_value_listener((self._fader_button_value),
@@ -293,11 +281,8 @@ class Axiom_AIR_25_49_61(ControlSurface):
         self._encoders = []
         for index in range(8):
             self._encoders.append(create_encoder(17 + index, 'Encoder_%d' % index))
-<<<<<<< HEAD
             self._encoders[-1].add_value_listener((self._encoder_value),
-=======
             self._encoders[(-1)].add_value_listener((self._encoder_value),
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
               identify_sender=True)
 
         self._encoder_group_midi_button = create_configurable_button(27, 'Encoder_Group_MIDI_Button', 0, 72)
@@ -318,11 +303,8 @@ class Axiom_AIR_25_49_61(ControlSurface):
 
         for index in range(num_pads - 8):
             self._drum_pads.append(ConfigurableButtonElement(IS_MOMENTARY, MIDI_NOTE_TYPE, GLOBAL_CHANNEL - 1, 81 + index, GLOBAL_SEND_CHANNEL, 8, MIDI_CC_TYPE))
-<<<<<<< HEAD
             self._drum_pads[-1].name = 'Pad_' + str(index + 8)
-=======
             self._drum_pads[(-1)].name = 'Pad_' + str(index + 8)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
         self._drum_group_midi_button = create_configurable_button(91, 'Drum_Group_MIDI_Button', 2, -2)
         self._drum_group_midi_button.add_value_listener((self._midi_button_value),
@@ -466,7 +448,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                     self._hc_byte = hc_byte
                     self._drum_group_hyper_button.send_value(LED_OFF, True)
                     self.schedule_message(1, self._send_midi, SYSEX_START + (32, self._hc_byte, 247))
-<<<<<<< HEAD
             else:
                 if sender is self._encoder_group_midi_button:
                     hc_byte = self._hc_byte ^ ENCODERS
@@ -492,7 +473,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                                 self.schedule_message(1, self._send_midi, SYSEX_START + (32, self._hc_byte, 247))
                         else:
                             self._display_reset_delay = STANDARD_DISPLAY_DELAY
-=======
             elif sender is self._encoder_group_midi_button:
                 hc_byte = self._hc_byte ^ ENCODERS
                 if hc_byte != self._hc_byte:
@@ -516,7 +496,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                         self.schedule_message(1, self._send_midi, SYSEX_START + (32, self._hc_byte, 247))
                 else:
                     self._display_reset_delay = STANDARD_DISPLAY_DELAY
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _hyper_button_value(self, value, sender):
         if value > 0:
@@ -525,7 +504,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                     self._hc_byte = self._hc_byte | PADS
                     self._send_midi(SYSEX_START + (32, self._hc_byte, 247))
                     self.schedule_message(1, self._set_drum_pads_to_hc)
-<<<<<<< HEAD
             else:
                 if sender is self._encoder_group_fx_button or sender is self._encoder_group_mix_button:
                     if self._hc_byte | ENCODERS != self._hc_byte:
@@ -558,7 +536,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                             self.schedule_message(1, self._fader_button_modes.update)
                             self._display_reset_delay = 2
                             return
-=======
             elif sender is self._encoder_group_fx_button or sender is self._encoder_group_mix_button:
                 if self._hc_byte | ENCODERS != self._hc_byte:
                     self._hc_byte = self._hc_byte | ENCODERS
@@ -590,7 +567,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                         self.schedule_message(1, self._fader_button_modes.update)
                         self._display_reset_delay = 2
                         return
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._display_reset_delay = 0
 
     def _set_drum_pads_to_hc(self):
@@ -632,7 +608,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
             if param.name == 'Track Volume':
                 name_string = self._mixer_for_encoders.channel_strip(self._encoders.index(sender)).track_name_data_source().display_string() + '   Vol'
                 value = int(old_div(param.value - param.min, param_range) * 127)
-<<<<<<< HEAD
             else:
                 if param.name == 'Track Panning':
                     name_string = self._mixer_for_encoders.channel_strip(self._encoders.index(sender)).track_name_data_source().display_string() + '   Pan'
@@ -647,7 +622,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                 else:
                     name_string = param.name
                     value = int(old_div(param.value - param.min, param_range) * 127)
-=======
             elif param.name == 'Track Panning':
                 name_string = self._mixer_for_encoders.channel_strip(self._encoders.index(sender)).track_name_data_source().display_string() + '   Pan'
                 value = int(old_div(param.value, param_range) * 127)
@@ -660,7 +634,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
             else:
                 name_string = param.name
                 value = int(old_div(param.value - param.min, param_range) * 127)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             value_string = str(value)
         else:
             name_string = '<unmapped>'
@@ -704,7 +677,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
             feedback_rule = Live.MidiMap.NoteFeedbackRule()
             feedback_rule.note_no = 0
             feedback_rule.vel_map = (0, )
-<<<<<<< HEAD
         else:
             if control.message_type() is MIDI_CC_TYPE:
                 feedback_rule = Live.MidiMap.CCFeedbackRule()
@@ -714,7 +686,6 @@ class Axiom_AIR_25_49_61(ControlSurface):
                 if control.message_type() is MIDI_PB_TYPE:
                     feedback_rule = Live.MidiMap.PitchBendFeedbackRule()
                     feedback_rule.value_pair_map = feedback_map
-=======
         elif control.message_type() is MIDI_CC_TYPE:
             feedback_rule = Live.MidiMap.CCFeedbackRule()
             feedback_rule.cc_no = 0
@@ -722,22 +693,18 @@ class Axiom_AIR_25_49_61(ControlSurface):
         elif control.message_type() is MIDI_PB_TYPE:
             feedback_rule = Live.MidiMap.PitchBendFeedbackRule()
             feedback_rule.value_pair_map = feedback_map
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         feedback_rule.channel = control.message_channel()
         feedback_rule.delay_in_ms = feedback_delay
         if control.message_type() is MIDI_NOTE_TYPE:
             success = Live.MidiMap.map_midi_note_with_feedback_map(midi_map_handle, parameter, control.message_channel(), control.message_identifier(), feedback_rule)
-<<<<<<< HEAD
         else:
             if control.message_type() is MIDI_CC_TYPE:
                 success = Live.MidiMap.map_midi_cc_with_feedback_map(midi_map_handle, parameter, control.message_channel(), control.message_identifier(), control.message_map_mode(), feedback_rule, not control.needs_takeover())
             else:
                 if control.message_type() is MIDI_PB_TYPE:
                     success = Live.MidiMap.map_midi_pitchbend_with_feedback_map(midi_map_handle, parameter, control.message_channel(), feedback_rule, not control.needs_takeover())
-=======
         elif control.message_type() is MIDI_CC_TYPE:
             success = Live.MidiMap.map_midi_cc_with_feedback_map(midi_map_handle, parameter, control.message_channel(), control.message_identifier(), control.message_map_mode(), feedback_rule, not control.needs_takeover())
         elif control.message_type() is MIDI_PB_TYPE:
             success = Live.MidiMap.map_midi_pitchbend_with_feedback_map(midi_map_handle, parameter, control.message_channel(), feedback_rule, not control.needs_takeover())
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         return success

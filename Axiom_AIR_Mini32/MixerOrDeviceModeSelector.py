@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_Mini32/MixerOrDeviceModeSelector.py
 # Compiled at: 2021-06-29 09:33:48
 # Size of source mod 2**32: 3566 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import _Framework.ModeSelectorComponent as ModeSelectorComponent
 
@@ -57,7 +54,6 @@ class MixerOrDeviceModeSelector(ModeSelectorComponent):
                 self._session.set_page_right_button(self._right_button)
                 self._device.set_on_off_button(None)
                 self._mixer.selected_strip().set_arm_button(self._select_button)
-<<<<<<< HEAD
             else:
                 if self._mode_index == 1:
                     self._mixer_modes.set_controls(None)
@@ -80,7 +76,6 @@ class MixerOrDeviceModeSelector(ModeSelectorComponent):
                         self._session.set_page_right_button(None)
                         self._device.set_on_off_button(None)
                         self._mixer.selected_strip().set_arm_button(None)
-=======
             elif self._mode_index == 1:
                 self._mixer_modes.set_controls(None)
                 self._device.set_parameter_controls(self._encoders)
@@ -101,4 +96,3 @@ class MixerOrDeviceModeSelector(ModeSelectorComponent):
                 self._session.set_page_right_button(None)
                 self._device.set_on_off_button(None)
                 self._mixer.selected_strip().set_arm_button(None)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

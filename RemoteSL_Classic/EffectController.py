@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/RemoteSL_Classic/EffectController.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 16720 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import object, range, str
 from past.utils import old_div
@@ -36,7 +33,6 @@ class EffectController(RemoteSLComponent):
     def receive_midi_cc(self, cc_no, cc_value):
         if cc_no in fx_display_button_ccs:
             self._EffectController__handle_page_up_down_ccs(cc_no, cc_value)
-<<<<<<< HEAD
         else:
             if cc_no in fx_select_button_ccs:
                 self._EffectController__handle_select_button_ccs(cc_no, cc_value)
@@ -57,7 +53,6 @@ class EffectController(RemoteSLComponent):
                                 pass
                             else:
                                 pass
-=======
         elif cc_no in fx_select_button_ccs:
             self._EffectController__handle_select_button_ccs(cc_no, cc_value)
         elif cc_no in fx_upper_button_row_ccs:
@@ -73,7 +68,6 @@ class EffectController(RemoteSLComponent):
             pass
         else:
             pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def receive_midi_note(self, note, velocity):
         if note in fx_drum_pad_row_notes:
@@ -98,14 +92,11 @@ class EffectController(RemoteSLComponent):
                     ring_mode_value = FX_RING_VOL_VALUE
                     if parameter.min == -1 * parameter.max:
                         ring_mode_value = FX_RING_PAN_VALUE
-<<<<<<< HEAD
                     else:
                         if parameter.is_quantized:
                             ring_mode_value = FX_RING_SIN_VALUE
-=======
                     elif parameter.is_quantized:
                         ring_mode_value = FX_RING_SIN_VALUE
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                     self.send_midi((
                      self.cc_status_byte(),
                      fx_encoder_led_mode_ccs[strip_index],
@@ -180,18 +171,15 @@ class EffectController(RemoteSLComponent):
             if cc_value == CC_VAL_BUTTON_PRESSED:
                 if cc_no == FX_DISPLAY_PAGE_UP:
                     new_bank = min(self._EffectController__bank + 1, self._EffectController__number_of_parameter_banks() - 1)
-<<<<<<< HEAD
                 else:
                     if cc_no == FX_DISPLAY_PAGE_DOWN:
                         new_bank = max(self._EffectController__bank - 1, 0)
                     else:
                         pass
-=======
                 elif cc_no == FX_DISPLAY_PAGE_DOWN:
                     new_bank = max(self._EffectController__bank - 1, 0)
                 else:
                     pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 self._EffectController__show_bank = self._EffectController__bank == new_bank or True
                 if not self._EffectController__assigned_device_is_locked:
                     self._EffectController__bank = new_bank
@@ -203,7 +191,6 @@ class EffectController(RemoteSLComponent):
         if cc_no == FX_SELECT_FIRST_BUTTON_ROW:
             if cc_value == CC_VAL_BUTTON_PRESSED:
                 self._EffectController__parent.toggle_lock()
-<<<<<<< HEAD
         else:
             if cc_no == FX_SELECT_ENCODER_ROW:
                 if cc_value == CC_VAL_BUTTON_PRESSED:
@@ -223,7 +210,6 @@ class EffectController(RemoteSLComponent):
                             self.song().stop_all_clips()
                         else:
                             pass
-=======
         elif cc_no == FX_SELECT_ENCODER_ROW:
             if cc_value == CC_VAL_BUTTON_PRESSED:
                 new_index = min(len(self.song().scenes) - 1, max(0, list(self.song().scenes).index(self.song().view.selected_scene) - 1))
@@ -239,7 +225,6 @@ class EffectController(RemoteSLComponent):
             self.song().stop_all_clips()
         else:
             pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def __update_select_row_leds(self):
         if self._EffectController__assigned_device_is_locked:

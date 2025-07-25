@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/MackieControl_Classic/consts.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 7807 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 NOTE_OFF_STATUS = 128
@@ -50,7 +47,6 @@ CLIP_STATE_INVALID = -1
 CLIP_STOPPED = 0
 CLIP_TRIGGERED = 1
 CLIP_PLAYING = 2
-<<<<<<< HEAD
 g7_seg_led_conv_table = {
   ' ': 0,
   'A': 1,
@@ -102,7 +98,6 @@ g7_seg_led_conv_table = {
   '9': 57,
   ';': 59,
   '<': 60}
-=======
 g7_seg_led_conv_table = {' ':0, 
  'A':1, 
  'B':2, 
@@ -153,7 +148,6 @@ g7_seg_led_conv_table = {' ':0,
  '9':57, 
  ';':59, 
  '<':60}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 SID_FIRST = 0
 SID_RECORD_ARM_BASE = 0
 SID_RECORD_ARM_CH1 = 0

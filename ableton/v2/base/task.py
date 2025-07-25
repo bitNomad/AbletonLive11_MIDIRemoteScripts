@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/base/task.py
 # Compiled at: 2022-01-28 05:06:24
 # Size of source mod 2**32: 11776 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, map
 from past.utils import old_div
@@ -71,11 +68,8 @@ class Task(object):
         self.do_restart()
         self._state = RUNNING
         if self._task_manager:
-<<<<<<< HEAD
             if self._task_manager.find(self) is None:
-=======
             if self._task_manager.find(self) == None:
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 manager = self._task_manager
                 self._task_manager = None
                 manager.add(self)
@@ -246,16 +240,13 @@ class TaskGroup(Task):
 , self._tasks))) == self.count
         if self.auto_kill and all_killed:
             self.kill()
-<<<<<<< HEAD
         else:
             if self.loop:
                 if all_killed:
                     self.restart()
-=======
         elif self.loop:
             if all_killed:
                 self.restart()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def add(self, task):
         task = totask(task)
@@ -341,12 +332,9 @@ class TimerTask(WaitTask):
 
 class FadeTask(Task):
 
-<<<<<<< HEAD
     def __init__(self, func=lambda x: x
 , duration=1.0, loop=False, init=False, *a, **k):
-=======
     def __init__(self, func=lambda x: x, duration=1.0, loop=False, init=False, *a, **k):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         (super(FadeTask, self).__init__)(*a, **k)
         self.func = func
         self.curr = 0.0
@@ -459,7 +447,6 @@ fade = FadeTask
 delay = DelayTask
 
 def invfade(f, *a, **k):
-<<<<<<< HEAD
     return fade(lambda x: f(1.0 - x)
 , *a, **k)
 
@@ -467,13 +454,11 @@ def invfade(f, *a, **k):
 def linear(f, min, max, *a, **k):
     return fade(lambda x: f(linear_fn(min, max, x))
 , *a, **k)
-=======
     return fade(lambda x: f(1.0 - x), *a, **k)
 
 
 def linear(f, min, max, *a, **k):
     return fade(lambda x: f(linear_fn(min, max, x)), *a, **k)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 try:
@@ -481,12 +466,9 @@ try:
 
     def sinusoid(f, min=0.0, max=1.0, *a, **k):
         return fade(
-<<<<<<< HEAD
  lambda x: f(min + (max - min) * math.sin(x * old_div(math.pi, 2.0)))
 , *a, **k)
-=======
  lambda x: f(min + (max - min) * math.sin(x * old_div(math.pi, 2.0))), *a, **k)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 except ImportError as err:
@@ -497,12 +479,9 @@ except ImportError as err:
         del err
 
 def run(func, *a, **k):
-<<<<<<< HEAD
     return FuncTask(lambda t: None if func(*a, **k) else None
 )
-=======
     return FuncTask(lambda t: None if func(*a, **k) else None)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 def repeat(task):

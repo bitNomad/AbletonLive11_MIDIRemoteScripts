@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push/browser_query.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 4540 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, map, object
 from future.utils import string_types
@@ -62,12 +59,9 @@ class TagBrowserQuery(BrowserQuery):
         self.root_name = root_name
 
     def query(self, browser):
-<<<<<<< HEAD
         return list(filter(lambda item: item.name not in self.exclude
 , sum(list(map(partial((self._extract_path), browser=browser), self.include)), tuple())))
-=======
         return list(filter(lambda item: item.name not in self.exclude, sum(list(map(partial((self._extract_path), browser=browser), self.include)), tuple())))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _extract_path(self, path, items=None, browser=None):
         if isinstance(path, string_types):
@@ -97,12 +91,9 @@ class SourceBrowserQuery(TagBrowserQuery):
             groups.setdefault(item.source, []).append(item)
 
         return list(map(lambda k_g: VirtualBrowserItem(name=(k_g[0] if k_g[0] is not None else ''),
-<<<<<<< HEAD
           children_query=(const(k_g[1])))
 , sorted((list(groups.items())), key=first)))
-=======
           children_query=(const(k_g[1]))), sorted((list(groups.items())), key=first)))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 class PlacesBrowserQuery(BrowserQuery):

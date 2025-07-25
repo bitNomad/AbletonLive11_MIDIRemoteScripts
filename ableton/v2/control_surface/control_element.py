@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/control_element.py
 # Compiled at: 2022-01-28 05:06:24
 # Size of source mod 2**32: 6804 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from future.utils import iteritems, string_types
 import logging, re, traceback
@@ -102,11 +99,8 @@ class ControlElement(Disconnectable):
     _has_task_group = False
 
     @depends(send_midi=None, register_control=None)
-<<<<<<< HEAD
     def __init__(self, name='', is_private=False, resource_type=None, optimized_send_midi=None, send_midi=None, register_control=None, *a, **k):
-=======
     def __init__(self, name='', resource_type=None, optimized_send_midi=None, send_midi=None, register_control=None, *a, **k):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         (super(ControlElement, self).__init__)(*a, **k)
         self._send_midi = send_midi
         self.name = name

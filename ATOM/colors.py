@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ATOM/colors.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3892 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v3.base import liveobj_valid
 from ableton.v3.control_surface import BasicColors
@@ -16,14 +13,12 @@ from . import midi
 BLINK_VALUE = 1
 PULSE_VALUE = 2
 
-<<<<<<< HEAD
 def create_color(red, green, blue, on_value=127):
     return ComplexColor((
      ColorPart(red, channel=(midi.RED_MIDI_CHANNEL)),
      ColorPart(green, channel=(midi.GREEN_MIDI_CHANNEL)),
      ColorPart(blue, channel=(midi.BLUE_MIDI_CHANNEL)),
      ColorPart(on_value)))
-=======
 class RgbColor(Color):
 
     def __init__(self, red, green, blue, on_value=127, *a, **k):
@@ -38,7 +33,6 @@ class RgbColor(Color):
         interface.send_value((self._green), channel=(midi.GREEN_MIDI_CHANNEL))
         interface.send_value((self._blue), channel=(midi.BLUE_MIDI_CHANNEL))
         interface.send_value(self._on_value if (self._red or self._green or self._blue) else 0)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 
 def create_color_for_liveobj(obj, is_scene=False):
@@ -73,7 +67,6 @@ class Rgb:
     PINK = create_color(127, 17, 30)
 
 
-<<<<<<< HEAD
 LIVE_COLOR_INDEX_TO_RGB = {0:create_color(102, 46, 46), 
  1:create_color(127, 34, 0), 
  2:create_color(51, 51, 0), 
@@ -144,7 +137,6 @@ LIVE_COLOR_INDEX_TO_RGB = {0:create_color(102, 46, 46),
  67:create_color(51, 0, 51), 
  68:create_color(102, 23, 55), 
  69:create_color(30, 30, 30)}
-=======
 LIVE_COLOR_INDEX_TO_RGB = {0:RgbColor(102, 46, 46), 
  1:RgbColor(127, 34, 0), 
  2:RgbColor(51, 51, 0), 
@@ -215,4 +207,3 @@ LIVE_COLOR_INDEX_TO_RGB = {0:RgbColor(102, 46, 46),
  67:RgbColor(51, 0, 51), 
  68:RgbColor(102, 23, 55), 
  69:RgbColor(30, 30, 30)}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

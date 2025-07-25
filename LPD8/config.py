@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from .consts import *
 TRANSPORT_CONTROLS = {
@@ -8,7 +7,6 @@ TRANSPORT_CONTROLS = {
   'LOOP': -1,
   'RWD': -1,
   'FFWD': -1}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -24,7 +22,6 @@ TRANSPORT_CONTROLS = {'STOP':-1,
  'LOOP':-1, 
  'RWD':-1, 
  'FFWD':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 DEVICE_CONTROLS = (
  GENERIC_ENC1,
  GENERIC_ENC2,
@@ -37,7 +34,6 @@ DEVICE_CONTROLS = (
 VOLUME_CONTROLS = ((-1, -1), (-1, -1), (-1, -1), (-1, -1), (-1, -1), (-1, -1), (-1, -1),
                    (-1, -1))
 TRACKARM_CONTROLS = (-1, -1, -1, -1, -1, -1, -1, -1)
-<<<<<<< HEAD
 BANK_CONTROLS = {
   'TOGGLELOCK': -1,
   'BANKDIAL': -1,
@@ -63,7 +59,6 @@ MIXER_OPTIONS = {
   'SEND1': (-1, -1, -1, -1, -1, -1, -1, -1),
   'SEND2': (-1, -1, -1, -1, -1, -1, -1, -1),
   'MASTERVOLUME': -1}
-=======
 BANK_CONTROLS = {'TOGGLELOCK':-1, 
  'BANKDIAL':-1, 
  'NEXTBANK':-1, 
@@ -86,4 +81,3 @@ MIXER_OPTIONS = {'NUMSENDS':2,
  'SEND1':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'SEND2':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'MASTERVOLUME':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

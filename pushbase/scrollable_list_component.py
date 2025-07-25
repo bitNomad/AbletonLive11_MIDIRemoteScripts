@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/scrollable_list_component.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 9929 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import map, range, zip
 from functools import partial
@@ -143,11 +140,8 @@ class ScrollableListComponent(Component):
         if self._offset_index < self._maximal_offset():
             self._data_sources[(-1)].set_display_string(self.ARROW_RIGHT)
             if self._has_select_button(-1):
-<<<<<<< HEAD
                 self._select_buttons[-1].set_light('List.ScrollerOn')
-=======
                 self._select_buttons[(-1)].set_light('List.ScrollerOn')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             max_segment -= 1
         for i, j in zip(range(first_segment, max_segment), range(self._offset_index, self._offset_index + self.num_segments)):
             self._data_sources[i].set_display_string(self._get_display_string(j))
@@ -224,11 +218,8 @@ class ScrollableListWithTogglesComponent(ScrollableListComponent):
                 buttons[0].set_light('Option.Off')
                 first_button = 1
             if self._offset_index < self._maximal_offset():
-<<<<<<< HEAD
                 buttons[-1].set_light('Option.Off')
-=======
                 buttons[(-1)].set_light('Option.Off')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 max_button -= 1
             for state, button in zip(self._option_states[self._offset_index:], buttons[first_button:max_button]):
                 if button != None:

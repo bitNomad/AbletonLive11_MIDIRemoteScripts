@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/melodic_component.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 14270 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from future.moves.itertools import zip_longest
@@ -312,12 +309,9 @@ class MelodicComponent(MessengerModesComponent):
                 if mode == 'sequence':
                     message = 'Sequence %s to %s'
                     start_note = self._note_editors[0].editing_notes[0]
-<<<<<<< HEAD
                     end_editor = find_if(lambda editor: len(editor.editing_notes) > 0
 , reversed(self._note_editors))
-=======
                     end_editor = find_if(lambda editor: len(editor.editing_notes) > 0, reversed(self._note_editors))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                     end_note = end_editor.editing_notes[0]
                     self.show_notification(message % (
                      pitch_index_to_string(start_note), pitch_index_to_string(end_note)))

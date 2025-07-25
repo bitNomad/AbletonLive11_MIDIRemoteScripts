@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from .consts import *
 TRANSPORT_CONTROLS = {
@@ -8,7 +7,6 @@ TRANSPORT_CONTROLS = {
   'LOOP': GENERIC_LOOP,
   'RWD': GENERIC_RWD,
   'FFWD': GENERIC_FFWD}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -24,7 +22,6 @@ TRANSPORT_CONTROLS = {'STOP':GENERIC_STOP,
  'LOOP':GENERIC_LOOP, 
  'RWD':GENERIC_RWD, 
  'FFWD':GENERIC_FFWD}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 DEVICE_CONTROLS = (
  GENERIC_ENC1,
  GENERIC_ENC2,
@@ -44,7 +41,6 @@ TRACKARM_CONTROLS = (
  GENERIC_BUT6,
  GENERIC_BUT7,
  GENERIC_BUT8)
-<<<<<<< HEAD
 BANK_CONTROLS = {
   'TOGGLELOCK': GENERIC_BUT9,
   'BANKDIAL': -1,
@@ -58,7 +54,6 @@ BANK_CONTROLS = {
   'BANK6': -1,
   'BANK7': -1,
   'BANK8': -1}
-=======
 BANK_CONTROLS = {'TOGGLELOCK':GENERIC_BUT9, 
  'BANKDIAL':-1, 
  'NEXTBANK':-1, 
@@ -71,12 +66,10 @@ BANK_CONTROLS = {'TOGGLELOCK':GENERIC_BUT9,
  'BANK6':-1, 
  'BANK7':-1, 
  'BANK8':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 PAD_TRANSLATION = ((0, 0, 61, 9), (1, 0, 69, 9), (2, 0, 65, 9), (3, 0, 63, 9), (0, 1, 60, 9),
                    (1, 1, 59, 9), (2, 1, 57, 9), (3, 1, 55, 9), (0, 2, 49, 9), (1, 2, 51, 9),
                    (2, 2, 68, 9), (3, 2, 56, 9), (0, 3, 48, 9), (1, 3, 52, 9), (2, 3, 54, 9),
                    (3, 3, 58, 9))
-<<<<<<< HEAD
 CONTROLLER_DESCRIPTIONS = {
   'INPUTPORT': 'padKONTROL (Port 2)',
   'OUTPUTPORT': 'padKONTROL (Port 2)',
@@ -87,7 +80,6 @@ MIXER_OPTIONS = {
   'SEND1': (-1, -1, -1, -1, -1, -1, -1, -1),
   'SEND2': (-1, -1, -1, -1, -1, -1, -1, -1),
   'MASTERVOLUME': 21}
-=======
 CONTROLLER_DESCRIPTIONS = {'INPUTPORT':'padKONTROL (Port 2)', 
  'OUTPUTPORT':'padKONTROL (Port 2)', 
  'CHANNEL':9, 
@@ -96,4 +88,3 @@ MIXER_OPTIONS = {'NUMSENDS':2,
  'SEND1':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'SEND2':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'MASTERVOLUME':21}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

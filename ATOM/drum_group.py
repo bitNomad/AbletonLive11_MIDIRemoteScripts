@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, division, print_function, unicode_literals
 from ableton.v3.control_surface.components import DrumGroupComponent as DrumGroupComponentBase
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -14,7 +12,6 @@ from builtins import range
 from past.utils import old_div
 from ableton.v2.base import liveobj_valid
 import ableton.v2.control_surface.components as DrumGroupComponentBase
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from .note_pad import NotePadMixin
 COMPLETE_QUADRANTS_RANGE = range(4, 116)
 MAX_QUADRANT_INDEX = 7
@@ -23,14 +20,12 @@ PADS_PER_ROW = 4
 
 class DrumGroupComponent(NotePadMixin, DrumGroupComponentBase):
 
-<<<<<<< HEAD
     @staticmethod
     def _filled_color(pad):
         pad_quadrant = MAX_QUADRANT_INDEX
         if pad.note in COMPLETE_QUADRANTS_RANGE:
             pad_quadrant = (pad.note - PADS_PER_ROW) // NUM_PADS
         return 'DrumGroup.PadQuadrant{}'.format(pad_quadrant)
-=======
     def _update_button_color(self, button):
         pad = self._pad_for_button(button)
         color = self._color_for_pad(pad) if liveobj_valid(pad) else 'DrumGroup.PadEmpty'
@@ -43,4 +38,3 @@ class DrumGroupComponent(NotePadMixin, DrumGroupComponentBase):
                 pad_quadrant = old_div(pad_row_start_note - 1, NUM_PADS)
             color = 'DrumGroup.PadQuadrant{}'.format(pad_quadrant)
         button.color = color
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

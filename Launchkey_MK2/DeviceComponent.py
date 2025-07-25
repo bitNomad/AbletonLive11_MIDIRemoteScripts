@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,17 +5,13 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchkey_MK2/DeviceComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3716 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 import Live
 from _Generic.Devices import BANK_NAME_DICT, DEVICE_BOB_DICT, DEVICE_DICT, parameter_bank_names, parameter_banks
 from _Framework.Control import ButtonControl
-<<<<<<< HEAD
 from _Framework.DeviceComponent import DeviceComponent as DeviceComponentBase
-=======
 import _Framework.DeviceComponent as DeviceComponentBase
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 BOB_BANK_NAME = 'Best of Parameters'
 NavDirection = Live.Application.Application.View.NavDirection
 
@@ -84,17 +78,14 @@ class DeviceComponent(DeviceComponentBase):
                     value_to_send = False
                     if index == self._bank_index and self._device:
                         value_to_send = 'Device.BankSelected'
-<<<<<<< HEAD
                     else:
                         if index == 0:
                             value_to_send = 'Device.BestOfBank'
                         else:
                             if index in range(bank_length):
                                 value_to_send = 'Device.Bank'
-=======
                     elif index == 0:
                         value_to_send = 'Device.BestOfBank'
                     elif index in range(bank_length):
                         value_to_send = 'Device.Bank'
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                     button.set_light(value_to_send)

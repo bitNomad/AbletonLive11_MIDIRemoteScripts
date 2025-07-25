@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,18 +5,14 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v3/control_surface/components/mixer.py
 # Compiled at: 2022-01-28 05:06:24
 # Size of source mod 2**32: 8186 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from functools import partial
 from itertools import zip_longest
 from ...base import clamp, depends, listens
 from .. import Component
 from ..controls import ButtonControl, MappedControl
-<<<<<<< HEAD
 from . import ChannelStripComponent
-=======
 from . import ChannelStripComponent, RightAlignTracksTrackAssigner, SimpleTrackAssigner
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 ASCII_A = 97
 
 def send_letter_to_index(send_letter):
@@ -26,7 +20,6 @@ def send_letter_to_index(send_letter):
 
 
 class MixerComponent(Component):
-<<<<<<< HEAD
     prehear_volume_control = MappedControl()
     crossfader_control = MappedControl()
     cycle_send_index_button = ButtonControl(color='Mixer.CycleSendIndex',
@@ -40,7 +33,6 @@ class MixerComponent(Component):
         self._provider = session_ring
         self._MixerComponent__on_offset_changed.subject = self._provider
         self.register_slot(self._provider, self._reassign_tracks, 'tracks')
-=======
     cycle_send_index_button = ButtonControl(color='Mixer.CycleSendIndex',
       pressed_color='Mixer.CycleSendIndexPressed',
       disabled_color='Mixer.CycleSendIndexDisabled')
@@ -55,7 +47,6 @@ class MixerComponent(Component):
         self._track_assigner = track_assigner
         self._provider = session_ring
         self._MixerComponent__on_offset_changed.subject = self._provider
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._send_index = 0
         self._send_controls = None
         channel_strip_component_type = channel_strip_component_type or ChannelStripComponent
@@ -64,19 +55,16 @@ class MixerComponent(Component):
             strip = channel_strip_component_type(parent=self)
             self._channel_strips.append(strip)
 
-<<<<<<< HEAD
         self._reassign_tracks()
         self._target_can_be_master = target_can_be_master
         self._target_strip = channel_strip_component_type(parent=self)
         self._MixerComponent__on_target_track_changed.subject = self._target_track
         self._update_target_strip()
-=======
         self.register_slot(self.song, self._reassign_tracks, 'visible_tracks')
         self._reassign_tracks()
         self._selected_strip = channel_strip_component_type(parent=self)
         self._MixerComponent__on_selected_track_changed.subject = self.song.view
         self._update_selected_strip()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._MixerComponent__on_return_tracks_changed.subject = self.song
         self._MixerComponent__on_return_tracks_changed()
         self._master_strip = channel_strip_component_type(parent=self)
@@ -90,13 +78,10 @@ class MixerComponent(Component):
         return self._master_strip
 
     @property
-<<<<<<< HEAD
     def target_strip(self):
         return self._target_strip
-=======
     def selected_strip(self):
         return self._selected_strip
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     @property
     def num_sends(self):
@@ -126,13 +111,10 @@ class MixerComponent(Component):
     def set_cycle_send_index_button(self, button):
         self.cycle_send_index_button.set_control_element(button)
 
-<<<<<<< HEAD
     def set_shift_button(self, button):
         for strip in self._channel_strips:
             strip.shift_button.set_control_element(button)
 
-=======
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     def set_send_controls(self, controls):
         self._send_controls = controls
         for strip, control in zip_longest(self._channel_strips, controls or []):
@@ -144,7 +126,6 @@ class MixerComponent(Component):
 
     def __getattr__(self, name):
         if name.startswith('set_master_track'):
-<<<<<<< HEAD
             return partial(self._set_master_or_target_strip_control, self._master_strip, name.replace('set_master_track_', ''))
         if name.startswith('set_target_track'):
             if 'send' in name:
@@ -154,7 +135,6 @@ class MixerComponent(Component):
         if 'send' in name:
             if not name.endswith('send_controls'):
                 return partial(self._set_indexed_send_controls, send_letter_to_index(name.split('_')[-2]))
-=======
             return partial(self._set_master_or_selected_strip_control, self._master_strip, name.replace('set_master_track_', ''))
         if name.startswith('set_selected_track'):
             if 'send' in name:
@@ -164,25 +144,21 @@ class MixerComponent(Component):
         if 'send' in name:
             if not name.endswith('send_controls'):
                 return partial(self._set_indexed_send_controls, send_letter_to_index(name.split('_')[(-2)]))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             if name.startswith('set'):
                 return partial(self._set_strip_controls, name[4:-1])
         raise AttributeError
 
     @staticmethod
-<<<<<<< HEAD
     def _set_master_or_target_strip_control(strip, name, control):
         getattr(strip, name).set_control_element(control)
 
     def _set_target_strip_indexed_send_control(self, send_index, control):
         self._target_strip.set_indexed_send_control(control, send_index)
-=======
     def _set_master_or_selected_strip_control(strip, name, control):
         getattr(strip, name).set_control_element(control)
 
     def _set_selected_strip_indexed_send_control(self, send_index, control):
         self._selected_strip.set_indexed_send_control(control, send_index)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _set_indexed_send_controls(self, send_index, controls):
         for strip, control in zip_longest(self._channel_strips, controls or []):
@@ -205,7 +181,6 @@ class MixerComponent(Component):
         self._reassign_tracks()
 
     def _reassign_tracks(self):
-<<<<<<< HEAD
         for track, channel_strip in zip(self._provider.tracks, self._channel_strips):
             channel_strip.set_track(track)
 
@@ -219,7 +194,6 @@ class MixerComponent(Component):
             self._target_strip.set_track(target_track)
         else:
             self._target_strip.set_track(None)
-=======
         tracks = self._track_assigner.tracks(self._provider)
         for track, channel_strip in zip(tracks, self._channel_strips):
             channel_strip.set_track(track)
@@ -234,7 +208,6 @@ class MixerComponent(Component):
             self._selected_strip.set_track(selected_track)
         else:
             self._selected_strip.set_track(None)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     @listens('return_tracks')
     def __on_return_tracks_changed(self):

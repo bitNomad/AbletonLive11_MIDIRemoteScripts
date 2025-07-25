@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/components/session_ring.py
 # Compiled at: 2022-01-28 05:06:24
 # Size of source mod 2**32: 5721 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from ...base import const, depends, listens, nop
 from ..component import Component
@@ -43,11 +40,8 @@ class SessionRingComponent(Component):
         (super(SessionRingComponent, self).__init__)(*a, **k)
         self._session_ring = SessionRingModel(num_tracks,
           num_scenes, set_session_highlight=set_session_highlight)
-<<<<<<< HEAD
         if tracks_to_use is not None:
-=======
         if tracks_to_use != None:
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._tracks_to_use = tracks_to_use
         else:
             self._tracks_to_use = lambda: self.song.visible_tracks

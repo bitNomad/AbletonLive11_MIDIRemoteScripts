@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 
 def get_capabilities():
     from ableton.v2.control_surface import capabilities as caps
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -15,7 +13,6 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 def get_capabilities():
     import ableton.v2.control_surface as caps
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     return {caps.CONTROLLER_ID_KEY: caps.controller_id(vendor_id=10626,
                                product_ids=[6503],
                                model_name='Ableton Push 2'), 

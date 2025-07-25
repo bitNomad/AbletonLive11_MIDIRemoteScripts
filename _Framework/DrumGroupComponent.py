@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/DrumGroupComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 13359 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import map, range
 from .Control import ButtonControl, PlayableControl, control_matrix
@@ -160,7 +157,6 @@ class DrumGroupComponent(SlideComponent, Slideable):
         if pad == self._selected_drum_pad:
             if soloed_pads and not pad.solo or pad.mute:
                 button_color = 'DrumGroup.PadSelectedNotSoloed'
-<<<<<<< HEAD
             else:
                 if pad.mute and not pad.solo:
                     button_color = 'DrumGroup.PadMutedSelected'
@@ -186,7 +182,6 @@ class DrumGroupComponent(SlideComponent, Slideable):
                             button_color = 'DrumGroup.PadFilled'
             else:
                 button_color = 'DrumGroup.PadEmpty'
-=======
             elif pad.mute and not pad.solo:
                 button_color = 'DrumGroup.PadMutedSelected'
             elif soloed_pads and pad.solo:
@@ -207,7 +202,6 @@ class DrumGroupComponent(SlideComponent, Slideable):
                 button_color = 'DrumGroup.PadFilled'
         else:
             button_color = 'DrumGroup.PadEmpty'
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         button.color = button_color
 
     def _button_coordinates_to_pad_index(self, first_note, coordinates):
@@ -215,7 +209,6 @@ class DrumGroupComponent(SlideComponent, Slideable):
         y = self.height - y - 1
         if x < 4 and y >= 4:
             first_note += 16
-<<<<<<< HEAD
         else:
             if x >= 4 and y < 4:
                 first_note += 4 * self.width
@@ -223,13 +216,11 @@ class DrumGroupComponent(SlideComponent, Slideable):
                 if x >= 4:
                     if y >= 4:
                         first_note += 4 * self.width + 16
-=======
         elif x >= 4 and y < 4:
             first_note += 4 * self.width
         elif x >= 4:
             if y >= 4:
                 first_note += 4 * self.width + 16
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         index = x % 4 + y % 4 * 4 + first_note
         return index
 

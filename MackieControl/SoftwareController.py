@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/MackieControl/SoftwareController.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 12339 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from .MackieControlComponent import *
 
@@ -49,7 +46,6 @@ class SoftwareController(MackieControlComponent):
     def handle_software_controls_switch_ids(self, switch_id, value):
         if switch_id == SID_MOD_SHIFT:
             self.main_script().set_shift_is_pressed(value == BUTTON_PRESSED)
-<<<<<<< HEAD
         else:
             if switch_id == SID_MOD_OPTION:
                 self.main_script().set_option_is_pressed(value == BUTTON_PRESSED)
@@ -99,7 +95,6 @@ class SoftwareController(MackieControlComponent):
                                                             if switch_id == SID_FUNC_MIXER:
                                                                 if value == BUTTON_PRESSED:
                                                                     self._SoftwareController__toggle_follow_song()
-=======
         elif switch_id == SID_MOD_OPTION:
             self.main_script().set_option_is_pressed(value == BUTTON_PRESSED)
         elif switch_id == SID_MOD_CTRL:
@@ -136,7 +131,6 @@ class SoftwareController(MackieControlComponent):
         elif switch_id == SID_FUNC_MIXER:
             if value == BUTTON_PRESSED:
                 self._SoftwareController__toggle_follow_song()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def refresh_state(self):
         self.main_script().set_shift_is_pressed(False)
@@ -167,18 +161,15 @@ class SoftwareController(MackieControlComponent):
                 self.application().view.focus_view('Session')
             else:
                 self.application().view.hide_view('Session')
-<<<<<<< HEAD
         else:
             if self.shift_is_pressed():
                 self.application().view.focus_view('Arranger')
             else:
                 self.application().view.hide_view('Arranger')
-=======
         elif self.shift_is_pressed():
             self.application().view.focus_view('Arranger')
         else:
             self.application().view.hide_view('Arranger')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def __toggle_detail_sub_view(self):
         if self.application().view.is_view_visible('Detail/Clip'):
@@ -186,18 +177,15 @@ class SoftwareController(MackieControlComponent):
                 self.application().view.focus_view('Detail/Clip')
             else:
                 self.application().view.show_view('Detail/DeviceChain')
-<<<<<<< HEAD
         else:
             if self.shift_is_pressed():
                 self.application().view.focus_view('Detail/DeviceChain')
             else:
                 self.application().view.show_view('Detail/Clip')
-=======
         elif self.shift_is_pressed():
             self.application().view.focus_view('Detail/DeviceChain')
         else:
             self.application().view.show_view('Detail/Clip')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def __toggle_browser_is_visible(self):
         if self.application().view.is_view_visible('Browser'):

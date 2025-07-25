@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/convert.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 19790 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import map, object, str
 from functools import partial
@@ -48,7 +45,6 @@ def possible_conversions(track, decorator_factory=None):
                       device=simpler,
                       track=track,
                       decorator_factory=decorator_factory)
-<<<<<<< HEAD
         else:
             if is_audio_track(track):
                 detail_clip = track.canonical_parent.view.detail_clip
@@ -58,7 +54,6 @@ def possible_conversions(track, decorator_factory=None):
                         actions = [CreateTrackWithSimpler(),
                          CreateTrackWithClipInDrumRackPad()]
                         if Live.Conversions.is_convertible_to_midi(song, detail_clip):
-=======
         elif is_audio_track(track):
             detail_clip = track.canonical_parent.view.detail_clip
             song = track.canonical_parent
@@ -83,12 +78,10 @@ def possible_conversions(track, decorator_factory=None):
                          CreateTrackWithSimpler(),
                          CreateTrackWithClipInDrumRackPad()]
                         if Live.Conversions.is_convertible_to_midi(song, clip_slot.clip):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                             actions.extend([
                              ConvertAudioClipToHarmonyMidi(),
                              ConvertAudioClipToMelodyMidi(),
                              ConvertAudioClipToDrumsMidi()])
-<<<<<<< HEAD
                         category = AudioTrackWithArrangementClip(actions=actions,
                           song_view=(track.canonical_parent.view),
                           track=track)
@@ -109,11 +102,9 @@ def possible_conversions(track, decorator_factory=None):
                             category = AudioTrackWithSessionClip(actions=actions,
                               clip_slot=highlighted_clip_slot,
                               track=track)
-=======
                         category = AudioTrackWithSessionClip(actions=actions,
                           clip_slot=highlighted_clip_slot,
                           track=track)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     return category
 
 
@@ -389,12 +380,9 @@ class ConvertComponent(Component):
         if action_index < len(self._category.actions):
             action = self._category.actions[action_index]
             if action.needs_deferred_invocation:
-<<<<<<< HEAD
                 self._tasks.add(task.sequence(task.delay(1), task.run(lambda: self._do_conversion_deferred(action)
 )))
-=======
                 self._tasks.add(task.sequence(task.delay(1), task.run(lambda: self._do_conversion_deferred(action))))
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 return False
             self._invoke_conversion(action)
         return True

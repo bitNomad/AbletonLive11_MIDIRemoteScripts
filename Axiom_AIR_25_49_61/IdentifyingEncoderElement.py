@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_25_49_61/IdentifyingEncoderElement.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3839 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import _Framework.EncoderElement as EncoderElement
 from _Framework.InputControlElement import *
@@ -57,24 +54,18 @@ class IdentifyingEncoderElement(EncoderElement):
         self.send_value(self._off_value)
 
     def send_value(self, value, force=False):
-<<<<<<< HEAD
         if force or (self._force_next_value or value) != self._last_sent_value and self._is_being_forwarded:
-=======
         if force or ((self._force_next_value or value) != self._last_sent_value and self._is_being_forwarded):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             data_byte1 = self._original_identifier + self._identifier_send_offset
             data_byte2 = value
             status_byte = self._send_channel if self._send_channel else self._original_channel
             if self._msg_type == MIDI_NOTE_TYPE:
                 status_byte += MIDI_NOTE_ON_STATUS
-<<<<<<< HEAD
             else:
                 if self._msg_type == MIDI_CC_TYPE:
                     status_byte += MIDI_CC_STATUS
-=======
             elif self._msg_type == MIDI_CC_TYPE:
                 status_byte += MIDI_CC_STATUS
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             if self.send_midi((status_byte, data_byte1, data_byte2)):
                 self._last_sent_message = (
                  value, None)
@@ -99,15 +90,12 @@ class IdentifyingEncoderElement(EncoderElement):
     def _update_led(self):
         if self.is_mapped_manually():
             self.send_value((self._on_value), force=True)
-<<<<<<< HEAD
         else:
             if self._parameter_to_map_to != None:
                 self.send_value((self._on_value), force=True)
             else:
                 self.send_value((self._off_value), force=True)
-=======
         elif self._parameter_to_map_to != None:
             self.send_value((self._on_value), force=True)
         else:
             self.send_value((self._off_value), force=True)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

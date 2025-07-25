@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/mixer_control_component.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 12593 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, range
 from future.moves.itertools import zip_longest
@@ -101,7 +98,6 @@ class MixerControlComponent(ModesComponent):
     def _setup_modes(self, view_model):
         self._add_mode('volume',
           (view_model.volumeControlListView),
-<<<<<<< HEAD
           (lambda mixer: mixer.volume
 ),
           additional_mode_contents=(self.real_time_meter_handlers))
@@ -111,14 +107,12 @@ class MixerControlComponent(ModesComponent):
         def add_send_mode(index):
             self._add_mode(SEND_MODE_NAMES[index], view_model.sendControlListView, lambda mixer: mixer.sends[self._send_offset + index] if len(mixer.sends) > self._send_offset + index else None
 )
-=======
           (lambda mixer: mixer.volume),
           additional_mode_contents=(self.real_time_meter_handlers))
         self._add_mode('panning', view_model.panControlListView, lambda mixer: ConstantParameter(original_parameter=(mixer.panning)) if is_set_to_split_stereo(mixer) else mixer.panning)
 
         def add_send_mode(index):
             self._add_mode(SEND_MODE_NAMES[index], view_model.sendControlListView, lambda mixer: mixer.sends[(self._send_offset + index)] if len(mixer.sends) > self._send_offset + index else None)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
         for i in range(SEND_LIST_LENGTH):
             add_send_mode(i)
@@ -199,18 +193,15 @@ class MixerControlComponent(ModesComponent):
         if self.selected_mode in SEND_MODE_NAMES:
             index = SEND_MODE_NAMES.index(self.selected_mode)
             if index + self._send_offset >= number_sends and number_sends > 0:
-<<<<<<< HEAD
                 self.selected_mode = SEND_MODE_NAMES[number_sends % SEND_LIST_LENGTH - 1]
             else:
                 if index == 0:
                     if number_sends == 0:
                         self.selected_mode = 'panning'
-=======
                 self.selected_mode = SEND_MODE_NAMES[(number_sends % SEND_LIST_LENGTH - 1)]
             elif index == 0:
                 if number_sends == 0:
                     self.selected_mode = 'panning'
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _update_mixer_sections(self):
         if self.is_enabled():

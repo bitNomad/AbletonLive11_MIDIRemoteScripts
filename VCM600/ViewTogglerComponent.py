@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/VCM600/ViewTogglerComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 8466 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 import Live
@@ -115,20 +112,17 @@ class ViewTogglerComponent(ControlSurfaceComponent):
                     if not (self.application().view.is_view_visible('Detail') and self.application().view.is_view_visible('Detail/DeviceChain')):
                         self.application().view.show_view('Detail')
                         self.application().view.show_view('Detail/DeviceChain')
-<<<<<<< HEAD
                 else:
                     if self.application().view.is_view_visible('Detail/DeviceChain') and self.application().view.is_view_visible('Detail'):
                         self.application().view.hide_view('Detail')
                     else:
                         self.application().view.show_view('Detail')
                         self.application().view.show_view('Detail/DeviceChain')
-=======
                 elif self.application().view.is_view_visible('Detail/DeviceChain') and self.application().view.is_view_visible('Detail'):
                     self.application().view.hide_view('Detail')
                 else:
                     self.application().view.show_view('Detail')
                     self.application().view.show_view('Detail/DeviceChain')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._ignore_track_selection = False
 
     def _clip_value(self, value, sender):
@@ -142,18 +136,15 @@ class ViewTogglerComponent(ControlSurfaceComponent):
                     if not (self.application().view.is_view_visible('Detail') and self.application().view.is_view_visible('Detail/Clip')):
                         self.application().view.show_view('Detail')
                         self.application().view.show_view('Detail/Clip')
-<<<<<<< HEAD
                 else:
                     if self.application().view.is_view_visible('Detail/Clip') and self.application().view.is_view_visible('Detail'):
                         self.application().view.hide_view('Detail')
                     else:
                         self.application().view.show_view('Detail')
                         self.application().view.show_view('Detail/Clip')
-=======
                 elif self.application().view.is_view_visible('Detail/Clip') and self.application().view.is_view_visible('Detail'):
                     self.application().view.hide_view('Detail')
                 else:
                     self.application().view.show_view('Detail')
                     self.application().view.show_view('Detail/Clip')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._ignore_track_selection = False

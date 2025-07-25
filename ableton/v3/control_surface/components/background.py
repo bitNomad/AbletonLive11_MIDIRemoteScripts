@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from functools import partial
 from .. import Component
@@ -72,7 +71,6 @@ class ModifierBackgroundComponent(BackgroundComponent):
         control_name = name.title().replace('_', '')
         control_state.color = '{}.{}'.format(base_name, control_name)
         control_state.pressed_color = '{}.{}Pressed'.format(base_name, control_name)
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -116,4 +114,3 @@ class BackgroundComponent(Component):
         if self.is_enabled():
             for control in itervalues(self._control_map):
                 control.reset()
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

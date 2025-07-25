@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from contextlib import contextmanager
 from inspect import signature
@@ -20,7 +19,6 @@ class SysexElement(InputControlElement):
 
     def message_map_mode(self):
         raise AssertionError("SysexElement doesn't support mapping.")
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -36,14 +34,12 @@ class SysexElement(SysexElementBase):
     def __init__(self, use_first_byte_as_value=False, *a, **k):
         (super().__init__)(*a, **k)
         self._use_first_byte_as_value = use_first_byte_as_value
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def receive_value(self, value):
         if self._use_first_byte_as_value:
             value = value[0]
         super().receive_value(value)
 
-<<<<<<< HEAD
     def send_value(self, *a, **k):
         if self._send_message_generator:
             message = (self._send_message_generator)(*a, **k)
@@ -112,7 +108,5 @@ class CachingSendMessageGenerator:
             kwarg_index = index_if(lambda param_name, kwarg_name=key: param_name == kwarg_name
 , self._generator_params)
             self._cached_argument_values[kwarg_index] = value
-=======
     def message_map_mode(self):
         raise AssertionError("SysexElement doesn't support mapping.")
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

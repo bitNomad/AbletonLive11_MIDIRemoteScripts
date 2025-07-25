@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Axiom_AIR_25_49_61/FaderButtonModeSelector.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 3459 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 import _Framework.ModeSelectorComponent as ModeSelectorComponent
@@ -58,18 +55,15 @@ class FaderButtonModeSelector(ModeSelectorComponent):
                 if self._is_mix_mode:
                     if self._mode_index == 0:
                         strip.set_mute_button(fader_button)
-<<<<<<< HEAD
                     else:
                         if self._mode_index == 1:
                             strip.set_solo_button(fader_button)
                         else:
                             strip.set_arm_button(fader_button)
-=======
                     elif self._mode_index == 1:
                         strip.set_solo_button(fader_button)
                     else:
                         strip.set_arm_button(fader_button)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 else:
                     fader_button.set_on_off_values(GRN_FULL, LED_OFF)
                     strip.set_select_button(fader_button)
@@ -78,20 +72,17 @@ class FaderButtonModeSelector(ModeSelectorComponent):
             if self._is_mix_mode:
                 if self._mode_index == 0:
                     self._mode_toggle.send_value(AMB_FULL, True)
-<<<<<<< HEAD
                 else:
                     if self._mode_index == 1:
                         self._mode_toggle.send_value(AMB_FULL, True)
                         self._flashing_button = self._mode_toggle
                     else:
                         self._mode_toggle.send_value(RED_FULL, True)
-=======
                 elif self._mode_index == 1:
                     self._mode_toggle.send_value(AMB_FULL, True)
                     self._flashing_button = self._mode_toggle
                 else:
                     self._mode_toggle.send_value(RED_FULL, True)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             else:
                 self._mode_toggle.send_value(GRN_FULL, True)
 

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/clip_control_component.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 29787 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import range, str
 from past.utils import old_div
@@ -702,11 +699,8 @@ class ClipControlComponent(ModesComponent):
         track = self.song.view.selected_track
         new_mode = 'no_clip'
         if track.clip_slots:
-<<<<<<< HEAD
             if track.has_midi_input or track.has_audio_input:
-=======
             if track.has_midi_input or (track.has_audio_input):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 new_mode = 'midi' if track.has_midi_input else 'audio'
         self.selected_mode = new_mode
 

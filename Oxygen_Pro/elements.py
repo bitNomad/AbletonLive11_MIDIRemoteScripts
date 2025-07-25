@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Oxygen_Pro/elements.py
 # Compiled at: 2021-11-23 12:54:43
 # Size of source mod 2**32: 6088 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 import Live
 from ableton.v2.control_surface import MIDI_CC_TYPE, MIDI_NOTE_TYPE, PrioritizedResource
@@ -74,7 +71,6 @@ class Elements(object):
          [create_encoder(index + 22, 'Knob_{}'.format(index)) for index in range(session_width)]],
           name='Knobs')
         self.firmware_mode_switch = SysexElement(name='Firmware_Mode_Switch',
-<<<<<<< HEAD
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.FIRMWARE_MODE_BYTES + (v, midi.SYSEX_END_BYTE)
 ))
         self.control_mode_switch = SysexElement(name='Control_Mode_Switch',
@@ -86,7 +82,6 @@ class Elements(object):
         self.led_mode_switch = SysexElement(name='LED_Mode_Switch',
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.LED_MODE_BYTES + (v, midi.SYSEX_END_BYTE)
 ),
-=======
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.FIRMWARE_MODE_BYTES + (v, midi.SYSEX_END_BYTE)))
         self.control_mode_switch = SysexElement(name='Control_Mode_Switch',
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.CONTROL_MODE_BYTES + (v, midi.SYSEX_END_BYTE)))
@@ -94,7 +89,6 @@ class Elements(object):
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.LED_CONTROL_BYTES + (v, midi.SYSEX_END_BYTE)))
         self.led_mode_switch = SysexElement(name='LED_Mode_Switch',
           send_message_generator=(lambda v: midi.SYSEX_HEADER + midi.LED_MODE_BYTES + (v, midi.SYSEX_END_BYTE)),
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
           default_value=(midi.FIRMWARE_CONTROL_BYTE))
 
     def with_modifier(self, control, modifier_name):

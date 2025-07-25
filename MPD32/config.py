@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from .consts import *
 TRANSPORT_CONTROLS = {
@@ -9,7 +8,6 @@ TRANSPORT_CONTROLS = {
   'RWD': GENERIC_RWD,
   'FFWD': GENERIC_FFWD,
   'NORELEASE': 0}
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -26,7 +24,6 @@ TRANSPORT_CONTROLS = {'STOP':GENERIC_STOP,
  'RWD':GENERIC_RWD, 
  'FFWD':GENERIC_FFWD, 
  'NORELEASE':0}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 DEVICE_CONTROLS = (
  (
   GENERIC_ENC1, 0),
@@ -70,7 +67,6 @@ TRACKARM_CONTROLS = (
  GENERIC_BUT6,
  GENERIC_BUT7,
  GENERIC_BUT8)
-<<<<<<< HEAD
 BANK_CONTROLS = {
   'TOGGLELOCK': GENERIC_BUT9,
   'BANKDIAL': -1,
@@ -84,7 +80,6 @@ BANK_CONTROLS = {
   'BANK6': -1,
   'BANK7': -1,
   'BANK8': -1}
-=======
 BANK_CONTROLS = {'TOGGLELOCK':GENERIC_BUT9, 
  'BANKDIAL':-1, 
  'NEXTBANK':GENERIC_PAD5, 
@@ -97,12 +92,10 @@ BANK_CONTROLS = {'TOGGLELOCK':GENERIC_BUT9,
  'BANK6':-1, 
  'BANK7':-1, 
  'BANK8':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 PAD_TRANSLATION = ((0, 0, 67, 1), (1, 0, 69, 1), (2, 0, 71, 1), (3, 0, 72, 1), (0, 1, 60, 1),
                    (1, 1, 62, 1), (2, 1, 64, 1), (3, 1, 65, 1), (0, 2, 67, 0), (1, 2, 69, 0),
                    (2, 2, 71, 0), (3, 2, 72, 0), (0, 3, 60, 0), (1, 3, 62, 0), (2, 3, 64, 0),
                    (3, 3, 65, 0))
-<<<<<<< HEAD
 CONTROLLER_DESCRIPTION = {
   'INPUTPORT': 'Akai MPD32',
   'OUTPUTPORT': 'Akai MPD32',
@@ -113,7 +106,6 @@ MIXER_OPTIONS = {
   'SEND1': (-1, -1, -1, -1, -1, -1, -1, -1),
   'SEND2': (-1, -1, -1, -1, -1, -1, -1, -1),
   'MASTERVOLUME': -1}
-=======
 CONTROLLER_DESCRIPTION = {'INPUTPORT':'Akai MPD32', 
  'OUTPUTPORT':'Akai MPD32', 
  'CHANNEL':0, 
@@ -122,4 +114,3 @@ MIXER_OPTIONS = {'NUMSENDS':2,
  'SEND1':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'SEND2':(-1, -1, -1, -1, -1, -1, -1, -1), 
  'MASTERVOLUME':-1}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

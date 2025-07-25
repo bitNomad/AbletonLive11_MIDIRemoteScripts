@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Akai_Force_MPC/akai_force_mpc.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 22943 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import zip
 from contextlib import contextmanager
@@ -130,12 +127,9 @@ class Akai_Force_MPC(ControlSurface):
         self._session_ring = SessionRingComponent(is_enabled=False,
           num_tracks=NUM_TRACK_CONTROLS,
           num_scenes=NUM_SCENE_CONTROLS,
-<<<<<<< HEAD
           tracks_to_use=(lambda: tuple(self.song.visible_tracks) + tuple(self.song.return_tracks) + (self.song.master_track,)
 ),
-=======
           tracks_to_use=(lambda: tuple(self.song.visible_tracks) + tuple(self.song.return_tracks) + (self.song.master_track,)),
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
           name='Session_Ring')
         self._mixer = MixerComponent(is_enabled=False,
           tracks_provider=(self._session_ring),

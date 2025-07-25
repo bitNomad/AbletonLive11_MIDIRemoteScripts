@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import absolute_import, print_function, unicode_literals
 from functools import partial
 from ...base import const, depends, index_if, listenable_property, listens, nop
@@ -158,7 +157,6 @@ class SessionRingComponent(Component, Renderable):
         new_offset = min(self.scene_offset, len(self.song.scenes) - 1)
         if new_offset != self.scene_offset:
             self.scene_offset = new_offset
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -178,4 +176,3 @@ class SessionRingComponent(SessionRingComponentBase):
             if include_returns:
                 tracks_to_use = lambda: tuple(song.visible_tracks) + tuple(song.return_tracks)
         (super().__init__)(a, name=name, song=song, tracks_to_use=tracks_to_use, **k)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

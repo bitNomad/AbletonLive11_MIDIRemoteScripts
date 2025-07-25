@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchpad/SubSelectorComponent.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 14187 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range, str
 import _Framework.ButtonElement as ButtonElement
@@ -47,11 +44,8 @@ class SubSelectorComponent(ModeSelectorComponent):
         for column in range(matrix.width()):
             self._mixer.channel_strip(column).name = 'Channel_Strip_' + str(column)
             self._sliders.append(PreciseButtonSliderElement(tuple([matrix.get_button(column, 7 - row) for row in range(8)])))
-<<<<<<< HEAD
             self._sliders[-1].name = 'Button_Slider_' + str(column)
-=======
             self._sliders[(-1)].name = 'Button_Slider_' + str(column)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
         self._side_buttons = side_buttons[4:]
         self._update_callback = None
@@ -89,11 +83,8 @@ class SubSelectorComponent(ModeSelectorComponent):
                 button.add_value_listener(self._mode_value, identify_sender)
 
     def set_mode(self, mode):
-<<<<<<< HEAD
         if self._mode_index != mode or mode == -1:
-=======
         if self._mode_index != mode or (mode == -1):
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             self._mode_index = mode
             self.update()
 
@@ -154,7 +145,6 @@ class SubSelectorComponent(ModeSelectorComponent):
             self._session.set_allow_update(False)
             if self._mode_index == -1:
                 self._setup_mixer_overview()
-<<<<<<< HEAD
             else:
                 pass
             if self._mode_index == 0:
@@ -170,7 +160,6 @@ class SubSelectorComponent(ModeSelectorComponent):
                             self._setup_send2_mode()
                         else:
                             pass
-=======
             else:
                 pass
             if self._mode_index == 0:
@@ -183,7 +172,6 @@ class SubSelectorComponent(ModeSelectorComponent):
                 self._setup_send2_mode()
             else:
                 pass
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
             if self._update_callback != None:
                 self._update_callback()
             self._mixer.set_allow_update(True)

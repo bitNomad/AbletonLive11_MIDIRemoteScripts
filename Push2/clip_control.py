@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/clip_control.py
 # Compiled at: 2022-01-28 05:06:23
 # Size of source mod 2**32: 42153 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import map, round, str
 from past.utils import old_div
@@ -19,13 +16,10 @@ from ableton.v2.control_surface import Component, WrappingParameter
 from ableton.v2.control_surface.control import ButtonControl, EncoderControl, MappedSensitivitySettingControl, ToggleButtonControl
 from ableton.v2.control_surface.mode import ModesComponent
 from pushbase.clip_control_component import ONE_YEAR_AT_120BPM_IN_BEATS, WARP_MODE_NAMES
-<<<<<<< HEAD
 from pushbase.clip_control_component import AudioClipSettingsControllerComponent as AudioClipSettingsControllerComponentBase
 from pushbase.clip_control_component import LoopSettingsControllerComponent as LoopSettingsControllerComponentBase
-=======
 import pushbase.clip_control_component as AudioClipSettingsControllerComponentBase
 import pushbase.clip_control_component as LoopSettingsControllerComponentBase
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from pushbase.clip_control_component import convert_beat_length_to_bars_beats_sixteenths, convert_beat_time_to_bars_beats_sixteenths
 from pushbase.note_editor_component import DEFAULT_START_NOTE
 from .clip_decoration import ClipDecoratorFactory
@@ -485,7 +479,6 @@ class MatrixModeWatcherComponent(Component):
             self.matrix_mode_path = self.create_mode_path(self._matrix_mode_map)
 
 
-<<<<<<< HEAD
 _MATRIX_MODE_PATH_TO_DATA = {'matrix_modes.note.instrument.play':{
    'Fold': True,
    'NumDisplayKeys': 0,
@@ -593,7 +586,6 @@ _DEFAULT_VIEW_DATA = {
   'ShowStepLengthGrid': False,
   'IsRecording': False,
   'ShowMultipleGridWindows': False}
-=======
 _MATRIX_MODE_PATH_TO_DATA = {'matrix_modes.note.instrument.play':{'Fold':True, 
   'NumDisplayKeys':0, 
   'ShowGridWindow':False, 
@@ -690,7 +682,6 @@ _DEFAULT_VIEW_DATA = {'Fold':True,
  'ShowStepLengthGrid':False, 
  'IsRecording':False, 
  'ShowMultipleGridWindows':False}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
 def get_static_view_data(matrix_mode_path):
     return _MATRIX_MODE_PATH_TO_DATA.get(matrix_mode_path, _DEFAULT_VIEW_DATA)
@@ -757,12 +748,9 @@ class MidiClipControllerComponent(Component):
         return {'grid_window': region_of_interest_creator(start_identifier=(self.grid_window_focus),
                           getter=(lambda: (
                          grid_start_time(),
-<<<<<<< HEAD
                          grid_start_time() + self._most_recent_page_length)
 ))}
-=======
                          grid_start_time() + self._most_recent_page_length)))}
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     @property
     def external_focusable_object_descriptions(self):
@@ -870,7 +858,6 @@ class MidiClipControllerComponent(Component):
                 if self.matrix_mode_path() == 'matrix_modes.note.instrument.sequence':
                     num_visible_keys = static_view_data['NumDisplayKeys']
                     lower = self._most_recent_editable_pitches[0]
-<<<<<<< HEAD
                     upper = self._most_recent_editable_pitches[-1]
                     self._loose_follow_base_note = (lower + upper) // 2 - num_visible_keys // 2
                 if static_view_data['ShowGridWindow']:
@@ -879,7 +866,6 @@ class MidiClipControllerComponent(Component):
                     if liveobj_valid(self.clip):
                         nav = self.clip.timeline_navigation
                         nav.set_focus_marker_without_updating_visible_region('start_marker')
-=======
                     upper = self._most_recent_editable_pitches[(-1)]
                     self._loose_follow_base_note = (lower + upper) // 2 - num_visible_keys // 2
                 if static_view_data['ShowGridWindow']:
@@ -887,7 +873,6 @@ class MidiClipControllerComponent(Component):
                 elif liveobj_valid(self.clip):
                     nav = self.clip.timeline_navigation
                     nav.set_focus_marker_without_updating_visible_region('start_marker')
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
                 self._configure_visualisation()
                 self._update_notification_mutes()
 
@@ -979,11 +964,8 @@ class MidiClipControllerComponent(Component):
 
     def _update_maximum_sequenceable_pitch(self):
         if self.matrix_mode_path() == 'matrix_modes.note.instrument.sequence':
-<<<<<<< HEAD
             return self._most_recent_editable_pitches[-1]
-=======
             return self._most_recent_editable_pitches[(-1)]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         return self._most_recent_max_note
 
     def _update_minimum_sequenceable_pitch(self):

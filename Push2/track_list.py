@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/track_list.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 17997 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter, range, zip
 from functools import partial
@@ -39,8 +36,6 @@ def mixable_button_color(mixer_track, song, selected_track=None):
         is_frozen_chain = mixer_track_parent_track.is_frozen and not isinstance(mixer_track.proxied_object, Live.Track.Track)
         if can_play_clips(mixer_track) and is_clip_stop_pending(mixer_track):
             color = track_color_with_pending_stop(mixer_track)
-<<<<<<< HEAD
-=======
         elif mixer_track.solo:
             color = 'Mixer.SoloOn'
         elif mixer_track == selected_track and not mixer_track.mute:
@@ -49,7 +44,6 @@ def mixable_button_color(mixer_track, song, selected_track=None):
             color = 'Mixer.MutedTrack'
         elif is_frozen_chain:
             color = 'Mixer.FrozenChain'
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         else:
             if mixer_track.solo:
                 color = 'Mixer.SoloOn'
@@ -319,7 +313,6 @@ class TrackListComponent(ModesComponent, Messenger):
     def _toggle_track_fold(self, track):
         if old_hasattr(track, 'is_foldable') and track.is_foldable:
             track.fold_state = not track.fold_state
-<<<<<<< HEAD
         else:
             if old_hasattr(track, 'is_showing_chains') and track.can_show_chains:
                 track.is_showing_chains = not track.is_showing_chains
@@ -330,7 +323,6 @@ class TrackListComponent(ModesComponent, Messenger):
                     if old_hasattr(instrument, 'is_showing_chains'):
                         if instrument.can_show_chains:
                             instrument.is_showing_chains = not instrument.is_showing_chains
-=======
         elif old_hasattr(track, 'is_showing_chains') and track.can_show_chains:
             track.is_showing_chains = not track.is_showing_chains
         else:
@@ -340,7 +332,6 @@ class TrackListComponent(ModesComponent, Messenger):
                 if old_hasattr(instrument, 'is_showing_chains'):
                     if instrument.can_show_chains:
                         instrument.is_showing_chains = not instrument.is_showing_chains
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 
     def _select_mixable(self, track):
         if liveobj_valid(track):
@@ -402,11 +393,8 @@ class TrackListComponent(ModesComponent, Messenger):
         if not self.is_enabled():
             self.selected_mode = 'select'
             self.pop_unselected_modes()
-<<<<<<< HEAD
         else:
             if self.locked_mode is not None:
                 self.push_mode(self.locked_mode)
-=======
         elif self.locked_mode is not None:
             self.push_mode(self.locked_mode)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34

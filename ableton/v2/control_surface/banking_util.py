@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/banking_util.py
 # Compiled at: 2022-01-27 16:28:17
 # Size of source mod 2**32: 3892 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from past.utils import old_div
@@ -86,7 +83,6 @@ def device_bank_names(device, bank_size=8, definitions=None):
         class_name = device.class_name
         if class_name in definitions:
             names = definitions[class_name].keys()
-<<<<<<< HEAD
         else:
             if has_bank_count(device) and has_bank_names(device, definitions):
                 offset = int(has_main_bank(device, definitions))
@@ -97,7 +93,6 @@ def device_bank_names(device, bank_size=8, definitions=None):
                 bank_count = device_bank_count(device,
                   bank_size=bank_size, definitions=definitions)
                 names = [BANK_FORMAT % (index + 1) for index in range(bank_count)]
-=======
         elif has_bank_count(device) and has_bank_names(device, definitions):
             offset = int(has_main_bank(device, definitions))
             names = [device.get_bank_name(index - offset) for index in range(device_bank_count(device, definitions=definitions))]
@@ -107,7 +102,6 @@ def device_bank_names(device, bank_size=8, definitions=None):
             bank_count = device_bank_count(device,
               bank_size=bank_size, definitions=definitions)
             names = [BANK_FORMAT % (index + 1) for index in range(bank_count)]
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
     return names
 
 

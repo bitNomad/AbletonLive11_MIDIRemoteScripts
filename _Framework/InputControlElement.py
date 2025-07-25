@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # decompyle3 version 3.8.0
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
@@ -7,7 +5,6 @@
 # Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/InputControlElement.py
 # Compiled at: 2022-01-27 16:28:16
 # Size of source mod 2**32: 17504 bytes
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range, str
 import contextlib, logging
@@ -329,7 +326,6 @@ class InputControlElement(NotifyingControlElement):
         self._verify_value(value)
         if force or self._force_next_send:
             self._do_send_value(value, channel)
-<<<<<<< HEAD
         else:
             if not self.send_depends_on_forwarding or self._is_being_forwarded and self._send_delayed_messages_task.is_running:
                 first = 1 - self.num_delayed_messages
@@ -338,14 +334,12 @@ class InputControlElement(NotifyingControlElement):
                 if (
                  value, channel) != self._last_sent_message:
                     self._do_send_value(value, channel)
-=======
         elif not self.send_depends_on_forwarding or self._is_being_forwarded and self._send_delayed_messages_task.is_running:
             first = 1 - self.num_delayed_messages
             self._delayed_messages = self._delayed_messages[first:] + [(value, channel)]
         elif (
          value, channel) != self._last_sent_message:
             self._do_send_value(value, channel)
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         self._force_next_send = False
 
     def _do_send_value(self, value, channel=None):
@@ -395,18 +389,15 @@ class InputControlElement(NotifyingControlElement):
         message = str(self.__class__.__name__) + ' ('
         if self._msg_type == MIDI_NOTE_TYPE:
             message += 'Note ' + str(self._msg_identifier) + ', '
-<<<<<<< HEAD
         else:
             if self._msg_type == MIDI_CC_TYPE:
                 message += 'CC ' + str(self._msg_identifier) + ', '
             else:
                 message += 'PB '
-=======
         elif self._msg_type == MIDI_CC_TYPE:
             message += 'CC ' + str(self._msg_identifier) + ', '
         else:
             message += 'PB '
->>>>>>> d4a7b269eef325b60d6e8b8cc6298fd52c04fa34
         message += 'Chan. ' + str(self._msg_channel)
         message += ') '
         message += 'received value ' if is_input else 'sent value '
