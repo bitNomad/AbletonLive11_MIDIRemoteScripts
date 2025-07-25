@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/echo.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 10096 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\echo.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 10391 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from ableton.v2.base import EventObject
@@ -149,12 +148,6 @@ class EchoDeviceComponent(DeviceComponentWithTrackColorViewData):
           'AdjustingFilterLowPass': adjusting_filter_lp,
           'AdjustingLfo': adjusting_lfo,
           'AdjustingLfoPhase': adjusting_lfo_phase}
-        return {'AdjustingTunnelLeft':adjusting_tunnel_left, 
-         'AdjustingTunnelRight':adjusting_tunnel_right, 
-         'AdjustingFilterHighPass':adjusting_filter_hp, 
-         'AdjustingFilterLowPass':adjusting_filter_lp, 
-         'AdjustingLfo':adjusting_lfo, 
-         'AdjustingLfoPhase':adjusting_lfo_phase}
 
     def _set_bank_index(self, bank):
         super(EchoDeviceComponent, self)._set_bank_index(bank)
@@ -189,12 +182,6 @@ class EchoDeviceComponent(DeviceComponentWithTrackColorViewData):
           'FilterRight': filter_right,
           'LfoLeft': lfo_left,
           'LfoRight': lfo_right}
-        return {'TunnelLeft':tunnel_left, 
-         'TunnelRight':tunnel_right, 
-         'FilterLeft':filter_left, 
-         'FilterRight':filter_right, 
-         'LfoLeft':lfo_left, 
-         'LfoRight':lfo_right}
 
     def _initial_visualisation_view_data(self):
         view_data = super(EchoDeviceComponent, self)._initial_visualisation_view_data()

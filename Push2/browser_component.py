@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/browser_component.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 42821 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\browser_component.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 44051 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from past.utils import old_div
@@ -305,11 +304,6 @@ class BrowserComponent(Component, Messenger):
                     if self._can_auto_expand():
                         self._update_auto_expand()
                         self._unexpand_with_scroll_encoder = True
-        elif not first_visible_list_focused:
-            if not self.expanded:
-                if self._can_auto_expand():
-                    self._update_auto_expand()
-                    self._unexpand_with_scroll_encoder = True
         self._update_scrolling()
         self._update_horizontal_navigation()
 
@@ -321,7 +315,6 @@ class BrowserComponent(Component, Messenger):
     def _on_encoder_released(self):
         any_encoder_touched = any(map(lambda e: e.is_touched
 , self.scroll_encoders)) or self.scroll_focused_encoder.is_touched
-        any_encoder_touched = any(map(lambda e: e.is_touched, self.scroll_encoders)) or self.scroll_focused_encoder.is_touched
         if not any_encoder_touched:
             if self._unexpand_with_scroll_encoder:
                 self._unexpand_task.restart()
@@ -337,7 +330,6 @@ class BrowserComponent(Component, Messenger):
             if self.should_widen_focused_item:
                 index = self.focused_list_index
         if 0<= index < len(self._lists):
-        if 0 <= index < len(self._lists):
             return index
         return
 
@@ -406,7 +398,7 @@ class BrowserComponent(Component, Messenger):
             self._unexpand_with_scroll_encoder = False
             self._update_navigation_buttons()
             if len(self._lists) > self._focused_list_index + 1:
-                self._lists[(self._focused_list_index + 1)].limit = self.num_preview_items
+                self._lists[self._focused_list_index + 1].limit = self.num_preview_items
             self.notify_expanded()
 
     @listens('selected_track.color_index')
@@ -499,11 +491,11 @@ class BrowserComponent(Component, Messenger):
         return item
 
     def _previous_can_be_loaded(self):
-        return self.focused_list.selected_index > 0 and self.focused_list.items[(self.focused_list.selected_index - 1)].is_loadable
+        return self.focused_list.selected_index > 0 and self.focused_list.items[self.focused_list.selected_index - 1].is_loadable
 
     def _next_can_be_loaded(self):
         items = self.focused_list.items
-        return self.focused_list.selected_index < len(items) - 1 and items[(self.focused_list.selected_index + 1)].is_loadable
+        return self.focused_list.selected_index < len(items) - 1 and items[self.focused_list.selected_index + 1].is_loadable
 
     @listens('load_next')
     def _on_load_next(self):
@@ -561,7 +553,7 @@ class BrowserComponent(Component, Messenger):
             self._selection.selected_object = device_to_select
         selected_track_view = self.song.view.selected_track.view
         selected_track_view.device_insert_mode = DeviceInsertMode.selected_right
-        (yield)
+        yield
         selected_track_view.device_insert_mode = DeviceInsertMode.default
 
     def _prehear_selected_item(self):
@@ -611,7 +603,6 @@ class BrowserComponent(Component, Messenger):
     def _update_scrolling(self):
         self.scrolling = self.up_button.is_pressed or self.down_button.is_pressed or self.scroll_focused_encoder.is_touched or any(map(lambda e: e.is_touched
 , self.scroll_encoders)) or (self.right_button.is_pressed) and (self._expanded) or (self.left_button.is_pressed and self._expanded)
-        self.scrolling = self.up_button.is_pressed or self.down_button.is_pressed or self.scroll_focused_encoder.is_touched or any(map(lambda e: e.is_touched, self.scroll_encoders)) or (self.right_button.is_pressed) and (self._expanded) or (self.left_button.is_pressed and self._expanded)
 
     def _update_horizontal_navigation(self):
         self.horizontal_navigation = self.right_button.is_pressed or self.left_button.is_pressed
@@ -1013,19 +1004,6 @@ def make_root_browser_items(browser, filter_type):
                      instruments,
                      audio_effects,
                      midi_effects] + common_items
-        elif filter_type == Live.Browser.FilterType.midi_effect_hotswap:
-            categories = [
-             midi_effects] + common_items
-        elif filter_type == Live.Browser.FilterType.instrument_hotswap:
-            categories = [
-             sounds, drums, instruments] + common_items
-        else:
-            categories = [
-             sounds,
-             drums,
-             instruments,
-             audio_effects,
-             midi_effects] + common_items
     user_files = UserFilesBrowserItem(browser,
       name='User Files', icon='browser_userfiles.svg')
     return [

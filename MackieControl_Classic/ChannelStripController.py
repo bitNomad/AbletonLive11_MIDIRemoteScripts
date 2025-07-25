@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/MackieControl_Classic/ChannelStripController.py
-# Compiled at: 2022-01-28 05:06:23
-# Size of source mod 2**32: 51855 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\MackieControl_Classic\ChannelStripController.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 53094 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import chr, range
 from past.utils import old_div
@@ -208,54 +207,6 @@ class ChannelStripController(MackieControlComponent):
                                                     if switch_id == SID_FADERBANK_EDIT:
                                                         if value == BUTTON_PRESSED:
                                                             self._ChannelStripController__toggle_view_returns()
-        elif switch_id == SID_ASSIGNMENT_SENDS:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__set_assignment_mode(CSM_SENDS)
-        elif switch_id == SID_ASSIGNMENT_PAN:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__set_assignment_mode(CSM_VOLPAN)
-        elif switch_id == SID_ASSIGNMENT_PLUG_INS:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__set_assignment_mode(CSM_PLUGINS)
-        elif switch_id == SID_ASSIGNMENT_EQ:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__switch_to_prev_page()
-        elif switch_id == SID_ASSIGNMENT_DYNAMIC:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__switch_to_next_page()
-        elif switch_id == SID_FADERBANK_PREV_BANK:
-            if value == BUTTON_PRESSED:
-                if self.shift_is_pressed():
-                    self._ChannelStripController__set_channel_offset(0)
-                else:
-                    self._ChannelStripController__set_channel_offset(self._ChannelStripController__strip_offset() - len(self._ChannelStripController__channel_strips))
-        elif switch_id == SID_FADERBANK_NEXT_BANK:
-            if value == BUTTON_PRESSED:
-                if self.shift_is_pressed():
-                    last_possible_offset = old_div(self._ChannelStripController__controlled_num_of_tracks() - self._ChannelStripController__strip_offset(), len(self._ChannelStripController__channel_strips)) * len(self._ChannelStripController__channel_strips) + self._ChannelStripController__strip_offset()
-                    if last_possible_offset == self._ChannelStripController__controlled_num_of_tracks():
-                        last_possible_offset -= len(self._ChannelStripController__channel_strips)
-                    self._ChannelStripController__set_channel_offset(last_possible_offset)
-                elif self._ChannelStripController__strip_offset() < self._ChannelStripController__controlled_num_of_tracks() - len(self._ChannelStripController__channel_strips):
-                    self._ChannelStripController__set_channel_offset(self._ChannelStripController__strip_offset() + len(self._ChannelStripController__channel_strips))
-        elif switch_id == SID_FADERBANK_PREV_CH:
-            if value == BUTTON_PRESSED:
-                if self.shift_is_pressed():
-                    self._ChannelStripController__set_channel_offset(0)
-                else:
-                    self._ChannelStripController__set_channel_offset(self._ChannelStripController__strip_offset() - 1)
-        elif switch_id == SID_FADERBANK_NEXT_CH:
-            if value == BUTTON_PRESSED:
-                if self.shift_is_pressed():
-                    self._ChannelStripController__set_channel_offset(self._ChannelStripController__controlled_num_of_tracks() - len(self._ChannelStripController__channel_strips))
-                elif self._ChannelStripController__strip_offset() < self._ChannelStripController__controlled_num_of_tracks() - len(self._ChannelStripController__channel_strips):
-                    self._ChannelStripController__set_channel_offset(self._ChannelStripController__strip_offset() + 1)
-        elif switch_id == SID_FADERBANK_FLIP:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__toggle_flip()
-        elif switch_id == SID_FADERBANK_EDIT:
-            if value == BUTTON_PRESSED:
-                self._ChannelStripController__toggle_view_returns()
 
     def handle_vpot_rotation(self, strip_index, stack_offset, cc_value):
         if self._ChannelStripController__assignment_mode == CSM_IO:
@@ -264,7 +215,6 @@ class ChannelStripController(MackieControlComponent):
             else:
                 direction = 1
             channel_strip = self._ChannelStripController__channel_strips[stack_offset + strip_index]
-            channel_strip = self._ChannelStripController__channel_strips[(stack_offset + strip_index)]
             current_routing = self._ChannelStripController__routing_target(channel_strip)
             available_routings = self._ChannelStripController__available_routing_targets(channel_strip)
             if not current_routing or available_routings:
@@ -284,13 +234,6 @@ class ChannelStripController(MackieControlComponent):
                 pass
             else:
                 channel_strip = self._ChannelStripController__channel_strips[stack_offset + strip_index]
-                elif len(available_routings):
-                    new_routing = available_routings[0]
-                self._ChannelStripController__set_routing_target(channel_strip, new_routing)
-        elif self._ChannelStripController__assignment_mode == CSM_PLUGINS:
-            pass
-        else:
-            channel_strip = self._ChannelStripController__channel_strips[(stack_offset + strip_index)]
 
     def handle_fader_touch(self, strip_offset, stack_offset, touched):
         self._ChannelStripController__reassign_channel_strip_parameters(for_display_only=True)
@@ -299,7 +242,6 @@ class ChannelStripController(MackieControlComponent):
         if (self._ChannelStripController__assignment_mode == CSM_VOLPAN or self._ChannelStripController__assignment_mode == CSM_SENDS or self._ChannelStripController__assignment_mode) == CSM_PLUGINS and self._ChannelStripController__plugin_mode == PCM_PARAMETERS:
             if stack_offset + strip_index in range(0, len(self._ChannelStripController__channel_strips)):
                 param = self._ChannelStripController__channel_strips[stack_offset + strip_index].v_pot_parameter()
-                param = self._ChannelStripController__channel_strips[(stack_offset + strip_index)].v_pot_parameter()
             if param:
                 if param.is_enabled:
                     if param.is_quantized:
@@ -323,19 +265,6 @@ class ChannelStripController(MackieControlComponent):
                             self._ChannelStripController__reorder_parameters()
                             self._ChannelStripController__plugin_mode_offsets[PCM_PARAMETERS] = 0
                             self._ChannelStripController__set_plugin_mode(PCM_PARAMETERS)
-        elif self._ChannelStripController__assignment_mode == CSM_PLUGINS:
-            if self._ChannelStripController__plugin_mode == PCM_DEVICES:
-                device_index = strip_index + stack_offset + self._ChannelStripController__plugin_mode_offsets[PCM_DEVICES]
-                if device_index >= 0:
-                    if device_index < len(self.song().view.selected_track.devices):
-                        if self._ChannelStripController__chosen_plugin != None:
-                            self._ChannelStripController__chosen_plugin.remove_parameters_listener(self._ChannelStripController__on_parameter_list_of_chosen_plugin_changed)
-                        self._ChannelStripController__chosen_plugin = self.song().view.selected_track.devices[device_index]
-                        if self._ChannelStripController__chosen_plugin != None:
-                            self._ChannelStripController__chosen_plugin.add_parameters_listener(self._ChannelStripController__on_parameter_list_of_chosen_plugin_changed)
-                        self._ChannelStripController__reorder_parameters()
-                        self._ChannelStripController__plugin_mode_offsets[PCM_PARAMETERS] = 0
-                        self._ChannelStripController__set_plugin_mode(PCM_PARAMETERS)
 
     def assignment_mode(self):
         return self._ChannelStripController__assignment_mode
@@ -451,12 +380,6 @@ class ChannelStripController(MackieControlComponent):
                     t.output_routing_channel = target_by_name(t.available_output_routing_channels, target_string)
                 else:
                     pass
-        elif self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_OUTPUT_MAIN:
-            t.output_routing_type = target_by_name(t.available_output_routing_types, target_string)
-        elif self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_OUTPUT_SUB:
-            t.output_routing_channel = target_by_name(t.available_output_routing_channels, target_string)
-        else:
-            pass
 
     def __set_channel_offset(self, new_offset):
         if new_offset < 0:
@@ -464,11 +387,6 @@ class ChannelStripController(MackieControlComponent):
         else:
             if new_offset >= self._ChannelStripController__controlled_num_of_tracks():
                 new_offset = self._ChannelStripController__controlled_num_of_tracks() - 1
-        if self._ChannelStripController__view_returns:
-            self._ChannelStripController__bank_cha_offset_returns = new_offset
-        else:
-        elif new_offset >= self._ChannelStripController__controlled_num_of_tracks():
-            new_offset = self._ChannelStripController__controlled_num_of_tracks() - 1
         if self._ChannelStripController__view_returns:
             self._ChannelStripController__bank_cha_offset_returns = new_offset
         else:
@@ -504,19 +422,6 @@ class ChannelStripController(MackieControlComponent):
                 else:
                     if self._ChannelStripController__assignment_mode == CSM_IO:
                         self._ChannelStripController__switch_to_next_io_mode()
-        elif mode == CSM_SENDS:
-            self._ChannelStripController__main_display_controller.set_show_parameter_names(True)
-            self._ChannelStripController__assignment_mode = mode
-        else:
-            if mode == CSM_IO:
-                for s in self._ChannelStripController__channel_strips:
-                    s.unlight_vpot_leds()
-
-            self._ChannelStripController__main_display_controller.set_show_parameter_names(False)
-            if self._ChannelStripController__assignment_mode != mode:
-                self._ChannelStripController__assignment_mode = mode
-            elif self._ChannelStripController__assignment_mode == CSM_IO:
-                self._ChannelStripController__switch_to_next_io_mode()
         self._ChannelStripController__update_assignment_mode_leds()
         self._ChannelStripController__update_assignment_display()
         self._ChannelStripController__apply_meter_mode()
@@ -552,10 +457,6 @@ class ChannelStripController(MackieControlComponent):
             else:
                 if self._ChannelStripController__assignment_mode == CSM_SENDS:
                     self._ChannelStripController__send_mode_offset -= len(self._ChannelStripController__channel_strips)
-                if self._ChannelStripController__plugin_mode == PCM_DEVICES:
-                    self._ChannelStripController__update_vpot_leds_in_plugins_device_choose_mode()
-            elif self._ChannelStripController__assignment_mode == CSM_SENDS:
-                self._ChannelStripController__send_mode_offset -= len(self._ChannelStripController__channel_strips)
             self._ChannelStripController__reassign_channel_strip_parameters(for_display_only=False)
             self._ChannelStripController__update_channel_strip_strings()
             self._ChannelStripController__update_page_switch_leds()
@@ -570,12 +471,6 @@ class ChannelStripController(MackieControlComponent):
                     self._ChannelStripController__send_mode_offset += len(self._ChannelStripController__channel_strips)
                 else:
                     pass
-                if self._ChannelStripController__plugin_mode == PCM_DEVICES:
-                    self._ChannelStripController__update_vpot_leds_in_plugins_device_choose_mode()
-            elif self._ChannelStripController__assignment_mode == CSM_SENDS:
-                self._ChannelStripController__send_mode_offset += len(self._ChannelStripController__channel_strips)
-            else:
-                pass
             self._ChannelStripController__reassign_channel_strip_parameters(for_display_only=False)
             self._ChannelStripController__update_channel_strip_strings()
             self._ChannelStripController__update_page_switch_leds()
@@ -630,27 +525,6 @@ class ChannelStripController(MackieControlComponent):
                                 if s.assigned_track().has_audio_output:
                                     slider_param = (
                                      s.assigned_track().mixer_device.volume, 'Volume')
-            elif self._ChannelStripController__assignment_mode == CSM_PLUGINS:
-                vpot_param = self._ChannelStripController__plugin_parameter(s.strip_index(), s.stack_offset())
-                vpot_display_mode = VPOT_DISPLAY_WRAP
-                if s.assigned_track():
-                    if s.assigned_track().has_audio_output:
-                        slider_param = (
-                         s.assigned_track().mixer_device.volume, 'Volume')
-                        slider_display_mode = VPOT_DISPLAY_WRAP
-            elif self._ChannelStripController__assignment_mode == CSM_SENDS:
-                vpot_param = self._ChannelStripController__send_parameter(s.strip_index(), s.stack_offset())
-                vpot_display_mode = VPOT_DISPLAY_WRAP
-                if s.assigned_track():
-                    if s.assigned_track().has_audio_output:
-                        slider_param = (
-                         s.assigned_track().mixer_device.volume, 'Volume')
-                        slider_display_mode = VPOT_DISPLAY_WRAP
-            elif self._ChannelStripController__assignment_mode == CSM_IO:
-                if s.assigned_track():
-                    if s.assigned_track().has_audio_output:
-                        slider_param = (
-                         s.assigned_track().mixer_device.volume, 'Volume')
             if self._ChannelStripController__flip and self._ChannelStripController__can_flip():
                 if self._ChannelStripController__any_slider_is_touched():
                     display_parameters.append(vpot_param)
@@ -710,14 +584,6 @@ class ChannelStripController(MackieControlComponent):
                         sid_on_switch = SID_ASSIGNMENT_PLUG_INS
                     else:
                         sid_on_switch = None
-        elif self._ChannelStripController__assignment_mode == CSM_SENDS:
-            sid_on_switch = SID_ASSIGNMENT_SENDS
-        elif self._ChannelStripController__assignment_mode == CSM_VOLPAN:
-            sid_on_switch = SID_ASSIGNMENT_PAN
-        elif self._ChannelStripController__assignment_mode == CSM_PLUGINS:
-            sid_on_switch = SID_ASSIGNMENT_PLUG_INS
-        else:
-            sid_on_switch = None
         for s in (
          SID_ASSIGNMENT_IO,
          SID_ASSIGNMENT_SENDS,
@@ -772,23 +638,6 @@ class ChannelStripController(MackieControlComponent):
                                 pass
             else:
                 pass
-        elif self._ChannelStripController__assignment_mode == CSM_IO:
-            if self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_INPUT_MAIN:
-                ass_string = [
-                 'I', "'"]
-            elif self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_INPUT_SUB:
-                ass_string = [
-                 'I', ',']
-            elif self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_OUTPUT_MAIN:
-                ass_string = [
-                 '0', "'"]
-            elif self._ChannelStripController__sub_mode_in_io_mode == CSM_IO_MODE_OUTPUT_SUB:
-                ass_string = [
-                 '0', ',']
-            else:
-                pass
-        else:
-            pass
         self.send_midi((CC_STATUS, 75, g7_seg_led_conv_table[ass_string[0]]))
         self.send_midi((CC_STATUS, 74, g7_seg_led_conv_table[ass_string[1]]))
 
@@ -860,23 +709,6 @@ class ChannelStripController(MackieControlComponent):
                                 self._ChannelStripController__displayed_plugins.append(None)
 
                         self._ChannelStripController__update_plugin_names()
-            elif self._ChannelStripController__assignment_mode == CSM_PLUGINS:
-                if self._ChannelStripController__plugin_mode == PCM_DEVICES:
-                    for plugin in self._ChannelStripController__displayed_plugins:
-                        if plugin != None:
-                            plugin.remove_name_listener(self._ChannelStripController__update_plugin_names)
-
-                    self._ChannelStripController__displayed_plugins = []
-                    sel_track = self.song().view.selected_track
-                    for i in range(len(self._ChannelStripController__channel_strips)):
-                        device_index = i + self._ChannelStripController__plugin_mode_offsets[PCM_DEVICES]
-                        if device_index >= 0 and device_index < len(sel_track.devices):
-                            sel_track.devices[device_index].add_name_listener(self._ChannelStripController__update_plugin_names)
-                            self._ChannelStripController__displayed_plugins.append(sel_track.devices[device_index])
-                        else:
-                            self._ChannelStripController__displayed_plugins.append(None)
-
-                    self._ChannelStripController__update_plugin_names()
 
     def __update_plugin_names(self):
         device_strings = []
@@ -923,10 +755,6 @@ class ChannelStripController(MackieControlComponent):
                 self._ChannelStripController__reassign_channel_strip_parameters(for_display_only=False)
                 self._ChannelStripController__update_assignment_display()
                 self.request_rebuild_midi_map()
-        elif self._ChannelStripController__assignment_mode == CSM_SENDS:
-            self._ChannelStripController__reassign_channel_strip_parameters(for_display_only=False)
-            self._ChannelStripController__update_assignment_display()
-            self.request_rebuild_midi_map()
 
     def __on_flip_changed(self):
         self._ChannelStripController__update_flip_led()
@@ -950,14 +778,6 @@ class ChannelStripController(MackieControlComponent):
                                 self._ChannelStripController__chosen_plugin.remove_parameters_listener(self._ChannelStripController__on_parameter_list_of_chosen_plugin_changed)
                             self._ChannelStripController__chosen_plugin = None
                             self._ChannelStripController__set_plugin_mode(PCM_DEVICES)
-            elif self._ChannelStripController__plugin_mode == PCM_PARAMETERS:
-                if not self._ChannelStripController__chosen_plugin:
-                    self._ChannelStripController__set_plugin_mode(PCM_DEVICES)
-                elif self._ChannelStripController__chosen_plugin not in self._ChannelStripController__last_attached_selected_track.devices:
-                    if self._ChannelStripController__chosen_plugin != None:
-                        self._ChannelStripController__chosen_plugin.remove_parameters_listener(self._ChannelStripController__on_parameter_list_of_chosen_plugin_changed)
-                    self._ChannelStripController__chosen_plugin = None
-                    self._ChannelStripController__set_plugin_mode(PCM_DEVICES)
 
     def __on_tracks_added_or_deleted(self):
         self._ChannelStripController__within_track_added_or_deleted = True

@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/base/__init__.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 3064 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\ableton\v2\base\__init__.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 3291 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from .abl_signal import Signal
 from .dependency import DependencyError, depends, inject
@@ -31,6 +30,3 @@ __all__ = ('Bindable', 'BooleanContext', 'CompoundDisconnectable', 'DependencyEr
            'old_hasattr', 'print_message', 'product', 'recursive_map', 'refget',
            'remove_if', 'second', 'sign', 'slice_size', 'slicer', 'third', 'to_slice',
            'trace_value', 'union')
-           'negate', 'next', 'nop', 'overlaymap', 'old_round', 'old_hasattr', 'print_message',
-           'product', 'recursive_map', 'refget', 'remove_if', 'second', 'sign', 'slice_size',
-           'slicer', 'third', 'to_slice', 'trace_value', 'union')

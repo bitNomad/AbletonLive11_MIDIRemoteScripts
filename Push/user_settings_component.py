@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push/user_settings_component.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 5106 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push\user_settings_component.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 5261 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range, str
 from past.utils import old_div
@@ -77,9 +76,6 @@ class UserSettingsComponent(Component):
             if index == num_encoders - 1:
                 setting_index = old_div(num_encoders, 2)
         if 0<= setting_index < len(self._settings):
-        elif index == num_encoders - 1:
-            setting_index = old_div(num_encoders, 2)
-        if 0 <= setting_index < len(self._settings):
             if self._settings[setting_index].change_relative(value):
                 self._update_display()
 
@@ -89,7 +85,6 @@ class UserSettingsComponent(Component):
 
         def setting_property(index, display, getter):
             value = getter(self._settings[index]) if (0<= index < num_settings) else ''
-            value = getter(self._settings[index]) if (0 <= index < num_settings) else ''
             index += 1
             if index == num_segments:
                 if index < num_settings:

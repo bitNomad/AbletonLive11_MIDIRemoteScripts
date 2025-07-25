@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/clip_control.py
-# Compiled at: 2022-01-28 05:06:23
-# Size of source mod 2**32: 42153 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\clip_control.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 43457 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import map, round, str
 from past.utils import old_div
@@ -18,8 +17,6 @@ from ableton.v2.control_surface.mode import ModesComponent
 from pushbase.clip_control_component import ONE_YEAR_AT_120BPM_IN_BEATS, WARP_MODE_NAMES
 from pushbase.clip_control_component import AudioClipSettingsControllerComponent as AudioClipSettingsControllerComponentBase
 from pushbase.clip_control_component import LoopSettingsControllerComponent as LoopSettingsControllerComponentBase
-import pushbase.clip_control_component as AudioClipSettingsControllerComponentBase
-import pushbase.clip_control_component as LoopSettingsControllerComponentBase
 from pushbase.clip_control_component import convert_beat_length_to_bars_beats_sixteenths, convert_beat_time_to_bars_beats_sixteenths
 from pushbase.note_editor_component import DEFAULT_START_NOTE
 from .clip_decoration import ClipDecoratorFactory
@@ -586,102 +583,6 @@ _DEFAULT_VIEW_DATA = {
   'ShowStepLengthGrid': False,
   'IsRecording': False,
   'ShowMultipleGridWindows': False}
-_MATRIX_MODE_PATH_TO_DATA = {'matrix_modes.note.instrument.play':{'Fold':True, 
-  'NumDisplayKeys':0, 
-  'ShowGridWindow':False, 
-  'ShowScrollbarCursor':False, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':False, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.instrument.sequence':{'Fold':False, 
-  'NumDisplayKeys':23, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.instrument.split_melodic_sequencer':{'Fold':True, 
-  'NumDisplayKeys':32, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':True}, 
- 'matrix_modes.note.drums.64pads':{'Fold':True, 
-  'NumDisplayKeys':0, 
-  'ShowGridWindow':False, 
-  'ShowScrollbarCursor':False, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':False, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.drums.sequencer_loop':{'Fold':False, 
-  'NumDisplayKeys':17, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.drums.sequencer_velocity_levels':{'Fold':False, 
-  'NumDisplayKeys':17, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.slicing.64pads':{'Fold':True, 
-  'NumDisplayKeys':0, 
-  'ShowGridWindow':False, 
-  'ShowScrollbarCursor':False, 
-  'NumPitches':64, 
-  'PitchOffset':36, 
-  'ShowStepLengthGrid':False, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.slicing.sequencer_loop':{'Fold':False, 
-  'NumDisplayKeys':17, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':64, 
-  'PitchOffset':36, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.note.slicing.sequencer_velocity_levels':{'Fold':False, 
-  'NumDisplayKeys':17, 
-  'ShowGridWindow':True, 
-  'ShowScrollbarCursor':True, 
-  'NumPitches':64, 
-  'PitchOffset':36, 
-  'ShowStepLengthGrid':True, 
-  'ShowMultipleGridWindows':False}, 
- 'matrix_modes.session':{'Fold':True, 
-  'NumDisplayKeys':0, 
-  'ShowGridWindow':False, 
-  'ShowScrollbarCursor':False, 
-  'NumPitches':128, 
-  'PitchOffset':0, 
-  'ShowStepLengthGrid':False, 
-  'ShowMultipleGridWindows':False}}
-_DEFAULT_VIEW_DATA = {'Fold':True, 
- 'NumDisplayKeys':0, 
- 'ShowGridWindow':False, 
- 'ShowScrollbarCursor':False, 
- 'MinPitch':DEFAULT_START_NOTE, 
- 'MaxSequenceablePitch':DEFAULT_START_NOTE, 
- 'MinSequenceablePitch':DEFAULT_START_NOTE, 
- 'PageIndex':0, 
- 'PageLength':1.0, 
- 'MinGridWindowPitch':DEFAULT_START_NOTE, 
- 'MaxGridWindowPitch':DEFAULT_START_NOTE, 
- 'NumPitches':128, 
- 'PitchOffset':0, 
- 'ShowStepLengthGrid':False, 
- 'IsRecording':False, 
- 'ShowMultipleGridWindows':False}
 
 def get_static_view_data(matrix_mode_path):
     return _MATRIX_MODE_PATH_TO_DATA.get(matrix_mode_path, _DEFAULT_VIEW_DATA)
@@ -750,7 +651,6 @@ class MidiClipControllerComponent(Component):
                          grid_start_time(),
                          grid_start_time() + self._most_recent_page_length)
 ))}
-                         grid_start_time() + self._most_recent_page_length)))}
 
     @property
     def external_focusable_object_descriptions(self):
@@ -866,13 +766,6 @@ class MidiClipControllerComponent(Component):
                     if liveobj_valid(self.clip):
                         nav = self.clip.timeline_navigation
                         nav.set_focus_marker_without_updating_visible_region('start_marker')
-                    upper = self._most_recent_editable_pitches[(-1)]
-                    self._loose_follow_base_note = (lower + upper) // 2 - num_visible_keys // 2
-                if static_view_data['ShowGridWindow']:
-                    self._focus_grid_window()
-                elif liveobj_valid(self.clip):
-                    nav = self.clip.timeline_navigation
-                    nav.set_focus_marker_without_updating_visible_region('start_marker')
                 self._configure_visualisation()
                 self._update_notification_mutes()
 
@@ -941,14 +834,14 @@ class MidiClipControllerComponent(Component):
     def changing_track(self):
         self.mute_components_during_track_change(True)
         self._real_time_data_attached = False
-        (yield)
+        yield
         self.mute_components_during_track_change(False)
 
     def _update_minimum_pitch(self):
         if self.matrix_mode_path() == 'matrix_modes.note.instrument.sequence':
             num_visible_keys = self.get_static_view_data()['NumDisplayKeys']
             lower = self._most_recent_editable_pitches[0]
-            upper = self._most_recent_editable_pitches[(-1)]
+            upper = self._most_recent_editable_pitches[-1]
             window_size = upper - lower
             base_note = self._loose_follow_base_note
             if window_size >= old_div(num_visible_keys, 3):
@@ -965,7 +858,6 @@ class MidiClipControllerComponent(Component):
     def _update_maximum_sequenceable_pitch(self):
         if self.matrix_mode_path() == 'matrix_modes.note.instrument.sequence':
             return self._most_recent_editable_pitches[-1]
-            return self._most_recent_editable_pitches[(-1)]
         return self._most_recent_max_note
 
     def _update_minimum_sequenceable_pitch(self):

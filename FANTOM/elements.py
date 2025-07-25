@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/FANTOM/elements.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 4870 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\FANTOM\elements.py
+# Compiled at: 2023-03-08 07:29:56
+# Size of source mod 2**32: 5100 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v3.control_surface import MIDI_NOTE_TYPE, ElementsBase, MapMode, PrioritizedResource, create_matrix_identifiers
 from . import sysex
@@ -75,13 +74,6 @@ class Elements(ElementsBase):
         self.add_encoder_matrix([
          [i + 16 for i in range(8)]],
           'Device_Controls', is_feedback_enabled=True)
-        self.add_encoder(72, 'Master_Pan_Control')
-        self.add_encoder(73, 'Master_Volume_Control')
-        self.add_encoder(96, 'Track_Select_Control', resource_type=PrioritizedResource)
-        self.add_matrix([
-         [i + 16 for i in range(8)]],
-          'Device_Controls',
-          element_factory=RingedEncoderElement)
         self.add_encoder_matrix([
          [
           72] * NUM_TRACKS],
@@ -90,7 +82,6 @@ class Elements(ElementsBase):
          track_channels],
           needs_takeover=False,
           is_feedback_enabled=True)
-          needs_takeover=False)
         self.add_encoder_matrix([
          [
           73] * NUM_TRACKS],
@@ -99,7 +90,6 @@ class Elements(ElementsBase):
          track_channels],
           needs_takeover=False,
           is_feedback_enabled=True)
-          needs_takeover=False)
         self.add_encoder_matrix([
          [
           74] * NUM_TRACKS, [75] * NUM_TRACKS],
@@ -108,7 +98,6 @@ class Elements(ElementsBase):
          track_channels, track_channels],
           needs_takeover=False,
           is_feedback_enabled=True)
-          needs_takeover=False)
         for control in self.send_controls_raw:
             control.name = 'Send_{}_Control_{}'.format('A' if control.message_identifier() == 74 else 'B', control.name[0])
 

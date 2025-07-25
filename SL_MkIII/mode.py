@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/SL_MkIII/mode.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 4384 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\SL_MkIII\mode.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 4277 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from future.moves.itertools import zip_longest
 from ableton.v2.base import clamp, listens
@@ -19,7 +18,6 @@ class NavigatableModesComponent(ModesComponent):
 
     def __init__(self, *a, **k):
         (super().__init__)(*a, **k)
-        (super(NavigatableModesComponent, self).__init__)(*a, **k)
         self._NavigatableModesComponent__on_selected_mode_changed.subject = self
 
     @prev_mode_button.pressed
@@ -32,7 +30,7 @@ class NavigatableModesComponent(ModesComponent):
 
     def _update_mode_nav_buttons(self):
         self.prev_mode_button.enabled = self._mode_list and self.selected_mode != self._mode_list[0]
-        self.next_mode_button.enabled = self._mode_list and self.selected_mode != self._mode_list[(-1)]
+        self.next_mode_button.enabled = self._mode_list and self.selected_mode != self._mode_list[-1]
 
     def _navigate_mode(self, direction):
         new_index = 0
@@ -83,14 +81,6 @@ class DisplayingSkinableModesComponent(ModesComponent):
         self.mode_display[len(self._mode_list) - 1] = to_camel_case_name(mode_name,
           separator=' ')
         self.mode_color_fields[len(self._mode_list) - 1].color = 'Mode.' + to_camel_case_name(mode_name) + '.On'
-        (super(DisplayingSkinableModesComponent, self).__init__)(a, enable_skinning=True, **k)
-        self._DisplayingSkinableModesComponent__on_selected_mode_changed.subject = self
-
-    def add_mode_button_control(self, mode_name, behaviour):
-        super(DisplayingSkinableModesComponent, self).add_mode_button_control(mode_name, behaviour)
-        self.mode_display[len(self._mode_list) - 1] = to_camel_case_name(mode_name,
-          separator=' ')
-        self.mode_color_fields[(len(self._mode_list) - 1)].color = 'Mode.' + to_camel_case_name(mode_name) + '.On'
 
     @listens('selected_mode')
     def __on_selected_mode_changed(self, _):

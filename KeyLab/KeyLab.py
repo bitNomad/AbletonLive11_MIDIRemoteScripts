@@ -1,15 +1,12 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/KeyLab/KeyLab.py
-# Compiled at: 2022-01-28 05:06:23
-# Size of source mod 2**32: 11085 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\KeyLab\KeyLab.py
+# Compiled at: 2022-11-29 09:57:02
+# Size of source mod 2**32: 11302 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
-from functools import partial
 import Live
-from _Framework import Task
 import _Framework.ButtonElement as ButtonElement
 import _Framework.ButtonMatrixElement as ButtonMatrixElement
 import _Framework.ClipCreator as ClipCreator
@@ -49,19 +46,6 @@ BUTTON_HARDWARE_AND_MESSAGE_IDS = {
   'scene_down_button': (26, 30),
   'scene_launch_button': (27, 31)}
 ENCODER_CHANNEL = 0
-MESSAGE_DELAY = 0.001
-BUTTON_HARDWARE_AND_MESSAGE_IDS = {'session_record_button':(91, 5), 
- 'stop_all_clips_button':(92, 4), 
- 'stop_button':(89, 102), 
- 'play_button':(88, 2), 
- 'record_button':(90, 6), 
- 'loop_button':(93, 55), 
- 'device_left_button':(18, 22), 
- 'device_right_button':(19, 23), 
- 'scene_up_button':(25, 29), 
- 'scene_down_button':(26, 30), 
- 'scene_launch_button':(27, 31)}
-ENCODER_CHANNEL = 1
 PAD_CHANNEL = 9
 
 def get_button_identifier_by_name(identifier):
@@ -91,19 +75,16 @@ class KeyLab(ArturiaControlSurface):
         self._horizontal_scroll_encoder = EncoderElement(MIDI_CC_TYPE,
           ENCODER_CHANNEL,
           (ENCODER_MSG_IDS[-2]),
-          (ENCODER_MSG_IDS[(-2)]),
           (Live.MidiMap.MapMode.relative_smooth_binary_offset),
           name='Horizontal_Scroll_Encoder')
         self._vertical_scroll_encoder = EncoderElement(MIDI_CC_TYPE,
           ENCODER_CHANNEL,
           (ENCODER_MSG_IDS[-1]),
-          (ENCODER_MSG_IDS[(-1)]),
           (Live.MidiMap.MapMode.relative_smooth_binary_offset),
           name='Vertical_Scroll_Encoder')
         self._volume_sliders = ButtonMatrixElement(rows=[
          [SliderElement(MIDI_CC_TYPE, ENCODER_CHANNEL, identifier) for identifier in SLIDER_MSG_IDS[:-1]]])
         self._master_slider = SliderElement(MIDI_CC_TYPE, ENCODER_CHANNEL, SLIDER_MSG_IDS[-1])
-        self._master_slider = SliderElement(MIDI_CC_TYPE, ENCODER_CHANNEL, SLIDER_MSG_IDS[(-1)])
 
         def make_keylab_button(name):
             button = ButtonElement(True,
@@ -226,7 +207,5 @@ class KeyLab(ArturiaControlSurface):
     def _setup_hardware(self):
         for i, msg in enumerate(self._messages_to_send):
             self.schedule_message(MESSAGE_DELAY * i + 1, self._send_midi, msg)
-        for msg in self._messages_to_send:
-            self._tasks.add(Task.sequence(partial(self._send_midi, msg), Task.wait(MESSAGE_DELAY)))
 
         self._messages_to_send = []

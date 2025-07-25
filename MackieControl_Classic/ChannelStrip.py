@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/MackieControl_Classic/ChannelStrip.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 22650 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\MackieControl_Classic\ChannelStrip.py
+# Compiled at: 2023-03-08 07:29:56
+# Size of source mod 2**32: 23708 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import range
 from itertools import chain
@@ -106,7 +105,6 @@ class ChannelStrip(MackieControlComponent):
     def enable_meter_mode(self, Enabled, needs_to_send_meter_mode=True):
         self._ChannelStrip__meters_enabled = Enabled
         if needs_to_send_meter_mode or Enabled:
-        if needs_to_send_meter_mode or (Enabled):
             self._ChannelStrip__send_meter_mode()
 
     def reset_fader(self):
@@ -156,29 +154,6 @@ class ChannelStrip(MackieControlComponent):
                                     touched = value == BUTTON_PRESSED
                                     self.set_is_touched(touched)
                                     self._ChannelStrip__channel_strip_controller.handle_fader_touch(self._ChannelStrip__strip_index, self._ChannelStrip__stack_offset, touched)
-        elif sw_id in range(SID_SOLO_BASE, SID_SOLO_BASE + NUM_CHANNEL_STRIPS):
-            if sw_id - SID_SOLO_BASE is self._ChannelStrip__strip_index:
-                if value == BUTTON_PRESSED:
-                    if self.song().exclusive_solo:
-                        exclusive = not self.control_is_pressed()
-                    else:
-                        exclusive = self.control_is_pressed()
-                    self._ChannelStrip__toggle_solo_track(exclusive)
-        elif sw_id in range(SID_MUTE_BASE, SID_MUTE_BASE + NUM_CHANNEL_STRIPS):
-            if sw_id - SID_MUTE_BASE is self._ChannelStrip__strip_index:
-                if value == BUTTON_PRESSED:
-                    self._ChannelStrip__toggle_mute_track()
-        elif sw_id in range(SID_SELECT_BASE, SID_SELECT_BASE + NUM_CHANNEL_STRIPS):
-            if not sw_id - SID_SELECT_BASE is self._ChannelStrip__strip_index or value == BUTTON_PRESSED:
-                self._ChannelStrip__select_track()
-        elif sw_id in range(SID_VPOD_PUSH_BASE, SID_VPOD_PUSH_BASE + NUM_CHANNEL_STRIPS):
-            if not sw_id - SID_VPOD_PUSH_BASE is self._ChannelStrip__strip_index or value == BUTTON_PRESSED:
-                self._ChannelStrip__channel_strip_controller.handle_pressed_v_pot(self._ChannelStrip__strip_index, self._ChannelStrip__stack_offset)
-        elif not sw_id in fader_touch_switch_ids or sw_id - SID_FADER_TOUCH_SENSE_BASE is self._ChannelStrip__strip_index:
-            if value == BUTTON_PRESSED or (value == BUTTON_RELEASED):
-                touched = value == BUTTON_PRESSED
-                self.set_is_touched(touched)
-                self._ChannelStrip__channel_strip_controller.handle_fader_touch(self._ChannelStrip__strip_index, self._ChannelStrip__stack_offset, touched)
 
     def handle_vpot_rotation(self, strip_index, cc_value):
         if strip_index is self._ChannelStrip__strip_index:
@@ -208,7 +183,6 @@ class ChannelStrip(MackieControlComponent):
             meter_value = 0.0
         meter_byte = int(meter_value * 12.0) + (self._ChannelStrip__strip_index << 4)
         if self._ChannelStrip__last_meter_value != meter_value or meter_value != 0.0:
-        if self._ChannelStrip__last_meter_value != meter_value or (meter_value != 0.0):
             self._ChannelStrip__last_meter_value = meter_value
             self.send_midi((208, meter_byte))
 
@@ -258,8 +232,6 @@ class ChannelStrip(MackieControlComponent):
                 self._ChannelStrip__assigned_track.add_input_routing_type_listener(self._ChannelStrip__update_arm_led)
                 if self._ChannelStrip__assigned_track.can_be_armed:
                     self._ChannelStrip__assigned_track.add_arm_listener(self._ChannelStrip__update_arm_led)
-        if self._ChannelStrip__assigned_track.can_be_armed:
-            self._ChannelStrip__assigned_track.add_arm_listener(self._ChannelStrip__update_arm_led)
         self._ChannelStrip__assigned_track.add_mute_listener(self._ChannelStrip__update_mute_led)
         self._ChannelStrip__assigned_track.add_solo_listener(self._ChannelStrip__update_solo_led)
         if not self.song().view.selected_track_has_listener(self._ChannelStrip__update_track_is_selected_led):
@@ -271,8 +243,6 @@ class ChannelStrip(MackieControlComponent):
                 self._ChannelStrip__remove_listener(self._ChannelStrip__assigned_track, 'input_routing_type', self._ChannelStrip__update_arm_led)
                 if self._ChannelStrip__assigned_track.can_be_armed:
                     self._ChannelStrip__remove_listener(self._ChannelStrip__assigned_track, 'arm', self._ChannelStrip__update_arm_led)
-            if self._ChannelStrip__assigned_track.can_be_armed:
-                self._ChannelStrip__remove_listener(self._ChannelStrip__assigned_track, 'arm', self._ChannelStrip__update_arm_led)
             self._ChannelStrip__remove_listener(self._ChannelStrip__assigned_track, 'mute', self._ChannelStrip__update_mute_led)
             self._ChannelStrip__remove_listener(self._ChannelStrip__assigned_track, 'solo', self._ChannelStrip__update_solo_led)
             self._ChannelStrip__remove_listener(self.song().view, 'selected_track', self._ChannelStrip__update_track_is_selected_led)
@@ -306,7 +276,6 @@ class ChannelStrip(MackieControlComponent):
                         if t != self._ChannelStrip__assigned_track:
                             if t.can_be_armed:
                                 t.arm = False
-                            t.arm = False
 
     def __toggle_mute_track(self):
         if self._ChannelStrip__assigned_track:
@@ -329,9 +298,6 @@ class ChannelStrip(MackieControlComponent):
                 if self.application().view.is_view_visible('Arranger'):
                     if self._ChannelStrip__assigned_track:
                         self._ChannelStrip__assigned_track.view.is_collapsed = not self._ChannelStrip__assigned_track.view.is_collapsed
-            elif self.application().view.is_view_visible('Arranger'):
-                if self._ChannelStrip__assigned_track:
-                    self._ChannelStrip__assigned_track.view.is_collapsed = not self._ChannelStrip__assigned_track.view.is_collapsed
 
     def __update_arm_led(self):
         track = self._ChannelStrip__assigned_track

@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/ableton/v2/control_surface/device_parameter_bank.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 6194 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\ableton\v2\control_surface\device_parameter_bank.py
+# Compiled at: 2023-10-06 16:19:02
+# Size of source mod 2**32: 6379 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import filter
 from ..base import EventObject, clamp, find_if, listenable_property, listens, listens_group, liveobj_valid, old_hasattr
@@ -106,7 +105,6 @@ class DescribedDeviceParameterBank(DeviceParameterBank):
 
         self._dynamic_slots = list(filter(lambda s: old_hasattr(s, 'notify_content')
 , self._content_slots()))
-        self._dynamic_slots = list(filter(lambda s: old_hasattr(s, 'notify_content'), self._content_slots()))
         for slot in self._dynamic_slots:
             self.register_disconnectable(slot)
             slot.set_parameter_host(self.device)
@@ -122,7 +120,6 @@ class DescribedDeviceParameterBank(DeviceParameterBank):
         return [(
          find_if(lambda p: p.original_name == str(slot_definition)
 , parameters), getattr(slot_definition, 'display_name', None)) for slot_definition in bank_slots]
-         find_if(lambda p: p.original_name == str(slot_definition), parameters), getattr(slot_definition, 'display_name', None)) for slot_definition in bank_slots]
 
     def _update_parameters(self):
         self._setup_dynamic_slots()

@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Launchkey_MK3/elements.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 5727 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Launchkey_MK3\elements.py
+# Compiled at: 2023-04-03 14:43:04
+# Size of source mod 2**32: 6528 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from ableton.v2.base import depends
 from ableton.v2.control_surface import MIDI_CC_TYPE, MIDI_NOTE_TYPE
@@ -22,14 +21,11 @@ def create_rgb_button(identifier, name, msg_type=MIDI_CC_TYPE, **k):
 
 def create_display_element(command_bytes, name):
     return SimpleDisplayElement(command_bytes, (sysex.SYSEX_END_BYTE,), name=name)
-    return SimpleDisplayElement((midi.DISPLAY_HEADER + command_bytes),
-      (sysex.SYSEX_END_BYTE,), name=name)
 
 
 def create_parameter_display_matrix(command_byte, start_index, name):
     return ButtonMatrixElement(rows=[
      [create_display_element((command_byte, start_index + index), '{}_Display_{}'.format(name, index)) for index in range(8)]],
-     [create_display_element((command_byte, start_index + index), '_Display_{}'.format(name, index)) for index in range(8)]],
       name=('{}_Displays'.format(name)))
 
 
@@ -48,6 +44,7 @@ class Elements(LaunchkeyElements):
         self.down_button = create_rgb_button(107, 'Down_Button')
         self.stop_button = create_button(116, 'Stop_Button')
         self.loop_button = create_button(118, 'Loop_Button')
+        self.undo_button_with_shift = self.with_shift(self.undo_button)
         self.secondary_up_button = create_button(104, '')
         self.secondary_down_button = create_button(105, '')
         self.device_select_matrix = ButtonMatrixElement(rows=[[create_button((offset + col_index), ('{}_Device_Select_Button_{}'.format(col_index, row_index)), msg_type=MIDI_NOTE_TYPE, channel=0) for col_index in range(SESSION_WIDTH)] for row_index, offset in enumerate(range(64, 87, 16))],
@@ -83,4 +80,3 @@ class Elements(LaunchkeyElements):
                 if isinstance(element[0], SimpleDisplayElement):
                     for sub_element in element:
                         sub_element.initialize(display_header)
-         midi.MASTER_PARAMETER_DISPLAY_INDEX), 'Master_Fader_Parameter_Value_Display')

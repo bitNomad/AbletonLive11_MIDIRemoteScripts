@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/pushbase/actions.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 18611 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\pushbase\actions.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 19125 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import range, str
 from past.utils import old_div
@@ -13,7 +12,6 @@ import Live
 from ableton.v2.base import forward_property, listens, listens_group, liveobj_changed, liveobj_valid, old_hasattr
 from ableton.v2.control_surface import Component
 from ableton.v2.control_surface.components import UndoRedoComponent as UndoRedoComponentBase
-import ableton.v2.control_surface.components as UndoRedoComponentBase
 from ableton.v2.control_surface.control import ButtonControl, control_list
 from ableton.v2.control_surface.elements import DisplayDataSource
 from .action_with_options_component import ActionWithSettingsComponent
@@ -426,10 +424,6 @@ class StopClipComponent(Component):
                 color = 'Session.StopClip'
             else:
                 color = 'Session.StoppedClip'
-        elif track.playing_slot_index >= 0:
-            color = 'Session.StopClip'
-        else:
-            color = 'Session.StoppedClip'
         return color
 
     def _update_stop_button(self, track, button):

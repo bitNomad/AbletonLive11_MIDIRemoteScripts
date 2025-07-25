@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/model/repr.py
-# Compiled at: 2022-01-28 05:06:23
-# Size of source mod 2**32: 27101 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\model\repr.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 27994 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from future.builtins import map, round
 from past.builtins import unicode
@@ -106,7 +105,7 @@ class ModelAdapter(EventObject):
         return liveobj_valid(self._adaptee)
 
     def __getattr__(self, name):
-        if name in self.__dict__ or (name in self.__class__.__dict__):
+        if name in self.__dict__ or name in self.__class__.__dict__:
             return object.__getattribute__(self, name)
         return getattr(self._adaptee, name)
 
@@ -155,7 +154,6 @@ class DeviceParameterAdapter(ModelAdapter):
           'hasAutomation',
           getter=(lambda self_: self_._has_automation()
 ))
-          getter=(lambda self_: self_._has_automation()))
         self.register_slot(self._adaptee, self.notify_displayValue, 'value')
         self.register_slot(self._adaptee, self.notify_unit, 'value')
         self.register_slot(self._adaptee, self.notify_automationActive, 'automation_state')
@@ -231,9 +229,6 @@ class EditModeOptionAdapter(ModelAdapter):
         self._alias_observable_property('default_label',
           'choices', getter=(lambda self_: self_._choices
 ))
-              getter=(lambda self_: getattr(self_._adaptee, 'active_index', 0)))
-        self._alias_observable_property('default_label',
-          'choices', getter=(lambda self_: self_._choices))
 
     @property
     def activeIndex(self):
@@ -410,9 +405,6 @@ class DeviceAdapter(ModelAdapter):
             if is_drum_pad(item):
                 self._DeviceAdapter__on_is_active_changed.subject = item.canonical_parent
                 self._DeviceAdapter__on_mute_changed.subject = item
-        elif is_drum_pad(item):
-            self._DeviceAdapter__on_is_active_changed.subject = item.canonical_parent
-            self._DeviceAdapter__on_mute_changed.subject = item
         if old_hasattr(item, 'name'):
             self._DeviceAdapter__on_name_changed.subject = item
         self._chain = find_chain_or_track(item)
@@ -436,8 +428,6 @@ class DeviceAdapter(ModelAdapter):
         else:
             if is_rack_with_bank_2(item):
                 name = '•' + name
-        elif is_rack_with_bank_2(item):
-            name = '•' + name
         return name
 
     @property
@@ -759,8 +749,3 @@ class RoutingAdapter(VisibleAdapter):
         self._alias_observable_property('routing_channel_position_list', 'routingChannelPositionList', lambda self_: [
          self_._adaptee.routing_channel_position_list]
 )
-         self_._adaptee.routing_type_list])
-        self._alias_observable_property('routing_channel_list', 'routingChannelList', lambda self_: [
-         self_._adaptee.routing_channel_list])
-        self._alias_observable_property('routing_channel_position_list', 'routingChannelPositionList', lambda self_: [
-         self_._adaptee.routing_channel_position_list])

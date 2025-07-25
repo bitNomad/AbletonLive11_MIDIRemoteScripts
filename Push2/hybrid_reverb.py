@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Push2/hybrid_reverb.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 21766 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\Push2\hybrid_reverb.py
+# Compiled at: 2023-10-06 16:19:02
+# Size of source mod 2**32: 22346 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 import math, re, Live
 from ableton.v2.base import EventObject, clamp, listens
@@ -61,10 +60,6 @@ def to_ms_display(value):
             else:
                 if value < 1000:
                     format = '%.0f'
-        elif value < 100:
-            format = '%.1f'
-        elif value < 1000:
-            format = '%.0f'
         out_str = str(format % value) + ' ms'
     else:
         if value < 10:
@@ -74,10 +69,6 @@ def to_ms_display(value):
                 format = '%.1f'
             else:
                 format = '%.0f'
-        elif value < 100:
-            format = '%.1f'
-        else:
-            format = '%.0f'
         out_str = str(format % value) + ' s'
     return out_str
 
@@ -91,7 +82,6 @@ class HybridReverbDeviceDecorator(LiveObjectDecorator, EventObject):
         self.routing_full_labels = ['Serial', 'Parallel', 'Algorithm', 'Convolution']
         self.routing_option_labels = ['Ser.', 'Par.', 'Alg.', 'Cv.']
         self.vintage_labels = ['Off','Subtle','Old','Older','Extreme']
-        self.vintage_labels = ['Off', 'Subtle', 'Old', 'Older', 'Extreme']
         self.band_names_labels = ['1&4', '2&3']
         self.pre_delay_sync_labels = ['Ms', 'Sync']
         self.filter_types_labels = ['Cut', 'Shelf']
@@ -335,13 +325,6 @@ class HybridReverbDeviceComponent(DeviceComponentWithTrackColorViewData):
                     if self._bank.index == 0:
                         if self._decorated_device.main_section.value == 3:
                             eq_is_active = True
-        elif self._bank.index == 4:
-            eq_is_active = True
-        elif self._bank.index == 0 and self._decorated_device.main_section.value == 0:
-            ir_is_active = True
-        elif self._bank.index == 0:
-            if self._decorated_device.main_section.value == 3:
-                eq_is_active = True
         if self._bank.index == 4:
             if self._decorated_device.band.value == 1:
                 low_and_high_band_is_selected = False
@@ -362,9 +345,6 @@ class HybridReverbDeviceComponent(DeviceComponentWithTrackColorViewData):
           'LowAndHighBandIsSelected': low_and_high_band_is_selected,
           'IrIsActive': ir_is_active,
           'EqIsActive': eq_is_active}
-        return {'ActiveBandIndex':active_filter_index,  'LowAndHighBandIsSelected':low_and_high_band_is_selected, 
-         'IrIsActive':ir_is_active, 
-         'EqIsActive':eq_is_active}
 
     def _set_bank_index(self, bank):
         super(HybridReverbDeviceComponent, self)._set_bank_index(bank)
@@ -406,9 +386,6 @@ class HybridReverbDeviceComponent(DeviceComponentWithTrackColorViewData):
                 else:
                     range_left, range_right = self._calculate_view_size(self.FILTER_VISUALISATION_CONFIGURATION_IN_EQ)
         return {'RangeLeft':range_left,  'RangeRight':range_right}
-            range_left, range_right = self._calculate_view_size(self.FILTER_VISUALISATION_CONFIGURATION_IN_EQ)
-        return {'RangeLeft':range_left, 
-         'RangeRight':range_right}
 
     def _initial_visualisation_view_data(self):
         view_data = super(HybridReverbDeviceComponent, self)._initial_visualisation_view_data()

@@ -1,3 +1,9 @@
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\RemoteSL\EffectController.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 18345 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import object, range, str
 from past.utils import old_div
@@ -47,21 +53,6 @@ class EffectController(RemoteSLComponent):
                                 pass
                             else:
                                 pass
-        elif cc_no in fx_select_button_ccs:
-            self._EffectController__handle_select_button_ccs(cc_no, cc_value)
-        elif cc_no in fx_upper_button_row_ccs:
-            strip = self._EffectController__strips[(cc_no - FX_UPPER_BUTTON_ROW_BASE_CC)]
-            if cc_value == CC_VAL_BUTTON_PRESSED:
-                strip.on_button_pressed()
-        elif cc_no in fx_encoder_row_ccs:
-            strip = self._EffectController__strips[(cc_no - FX_ENCODER_ROW_BASE_CC)]
-            strip.on_encoder_moved(cc_value)
-        elif cc_no in fx_lower_button_row_ccs:
-            pass
-        elif cc_no in fx_poti_row_ccs:
-            pass
-        else:
-            pass
 
     def receive_midi_note(self, note, velocity):
         if note in fx_drum_pad_row_notes:
@@ -89,8 +80,6 @@ class EffectController(RemoteSLComponent):
                     else:
                         if parameter.is_quantized:
                             ring_mode_value = FX_RING_SIN_VALUE
-                    elif parameter.is_quantized:
-                        ring_mode_value = FX_RING_SIN_VALUE
                     self.send_midi((
                      self.cc_status_byte(),
                      fx_encoder_led_mode_ccs[strip_index],
@@ -179,10 +168,6 @@ class EffectController(RemoteSLComponent):
                         new_bank = max(self._EffectController__bank - 1, 0)
                     else:
                         pass
-                elif cc_no == FX_DISPLAY_PAGE_DOWN:
-                    new_bank = max(self._EffectController__bank - 1, 0)
-                else:
-                    pass
                 self._EffectController__show_bank = self._EffectController__bank == new_bank or True
                 if not self._EffectController__assigned_device_is_locked:
                     self._EffectController__bank = new_bank
@@ -213,21 +198,6 @@ class EffectController(RemoteSLComponent):
                             self.song().stop_all_clips()
                         else:
                             pass
-        elif cc_no == FX_SELECT_ENCODER_ROW:
-            if cc_value == CC_VAL_BUTTON_PRESSED:
-                new_index = min(len(self.song().scenes) - 1, max(0, list(self.song().scenes).index(self.song().view.selected_scene) - 1))
-                self.song().view.selected_scene = self.song().scenes[new_index]
-        elif cc_no == FX_SELECT_SECOND_BUTTON_ROW:
-            if cc_value == CC_VAL_BUTTON_PRESSED:
-                new_index = min(len(self.song().scenes) - 1, max(0, list(self.song().scenes).index(self.song().view.selected_scene) + 1))
-                self.song().view.selected_scene = self.song().scenes[new_index]
-        elif cc_no == FX_SELECT_POTIE_ROW:
-            if cc_value == CC_VAL_BUTTON_PRESSED:
-                self.song().view.selected_scene.fire_as_selected()
-        elif cc_no == FX_SELECT_DRUM_PAD_ROW and cc_value == CC_VAL_BUTTON_PRESSED:
-            self.song().stop_all_clips()
-        else:
-            pass
 
     def __update_select_row_leds(self):
         if self._EffectController__assigned_device_is_locked:

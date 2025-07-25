@@ -1,14 +1,13 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/novation/track_recording.py
-# Compiled at: 2021-06-29 09:33:48
-# Size of source mod 2**32: 3217 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\novation\track_recording.py
+# Compiled at: 2022-11-28 08:01:32
+# Size of source mod 2**32: 3301 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 import Live
 from ableton.v2.base import const, depends, listens
-import ableton.v2.control_surface.components as SessionRecordingComponentBase
+from ableton.v2.control_surface.components import SessionRecordingComponent as SessionRecordingComponentBase
 from ableton.v2.control_surface.components import track_is_recording, track_playing_slot
 
 class TrackRecordingComponent(SessionRecordingComponentBase):
@@ -36,11 +35,6 @@ class TrackRecordingComponent(SessionRecordingComponentBase):
                 self._start_recording()
             else:
                 self._TrackRecordingComponent__on_fired_slot_index_changed.subject = track
-        elif not self._stop_recording():
-            self._prepare_new_slot(track)
-            self._start_recording()
-        else:
-            self._TrackRecordingComponent__on_fired_slot_index_changed.subject = track
 
     def _prepare_new_slot(self, track):
         try:

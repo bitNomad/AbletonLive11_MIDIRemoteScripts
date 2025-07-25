@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/novation/print_to_clip.py
-# Compiled at: 2022-01-27 16:28:17
-# Size of source mod 2**32: 12346 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\novation\print_to_clip.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 12661 bytes
 from __future__ import absolute_import, division, print_function, unicode_literals
 from builtins import object, range
 from past.utils import old_div
@@ -92,10 +91,6 @@ class PrintToClipComponent(Component):
             else:
                 if transfer_type == MessageType.end:
                     self._print_data_to_clip()
-        elif transfer_type == MessageType.data and num_bytes >= MIN_DATA_PACKET_LENGTH:
-            self._handle_data_packet(data_bytes)
-        elif transfer_type == MessageType.end:
-            self._print_data_to_clip()
         self._last_packet_id = packet_id
 
     def _handle_data_packet(self, data_bytes):

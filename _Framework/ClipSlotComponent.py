@@ -1,10 +1,9 @@
-# decompyle3 version 3.8.0
-# Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.9 (default, Mar 30 2022, 13:51:17) 
-# [Clang 13.1.6 (clang-1316.0.21.2.3)]
-# Embedded file name: output/Live/mac_64_static/Release/python-bundle/MIDI Remote Scripts/_Framework/ClipSlotComponent.py
-# Compiled at: 2022-01-27 16:28:16
-# Size of source mod 2**32: 10216 bytes
+# decompyle3 version 3.9.0
+# Python bytecode version base 3.7.0 (3394)
+# Decompiled from: Python 3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]
+# Embedded file name: ..\..\..\output\Live\win_64_static\Release\python-bundle\MIDI Remote Scripts\_Framework\ClipSlotComponent.py
+# Compiled at: 2022-11-29 09:57:03
+# Size of source mod 2**32: 10719 bytes
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import zip
 import Live
@@ -62,9 +61,6 @@ class ClipSlotComponent(ControlSurfaceComponent):
                 self._on_arm_value_changed.subject = track
                 self._on_implicit_arm_value_changed.subject = track
                 self._on_input_routing_type_changed.subject = track
-            if track.can_be_armed:
-                self._on_arm_value_changed.subject = track
-                self._on_implicit_arm_value_changed.subject = track
         self.update()
 
     def set_launch_button(self, button):
@@ -241,13 +237,6 @@ class ClipSlotComponent(ControlSurfaceComponent):
                             self._do_delete_clip()
                     else:
                         self._do_launch_clip(value)
-            elif not self._clip_slot != Noneand self._duplicate_button and self._duplicate_button or value:
-                self._do_duplicate_clip()
-            elif self._delete_button and self._delete_button.is_pressed():
-                if value:
-                    self._do_delete_clip()
-            else:
-                self._do_launch_clip(value)
 
     def _do_delete_clip(self):
         if self._clip_slot:
@@ -282,8 +271,6 @@ class ClipSlotComponent(ControlSurfaceComponent):
         else:
             if launch_pressed:
                 object_to_launch.fire()
-        elif launch_pressed:
-            object_to_launch.fire()
         if launch_pressed:
             if self.has_clip():
                 if self.song().select_on_launch:
